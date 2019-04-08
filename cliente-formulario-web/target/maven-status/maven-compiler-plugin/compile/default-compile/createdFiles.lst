@@ -1,0 +1,4 @@
+com\mycompany\cliente\formulario\web\model\Cliente.class
+com\mycompany\cliente\formulario\web\connection\ConnectionFactory.class
+com\mycompany\cliente\formulario\web\dao\ClienteDAO.class
+com\mycompany\cliente\formulario\web\FormularioServlet.class
