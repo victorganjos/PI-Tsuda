@@ -1,10 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.mycompany.cliente.formulario.web;
-
+/*
 import com.mycompany.cliente.formulario.web.dao.UsuarioDAO;
 import com.mycompany.cliente.formulario.web.model.Usuario;
 import java.io.IOException;
@@ -18,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  *
  * @author johnnys.dsantos
- */
+ 
 @WebServlet(name = "FormularioUsuario", urlPatterns = {"/FormularioUsuario"})
 public class FormularioUsuario extends HttpServlet {
 
@@ -59,3 +54,4 @@ public class FormularioUsuario extends HttpServlet {
     }
 
 }
+*/
