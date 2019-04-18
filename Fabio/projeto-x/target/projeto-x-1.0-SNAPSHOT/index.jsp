@@ -10,5 +10,11 @@
         <h1>CRUD CLIENTE</h1>
          <input class="btn btn-sucess btn-sm" type="submit" value="Inserir" OnClick="parent.location.href='formulario.jsp'">
           <input class="btn btn-info btn-sm" type="submit" value="Consultar" OnClick="parent.location.href='consultar-servlet'">
+          <br><br><br>
+         <h1>CRUD FORNECEDOR</h1>
+         <input class="btn btn-sucess btn-sm" type="submit" value="Inserir" OnClick="parent.location.href='formularioFornecedor.jsp'">
+         <input class="btn btn-info btn-sm" type="submit" value="Consultar" OnClick="parent.location.href='consultar-servlet-fornecedor'">
+    </body>
+          
     </body>
 </html>

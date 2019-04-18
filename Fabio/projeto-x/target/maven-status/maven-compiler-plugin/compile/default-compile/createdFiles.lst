@@ -1,8 +1,15 @@
+com\projetox\web\servlet\fornecedor\AtualizarServletFornecedor.class
+com\projetox\web\servlet\fornecedor\ConsultarServletFornecedor.class
+com\projetox\web\controller\ClienteController.class
+com\projetox\web\controller\FornecedorController.class
+com\projetox\web\servlet\fornecedor\FormulárioServletFornecedor.class
+com\projetox\web\model\Fornecedor.class
+com\projetox\web\dao\FornecedorDAO.class
 com\projetox\web\connection\ConnectionFactory.class
 com\projetox\web\ExcluirServlet.class
-com\projetox\web\controller\ClienteController.class
 com\projetox\web\dao\ClienteDAO.class
 com\projetox\web\ConsultarServlet.class
 com\projetox\web\model\Cliente.class
 com\projetox\web\AtualizarServlet.class
 com\projetox\web\FormularioServlet.class
+com\projetox\web\servlet\fornecedor\ExcluirServletFornecedor.class

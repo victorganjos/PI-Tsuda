@@ -31,7 +31,7 @@
         </form>
         <br>
 
-        <input class="btn btn-info btn-sm" type="submit" value="Pagina inicial" OnClick="parent.location.href='atualizarFornecedor.jsp'">
+        <input class="btn btn-info btn-sm" type="submit" value="Pagina inicial" OnClick="parent.location.href='index.jsp'">
     </div>
 </body>
 </html>
