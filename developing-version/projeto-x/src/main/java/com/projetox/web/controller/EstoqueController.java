@@ -29,6 +29,12 @@ public class EstoqueController {
         EstoqueDAO estoque = new EstoqueDAO();
         return estoque.consultarPorDescricao(descricao);
     }
+
+    public static List<Estoque> consultarPorId(int id){
+        EstoqueDAO estoque = new EstoqueDAO();
+        return estoque.consultarPorId(id);
+    }    
+    
     public static List<Estoque> consultar(){
         EstoqueDAO estoque = new EstoqueDAO();
         return estoque.consultar();

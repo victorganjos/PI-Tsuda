@@ -27,9 +27,10 @@ public class ClienteDAO {
         PreparedStatement stmt = null;
 
         try {
-            stmt = con.prepareStatement("INSERT INTO dadosCliente(nome,email) VALUE (?,?);");
+            stmt = con.prepareStatement("INSERT INTO dadosCliente(nome,email,tipo) VALUE (?,?,?);");
             stmt.setString(1, c.getNome());
             stmt.setString(2, c.getEmail());
+            stmt.setString(3, "C");
 
             stmt.executeUpdate();
             System.out.println("Salvar com sucesso!");
@@ -51,7 +52,7 @@ public class ClienteDAO {
         
         
         try{
-            stmt = con.prepareStatement("SELECT * FROM dadosCLIENTE");
+            stmt = con.prepareStatement("SELECT * FROM dadosCLIENTE WHERE TIPO = 'C'");
             rs = stmt.executeQuery();
             
             while(rs.next()){
@@ -83,7 +84,7 @@ public class ClienteDAO {
         
         
         try{
-            stmt = con.prepareStatement("SELECT * FROM CLIENTE WHERE nome LIKE ?;");
+            stmt = con.prepareStatement("SELECT * FROM CLIENTE WHERE nome LIKE ? AND TIPO = 'C';");
             stmt.setString(1,"%"+nome+"%");
             rs = stmt.executeQuery();
             

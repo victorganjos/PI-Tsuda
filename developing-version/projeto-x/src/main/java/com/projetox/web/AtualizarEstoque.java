@@ -8,8 +8,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import com.projetox.web.controller.EstoqueController;
+import com.projetox.web.controller.UsuarioController;
 import com.projetox.web.model.Estoque;
+import java.util.ArrayList;
 import java.util.List;
+import javax.servlet.http.HttpSession;
 
 @WebServlet(name = "AtualizarEstoque", urlPatterns = {"/atualizar-estoque"})
 public class AtualizarEstoque extends HttpServlet {
@@ -38,4 +41,25 @@ public class AtualizarEstoque extends HttpServlet {
         dispatcher.forward(request, response);
     }
 
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+
+        int id = Integer.parseInt(request.getParameter("id"));
+
+        HttpSession sessao = request.getSession();
+
+        List<Estoque> lista = EstoqueController.consultarPorId(id);
+        if (sessao.getAttribute("acesso") == null) {
+            sessao.setAttribute("acesso", lista);
+        }
+
+        List<Estoque> acesso = (List<Estoque>) sessao.getAttribute("acesso");
+        request.setAttribute("id", id);
+        request.setAttribute("acesso", acesso);
+
+        RequestDispatcher dispatcher
+                = request.getRequestDispatcher("/atualizarEstoque.jsp");
+        dispatcher.forward(request, response);
+    }
 }

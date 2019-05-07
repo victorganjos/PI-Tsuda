@@ -106,6 +106,39 @@ public class EstoqueDAO {
        return estoques; 
     }
     
+    public List<Estoque> consultarPorId(int id){
+        Connection con = ConnectionFactory.obterConexao();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        
+        List<Estoque> estoques = new ArrayList<>();
+        
+        
+        try{
+            stmt = con.prepareStatement("SELECT * FROM ESTOQUE WHERE PK_ID = ?;");
+            stmt.setInt(1, id);
+            rs = stmt.executeQuery();
+            
+            while(rs.next()){
+                Estoque e = new Estoque();
+                
+                e.setId(rs.getInt("PK_ID"));
+                e.setDescricao(rs.getString("DS_DESCRICAO"));
+                e.setFilial(rs.getString("DS_FILIAL"));
+                
+                estoques.add(e);
+            }
+            
+        }
+        catch(SQLException ex){
+           Logger.getLogger(EstoqueDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        finally{
+            ConnectionFactory.fecharConexao(con,stmt,rs);
+        }
+       return estoques; 
+    }
+    
     public void atualizar(Estoque e){
         Connection con = ConnectionFactory.obterConexao();
         PreparedStatement stmt = null;

@@ -5,20 +5,23 @@ package com.projetox.web.model;
  * @author Fabio
  */
 public class Cliente {
+
     private int id;
     private String nome;
     private String email;
-    
-    public Cliente(){
-    
+    private String tipo;
+
+    public Cliente() {
+
     }
 
     public Cliente(int id, String nome, String email) {
         this.id = id;
         this.nome = nome;
         this.email = email;
-        
+
     }
+
     public Cliente(String nome, String email) {
         this.nome = nome;
         this.email = email;
@@ -47,6 +50,8 @@ public class Cliente {
     public void setEmail(String email) {
         this.email = email;
     }
-    
-    
+
+    public String getTipo() {
+        return tipo;
+    }
 }

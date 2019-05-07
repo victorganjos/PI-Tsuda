@@ -32,4 +32,19 @@ public class ExcluirEstoque extends HttpServlet {
                 = request.getRequestDispatcher("/WEB-INF/jsp/ConsultaEstoque.jsp");
         dispatcher.forward(request, response);
     }
+
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+
+        int id = Integer.parseInt(request.getParameter("id"));
+
+        List<Estoque> lista = EstoqueController.consultarPorId(id);
+        request.setAttribute("id", id);
+        request.setAttribute("consulta", lista);
+        RequestDispatcher dispatcher
+                = request.getRequestDispatcher("/atualizarEstoque.jsp");
+        dispatcher.forward(request, response);
+    }
+    
 }

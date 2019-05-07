@@ -17,25 +17,29 @@
     </head>
     <body>
         <div class="cotainer">
-        <h1>Consulta</h1>
-        <hr>
+            <h1>Consulta de Estoques</h1>
+            <hr>
 
-        <table class="table table-bordered">
-            <tr>
-                <th class="text-center">Id</th><th class="text-center">Descrição</th><th class="text-center">Filial</th><th class="text-center" colspan="2">Ação</th>
-            </tr>
-
-            <c:forEach var="cat" items="${consulta}" >
+            <table class="table table-bordered">
                 <tr>
-                    <td class="text-center"><c:out value="${cat.id}"/></td>
-                    <td class="text-center"><c:out value="${cat.descricao}"/></td>
-                    <td class="text-center"><c:out value="${cat.filial}"/></td>
-                    <td class="text-center"><a class="btn btn-warning btn-sm" href=atualizarEstoque.jsp?id=${cat.id}&descricao=${cat.descricao}&filial=${cat.filial}>Atualizar</td>
-                    <td class="text-center"><a class="btn btn-danger btn-sm" href="excluirEstoque.jsp?id=${cat.id}&descricao=${cat.descricao}">Excluir</td>
+                    <th class="text-center">Id</th><th class="text-center">Descrição</th><th class="text-center">Filial</th><th class="text-center" colspan="2">Ação</th>
                 </tr>
-            </c:forEach>
-        </table>
-        <input class="btn btn-info btn-sm" type="submit" value="Pagina inicial" OnClick="parent.location.href='index.jsp'">
+
+                <c:forEach var="cat" items="${consulta}" >
+                    <tr>
+                        <td class="text-center"><c:out value="${cat.id}"/></td>
+                        <td class="text-center"><c:out value="${cat.descricao}"/></td>
+                        <td class="text-center"><c:out value="${cat.filial}"/></td>
+                    <form method="get" action="${pageContext.request.contextPath}/atualizar-estoque">
+                        <td class="text-center"><button class="btn btn-warning btn-sm" type="submit" value="${cat.id}" name="id">Atualizar</td>
+                    </form>
+                    <form method="get" action="${pageContext.request.contextPath}/excluir-estoque">
+                        <td class="text-center"><button class="btn btn-danger btn-sm" type="submit" value="${cat.id}" name="id">Excluir</td>
+                    </form>   
+                    </tr>
+                </c:forEach>
+            </table>
+            <input class="btn btn-info btn-sm" type="submit" value="Pagina inicial" OnClick="parent.location.href = 'index.jsp'">
         </div>
     </body>
 </html>
