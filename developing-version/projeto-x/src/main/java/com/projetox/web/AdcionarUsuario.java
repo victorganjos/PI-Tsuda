@@ -17,7 +17,7 @@ public class AdcionarUsuario extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         RequestDispatcher dispatcher
-                = request.getRequestDispatcher("AdcionarUsuario.jsp");
+                = request.getRequestDispatcher("adcionarUsuario.jsp");
         dispatcher.forward(request, response);
     }
     
@@ -25,50 +25,27 @@ public class AdcionarUsuario extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException{
         //recupera as informações do formulario
+        
         String escondido = request.getParameter("escondido");
         String nome = request.getParameter("nome");
-        String filial = request.getParameter("filial");
+        String username = request.getParameter("username");
+        String senha = request.getParameter("senha");
         String cargo = request.getParameter("cargo");
-        String setor = request.getParameter("setor");
-        String CPF = request.getParameter("CPF");
-        String RG = request.getParameter("RG");
-        String data = request.getParameter("data");
-        String endereco = request.getParameter("endereco");
-        String numero = request.getParameter("numero");
-        String complemento = request.getParameter("complemento");
-        String estado = request.getParameter("estado");
-        String cidade = request.getParameter("cidade");
-        String bairro = request.getParameter("bairro");
-        String cep = request.getParameter("cep");
-        String telefone = request.getParameter("telefone");
-        String celular = request.getParameter("celular");
-        String email = request.getParameter("email");
-        String infoAdcionais = request.getParameter("infoAdcionais");
+        String filial = request.getParameter("filial");
+
         
         
         //Armazena valores como atributos 
         request.setAttribute("metodoHttp", "POST");
         request.setAttribute("escondido", escondido);
         request.setAttribute("nome", nome);
-        request.setAttribute("filial", filial);
+        request.setAttribute("username", username);
+        request.setAttribute("senha", senha);
         request.setAttribute("cargo", cargo);
-        request.setAttribute("setor", setor);
-        request.setAttribute("CPF", CPF);
-        request.setAttribute("RG", RG);
-        request.setAttribute("data", data);
-        request.setAttribute("endereco", endereco);
-        request.setAttribute("numero", numero);
-        request.setAttribute("complemento", complemento);
-        request.setAttribute("estado", estado);
-        request.setAttribute("cidade", cidade);
-        request.setAttribute("bairro", bairro);
-        request.setAttribute("dep", cep);
-        request.setAttribute("telefone", telefone);
-        request.setAttribute("celular", celular);
-        request.setAttribute("email", email);
-        request.setAttribute("infoAdcionais", infoAdcionais);
+        request.setAttribute("filial", filial);
+
         
-        UsuarioController.Salvar(nome,filial, cargo, setor, CPF, RG, data, endereco,numero, complemento, estado, cidade, bairro, cep,telefone,celular, email, infoAdcionais);
+        UsuarioController.Salvar(nome,username, senha, cargo, filial);
         
         
         RequestDispatcher dispatcher

@@ -7,13 +7,13 @@ import java.util.List;
 
 public class UsuarioController {
     
-    public static void Salvar(String nome, String filial, String cargo, String setor, String CPF, String RG, String data, String endereco, String numero, String complemento, String estado, String cidade, String bairro, String cep, String telefone, String celular, String email, String infoAdcionais){
-        Usuario c = new Usuario(nome,filial, cargo, setor, CPF, RG, data, endereco, numero, complemento, estado, cidade, bairro, cep, telefone, celular, email, infoAdcionais);
+    public static void Salvar(String nome, String username, String senha, String cargo, String filial){
+        Usuario c = new Usuario(nome,username, senha, cargo, filial);
         UsuarioDAO usuario = new UsuarioDAO();
         usuario.salvar(c);
     }
-    public static void Atualizar(int id, String nome, String filial, String cargo, String setor, String CPF, String RG, String data, String endereco, String numero, String complemento, String estado, String cidade, String bairro, String cep, String telefone, String celular, String email, String infoAdcionais){
-        Usuario c = new Usuario(id, nome,filial, cargo, setor, CPF, RG, data, endereco, numero, complemento, estado, cidade, bairro, cep, telefone, celular, email, infoAdcionais);
+    public static void Atualizar(int id, String nome, String username, String senha, String cargo, String filial){
+        Usuario c = new Usuario(id, nome,username, senha, cargo, filial);
         UsuarioDAO usuario = new UsuarioDAO();
         usuario.atualizar(c);
     }

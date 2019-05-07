@@ -42,7 +42,7 @@ public class ExcluirUsuario extends HttpServlet{
         request.setAttribute("id", id);
         request.setAttribute("consulta", lista);
         RequestDispatcher dispatcher
-                = request.getRequestDispatcher("/ExcluirUsuario.jsp");
+                = request.getRequestDispatcher("/excluirUsuario.jsp");
         dispatcher.forward(request, response);
     }
 }
