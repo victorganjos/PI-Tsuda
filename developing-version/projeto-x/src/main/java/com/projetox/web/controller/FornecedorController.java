@@ -9,14 +9,14 @@ import java.util.List;
  */
 public class FornecedorController {
     
-    public static void salvar(String nomeFantasia, long cnpj){
-    Fornecedor f = new Fornecedor(nomeFantasia, cnpj);
+    public static void salvar(String nome, String email, long cnpj, String telefone, String endereco, int numero, String complemento, String estado, String cidade, String bairro, String cep, String tipo){
+    Fornecedor f = new Fornecedor(nome,email,cnpj,telefone,endereco,numero,complemento,estado,cidade,bairro,cep,tipo);
     FornecedorDAO fDao = new FornecedorDAO();
     fDao.salvar(f);    
     }
     
-    public static void atualizar(int id,String nomeFantasia, long cnpj){
-    Fornecedor f = new Fornecedor(id,nomeFantasia, cnpj);
+    public static void atualizar(int id,String nome, String email, long cnpj, String telefone, String endereco, int numero, String complemento, String estado, String cidade, String bairro, String cep, String tipo){
+    Fornecedor f = new Fornecedor(id,nome,email,cnpj,telefone,endereco,numero,complemento,estado,cidade,bairro,cep,tipo);
     FornecedorDAO fDao = new FornecedorDAO();
     fDao.atualizar(f);    
     }
@@ -25,9 +25,14 @@ public class FornecedorController {
         FornecedorDAO fDao = new FornecedorDAO();
         fDao.deletar(id);
     }
-    public static List<Fornecedor> consultarPorNome(String nomeFantasia){
+    public static List<Fornecedor> consultarPorNome(String nome){
         FornecedorDAO fDao = new FornecedorDAO();
-        return fDao.consultarPorNomeFantasia(nomeFantasia);
+        return fDao.consultarPorNome(nome);
+    }
+    
+     public static List<Fornecedor> consultarPorId(int id){
+        FornecedorDAO fDao = new FornecedorDAO();
+        return fDao.consultarPorId(id);
     }
     
     public static List<Fornecedor> consultar(){
