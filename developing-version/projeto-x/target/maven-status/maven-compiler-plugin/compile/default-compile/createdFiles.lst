@@ -6,6 +6,9 @@ com\projetox\web\model\Fornecedor.class
 com\projetox\web\connection\ConnectionFactory.class
 com\projetox\web\ExcluirServlet.class
 com\projetox\web\ConsultarServlet.class
+com\projetox\web\ExcluirFornecedor.class
+com\projetox\web\ConsultarFornecedor.class
+com\projetox\web\AtualizarFornecedor.class
 com\projetox\web\controller\ClienteController.class
 com\projetox\web\controller\EstoqueController.class
 com\projetox\web\controller\FornecedorController.class
@@ -13,6 +16,7 @@ com\projetox\web\ConsultarEstoque.class
 com\projetox\web\dao\UsuarioDAO.class
 com\projetox\web\AtualizarEstoque.class
 com\projetox\web\dao\FornecedorDAO.class
+com\projetox\web\AdicionarFornecedor.class
 com\projetox\web\dao\ClienteDAO.class
 com\projetox\web\dao\EstoqueDAO.class
 com\projetox\web\model\Cliente.class

@@ -55,7 +55,7 @@ public class AtualizarFornecedor extends HttpServlet {
         List<Fornecedor> lista = FornecedorController.consultar();
         request.setAttribute("consulta", lista);
         RequestDispatcher dispatcher
-                = request.getRequestDispatcher("/WEB-INF/jsp/ConsultaEstoque.jsp");
+                = request.getRequestDispatcher("/WEB-INF/jsp/ConsultaFornecedor.jsp");
         dispatcher.forward(request, response);
     }
 

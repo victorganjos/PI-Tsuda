@@ -18,8 +18,7 @@ public class ExcluirFornecedor extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         //recupera as informações do formulario
-        String id = request.getParameter("id");
-        
+        String id = request.getParameter("id");  
         request.setAttribute("id", id);
 
         FornecedorController.excluir(Integer.parseInt(id));
@@ -41,7 +40,7 @@ public class ExcluirFornecedor extends HttpServlet {
         request.setAttribute("id", id);
         request.setAttribute("consulta", lista);
         RequestDispatcher dispatcher
-                = request.getRequestDispatcher("/atualizarFornecedor.jsp");
+                = request.getRequestDispatcher("/excluirFornecedor.jsp");
         dispatcher.forward(request, response);
     }
     
