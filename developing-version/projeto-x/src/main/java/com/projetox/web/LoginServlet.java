@@ -41,9 +41,10 @@ public class LoginServlet extends HttpServlet {
         List<Usuario> lista = UsuarioController.consultarPorUsername(username);
         
         for(Usuario c: lista) {
-            teste = c.getNome();
+            teste = c.getUsername();
             senhaTeste = c.getSenha();
         }
+        
         if(teste != null && senhaTeste.equals(senhaAberta)){
             HttpSession sessao = request.getSession();
             sessao.setAttribute("usuario", teste);

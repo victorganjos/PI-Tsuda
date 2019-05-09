@@ -114,7 +114,7 @@ public class UsuarioDAO {
         String usuario = null;
         try{
             stmt = con.prepareStatement("SELECT * FROM dadosusuario WHERE username LIKE ?;");
-            stmt.setString(1,"%"+username+"%");
+            stmt.setString(1,""+username+"");
             rs = stmt.executeQuery();
             
             

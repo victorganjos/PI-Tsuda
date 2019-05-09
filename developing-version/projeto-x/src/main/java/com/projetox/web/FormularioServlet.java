@@ -19,7 +19,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Fabio
  */
-@WebServlet(name = "FormularioServlet", urlPatterns = {"/formulario-servlet"})
+@WebServlet(name = "FormularioServlet", urlPatterns = {"/protegido/formulario-servlet"})
 public class FormularioServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
