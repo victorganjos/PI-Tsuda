@@ -30,6 +30,10 @@ public class UsuarioController {
         UsuarioDAO usuario = new UsuarioDAO();
         return usuario.consultar();
     }
+    public static List<Usuario> consultarPorUsername(String username){
+        UsuarioDAO usuario = new UsuarioDAO();
+        return usuario.consultarPorUsername(username);
+    }
     
     public static List<Usuario> pesquisar(int id){
         UsuarioDAO usuario = new UsuarioDAO();

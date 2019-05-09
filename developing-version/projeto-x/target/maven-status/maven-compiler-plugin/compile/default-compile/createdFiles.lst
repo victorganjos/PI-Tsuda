@@ -1,3 +1,4 @@
+com\projetox\web\LoginServlet.class
 com\projetox\web\AtualizarUsuario.class
 com\projetox\web\IncluirEstoque.class
 com\projetox\web\ConsultarUsuario.class

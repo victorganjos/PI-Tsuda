@@ -1,12 +1,14 @@
 package com.projetox.web.model;
 
-import java.sql.Date;
+import java.io.Serializable;
+import java.util.List;
+import org.mindrot.jbcrypt.BCrypt;
 
 /**
  *
  * @author Fabio
  */
-public class Usuario {
+public class Usuario implements Serializable {
 
     private int id;
     private String nome;
@@ -30,7 +32,7 @@ public class Usuario {
         this.id = id;
         this.nome = nome;
         this.username = username;
-        this.senha = senha;
+        setSenhaa(senha);
         this.cargo = cargo;
         this.filial = filial;
     }
@@ -81,6 +83,14 @@ public class Usuario {
 
     public void setFilial(String filial) {
         this.filial = filial;
+    }
+    
+    public final void setSenhaa(String senhaAberta) {
+        this.senha = BCrypt.hashpw(senhaAberta, BCrypt.gensalt());
+    }
+    
+    public boolean validarSenha(String senhaAberta) {
+        return BCrypt.checkpw(senhaAberta, senha);
     }
     
 

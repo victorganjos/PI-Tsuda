@@ -1,6 +1,8 @@
 CREATE	DATABASE PROJETO_X;
 USE PROJETO_X;
 
+INSERT INTO DADOSUSUARIO(nome,username,senha,cargo,filial) VALUE (fabio,fabio123,123,back,sp);
+
 CREATE TABLE projeto_x.DADOSUSUARIO(
 ID INT AUTO_INCREMENT,
 NOME varchar(50),
