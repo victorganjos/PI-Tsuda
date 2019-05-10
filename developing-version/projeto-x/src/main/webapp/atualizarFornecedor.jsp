@@ -23,47 +23,47 @@
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label>Nome Fornecedor</label>
-                    <input type="text" name="nome" class="form-control" maxlength="50" value="${acesso.nome}">
+                    <input type="text" name="nome" class="form-control" maxlength="50" value="${acesso.nome}" required>
                 </div>
                 <div class="form-group col-md-6">
                     <label>Email</label>
-                    <input  type="text" name="email" class="form-control" maxlength="50" value="${acesso.email}">
+                    <input  type="text" name="email" class="form-control" maxlength="80" value="${acesso.email}" required>
                 </div>
                 <div class="form-group col-md-6">
                     <label>CNPJ</label>
-                    <input  type="text" name="cnpj" class="form-control" maxlength="50" value="${acesso.cnpj}">
+                    <input  type="text" name="cnpj" class="form-control" maxlength="50" value="${acesso.cnpj}" required>
                 </div>
                 <div class="form-group col-md-6">
                     <label>Telefone</label>
-                    <input  type="text" name="telefone" class="form-control" maxlength="50" value="${acesso.telefone}">
+                    <input  type="text" name="telefone" class="form-control" maxlength="50" value="${acesso.telefone}" required>
                 </div>
                 <div class="form-group col-md-6">
                     <label>Endereço</label>
-                    <input type="text" name="endereco" class="form-control" maxlength="50" value="${acesso.endereco}">
+                    <input type="text" name="endereco" class="form-control" maxlength="50" value="${acesso.endereco}" required>
                 </div>
                 <div class="form-group col-md-6">
                     <label>Número do endereço</label>
-                    <input type="text" name="numero" class="form-control" maxlength="50" value="${acesso.numero}">
+                    <input type="text" name="numero" class="form-control" maxlength="50" value="${acesso.numero}" required>
                 </div>
                 <div class="form-group col-md-6">
                     <label>Complemento</label>
-                    <input type="text" name="complemento" class="form-control" maxlength="50" value="${acesso.complemento}">
+                    <input type="text" name="complemento" class="form-control" maxlength="50" value="${acesso.complemento}" required>
                 </div>
                 <div class="form-group col-md-6">
                     <label>Estado</label>
-                    <input type="text" name="estado" class="form-control" maxlength="50" value="${acesso.estado}">
+                    <input type="text" name="estado" class="form-control" maxlength="50" value="${acesso.estado}" required>
                 </div>
                 <div class="form-group col-md-6">
                     <label>Cidade</label>
-                    <input type="text" name="cidade" class="form-control" maxlength="50" value="${acesso.cidade}">
+                    <input type="text" name="cidade" class="form-control" maxlength="50" value="${acesso.cidade}" required>
                 </div>
                 <div class="form-group col-md-6">
                     <label>Bairro</label>
-                    <input type="text" name="bairro" class="form-control" maxlength="50" value="${acesso.bairro}">
+                    <input type="text" name="bairro" class="form-control" maxlength="50" value="${acesso.bairro}" required>
                 </div>
                 <div class="form-group col-md-6">
                     <label>CEP</label>
-                    <input type="text" name="cep" class="form-control" maxlength="50" value="${acesso.cep}">
+                    <input type="text" name="cep" class="form-control" maxlength="50" value="${acesso.cep}" required>
                 </div>
                 <div class="form-group col-md-6">  
                     <button class="btn btn-info btn-sm" type="submit">Salvar</button>

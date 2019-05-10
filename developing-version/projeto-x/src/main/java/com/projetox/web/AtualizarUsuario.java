@@ -1,6 +1,5 @@
 package com.projetox.web;
 
-import com.projetox.web.controller.ClienteController;
 import java.io.IOException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -55,9 +54,13 @@ public class AtualizarUsuario extends HttpServlet {
 
         HttpSession sessao = request.getSession();
 
-        List<Usuario> acesso = UsuarioController.pesquisar(id);
-        sessao.setAttribute("id", id);
-        sessao.setAttribute("acesso", acesso);
+        List<Usuario> lista = UsuarioController.pesquisar(id);
+        sessao.setAttribute("acesso", lista);
+
+        List<Usuario> acesso = (List<Usuario>) sessao.getAttribute("acesso");
+        request.setAttribute("id", id);
+        request.setAttribute("acesso", acesso);
+
         RequestDispatcher dispatcher
                 = request.getRequestDispatcher("/atualizarUsuario.jsp");
         dispatcher.forward(request, response);

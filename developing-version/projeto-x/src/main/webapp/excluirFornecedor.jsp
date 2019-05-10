@@ -23,47 +23,47 @@
                 <div class="form-row">
                 <div class="form-group col-md-6">
                     <label>Nome Fornecedor</label>
-                    <input type="text" name="nome" class="form-control" maxlength="50" value="${consulta.nome}">
+                    <input type="text" name="nome" class="form-control" maxlength="50" value="${consulta.nome}" readonly>
                 </div>
                 <div class="form-group col-md-6">
                     <label>Email</label>
-                    <input  type="text" name="email" class="form-control" maxlength="50" value="${consulta.email}">
+                    <input  type="text" name="email" class="form-control" maxlength="50" value="${consulta.email}" readonly>
                 </div>
                 <div class="form-group col-md-6">
                     <label>CNPJ</label>
-                    <input  type="text" name="cnpj" class="form-control" maxlength="50" value="${consulta.cnpj}">
+                    <input  type="text" name="cnpj" class="form-control" maxlength="50" value="${consulta.cnpj}" readonly>
                 </div>
                 <div class="form-group col-md-6">
                     <label>Telefone</label>
-                    <input  type="text" name="telefone" class="form-control" maxlength="50" value="${consulta.telefone}">
+                    <input  type="text" name="telefone" class="form-control" maxlength="50" value="${consulta.telefone}" readonly>
                 </div>
                 <div class="form-group col-md-6">
                     <label>Endereço</label>
-                    <input type="text" name="endereco" class="form-control" maxlength="50" value="${consulta.endereco}">
+                    <input type="text" name="endereco" class="form-control" maxlength="50" value="${consulta.endereco}" readonly>
                 </div>
                 <div class="form-group col-md-6">
                     <label>Número do endereço</label>
-                    <input type="text" name="numero" class="form-control" maxlength="50" value="${consulta.numero}">
+                    <input type="text" name="numero" class="form-control" maxlength="50" value="${consulta.numero}" readonly>
                 </div>
                 <div class="form-group col-md-6">
                     <label>Complemento</label>
-                    <input type="text" name="complemento" class="form-control" maxlength="50" value="${consulta.complemento}">
+                    <input type="text" name="complemento" class="form-control" maxlength="50" value="${consulta.complemento}" readonly>
                 </div>
                 <div class="form-group col-md-6">
                     <label>Estado</label>
-                    <input type="text" name="estado" class="form-control" maxlength="50" value="${consulta.estado}">
+                    <input type="text" name="estado" class="form-control" maxlength="50" value="${consulta.estado}" readonly>
                 </div>
                 <div class="form-group col-md-6">
                     <label>Cidade</label>
-                    <input type="text" name="cidade" class="form-control" maxlength="50" value="${consulta.cidade}">
+                    <input type="text" name="cidade" class="form-control" maxlength="50" value="${consulta.cidade}" readonly>
                 </div>
                 <div class="form-group col-md-6">
                     <label>Bairro</label>
-                    <input type="text" name="bairro" class="form-control" maxlength="50" value="${consulta.bairro}">
+                    <input type="text" name="bairro" class="form-control" maxlength="50" value="${consulta.bairro}" readonly>
                 </div>
                 <div class="form-group col-md-6">
                     <label>CEP</label>
-                    <input type="text" name="cep" class="form-control" maxlength="50" value="${consulta.cep}">
+                    <input type="text" name="cep" class="form-control" maxlength="50" value="${consulta.cep}" readonly>
                 </div>
                 <div class="form-group col-md-4">  
                     <button class="btn btn-info btn-sm" type="submit">Excluir</button>

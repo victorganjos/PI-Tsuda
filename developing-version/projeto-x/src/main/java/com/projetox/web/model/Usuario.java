@@ -1,7 +1,6 @@
 package com.projetox.web.model;
 
 import java.io.Serializable;
-import java.util.List;
 import org.mindrot.jbcrypt.BCrypt;
 
 /**
@@ -32,7 +31,7 @@ public class Usuario implements Serializable {
         this.id = id;
         this.nome = nome;
         this.username = username;
-        setSenhaa(senha);
+        this.senha = senha;
         this.cargo = cargo;
         this.filial = filial;
     }

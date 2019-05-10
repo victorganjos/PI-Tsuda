@@ -33,24 +33,24 @@ public class AtualizarFornecedor extends HttpServlet {
         String bairro = request.getParameter("bairro");
         String cep = request.getParameter("cep");
         String tipo = request.getParameter("tipo");
-        
+
         //Armazena valores como atributos 
         request.setAttribute("metodoHttp", "POST");
-        request.setAttribute("id",id);
+        request.setAttribute("id", id);
         request.setAttribute("nome", nome);
-        request.setAttribute("email",email);
-        request.setAttribute("cnpj",cnpj);
-        request.setAttribute("telefone",telefone);
-        request.setAttribute("endereco",endereco);
-        request.setAttribute("numero",numero);
-        request.setAttribute("complemento",complemento);
-        request.setAttribute("estado",estado);
-        request.setAttribute("cidade",cidade);
-        request.setAttribute("bairro",bairro);
-        request.setAttribute("cep",cep);
-        request.setAttribute("tipo",tipo);
+        request.setAttribute("email", email);
+        request.setAttribute("cnpj", cnpj);
+        request.setAttribute("telefone", telefone);
+        request.setAttribute("endereco", endereco);
+        request.setAttribute("numero", numero);
+        request.setAttribute("complemento", complemento);
+        request.setAttribute("estado", estado);
+        request.setAttribute("cidade", cidade);
+        request.setAttribute("bairro", bairro);
+        request.setAttribute("cep", cep);
+        request.setAttribute("tipo", tipo);
 
-        FornecedorController.atualizar(Integer.parseInt(id),nome,email,Long.parseLong(cnpj),telefone,endereco,Integer.parseInt(numero),complemento,estado,cidade,bairro,cep,tipo);
+        FornecedorController.atualizar(Integer.parseInt(id), nome, email, Long.parseLong(cnpj), telefone, endereco, Integer.parseInt(numero), complemento, estado, cidade, bairro, cep, tipo);
 
         List<Fornecedor> lista = FornecedorController.consultar();
         request.setAttribute("consulta", lista);
@@ -68,9 +68,7 @@ public class AtualizarFornecedor extends HttpServlet {
         HttpSession sessao = request.getSession();
 
         List<Fornecedor> lista = FornecedorController.consultarPorId(id);
-        if (sessao.getAttribute("acesso") == null) {
-            sessao.setAttribute("acesso", lista);
-        }
+        sessao.setAttribute("acesso", lista);
 
         List<Fornecedor> acesso = (List<Fornecedor>) sessao.getAttribute("acesso");
         request.setAttribute("id", id);
