@@ -33,7 +33,9 @@ public class AtualizarFornecedor extends HttpServlet {
         String bairro = request.getParameter("bairro");
         String cep = request.getParameter("cep");
         String tipo = request.getParameter("tipo");
-
+        
+         if (!nome.isEmpty() && !cnpj.isEmpty() && !telefone.isEmpty() && !endereco.isEmpty() && !numero.isEmpty() && !estado.isEmpty()&& !cidade.isEmpty() && !cep.isEmpty()) {
+        
         //Armazena valores como atributos 
         request.setAttribute("metodoHttp", "POST");
         request.setAttribute("id", id);
@@ -57,6 +59,12 @@ public class AtualizarFornecedor extends HttpServlet {
         RequestDispatcher dispatcher
                 = request.getRequestDispatcher("/WEB-INF/jsp/ConsultaFornecedor.jsp");
         dispatcher.forward(request, response);
+        
+        } else {
+            request.setAttribute("msgErro", "Preencha todos os campos obrigatórios");
+            request.getRequestDispatcher("/atualizarFornecedor.jsp")
+                    .forward(request, response);
+        }
     }
 
     @Override

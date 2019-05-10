@@ -1,9 +1,7 @@
 package com.projetox.web;
 
 import com.projetox.web.controller.UsuarioController;
-import com.projetox.web.model.Usuario;
 import java.io.IOException;
-import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
