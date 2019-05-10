@@ -1,8 +1,6 @@
 CREATE	DATABASE PROJETO_X;
 USE PROJETO_X;
 
-INSERT INTO DADOSUSUARIO(nome,username,senha,cargo,filial) VALUE (fabio,fabio123,123,back,sp);
-
 CREATE TABLE projeto_x.DADOSUSUARIO(
 ID INT AUTO_INCREMENT,
 NOME varchar(50),
@@ -12,10 +10,6 @@ CARGO varchar(50),
 FILIAL varchar(50),
 constraint pk_id primary key (id)
 );
-/**
- * Author:  Johnnys Dantas
- * Created: 03/05/2019
- */
 
 CREATE TABLE DADOSCLIENTE(
     ID INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
@@ -39,3 +33,16 @@ CREATE TABLE ESTOQUE(
     DS_DESCRICAO VARCHAR(50),
     DS_FILIAL VARCHAR(5)
 );
+
+INSERT INTO DADOSUSUARIO VALUE (1,'fabio','fabio123','123','back','sp');
+INSERT INTO DADOSUSUARIO VALUE (2,'caio','caio123','123','vendedor','sp');
+INSERT INTO DADOSUSUARIO VALUE (3,'johnnys','johnnys123','123','back','sp');
+INSERT INTO DADOSUSUARIO VALUE (4,'victor','victor123','123','vendedor','sp');
+INSERT INTO DADOSUSUARIO VALUE (5,'layssa','layssa123','123','back','sp');
+
+
+INSERT INTO dadoscliente VALUE (1,'livreto','fornecedor@livreto.com',null,1314512514123,1141353829,'helmtuh strobel',85,null,'Sao Paulo', 'Sao Paulo', 'Pinheiros','06767-077','F');
+INSERT INTO dadoscliente VALUE (2,'silvano','fornecedor@silvano.com',null,1314512532423,1141353529,'Cidao cardoso',37,null,'Sao Paulo', 'Sao Paulo', 'Butantã','74857-789','F');
+INSERT INTO dadoscliente VALUE (3,'biena','fornecedor@biena.com',null,13145112314123,1141354829,'maria do carmos',97,null,'Sao Paulo', 'Sao Paulo', 'Santo Antonio','14257-369','F');
+INSERT INTO dadoscliente VALUE (4,'saber','fornecedor@saber.com',null,1314122514123,1141353129,'brigadeiro luiz antorio',74,null,'Sao Paulo', 'Sao Paulo', 'Freguesia','96968-852','F');
+INSERT INTO dadoscliente VALUE (5,'conhecimento','fornecedor@conhecimento.com',null,13145155554123,1141353229,'maringa',69,null,'Sao Paulo', 'Sao Paulo', 'Brasilandia','36365-147','F');
