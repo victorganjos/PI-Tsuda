@@ -19,25 +19,32 @@
             <form action="incluir-usuario" method="post">
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <label>Nome Completo</label>
-                        <input type="text" name="nome" class="form-control"placeholder="Digite o nome:" maxlength="50" required>
+                        <label>Nome Completo*</label>
+                        <input type="text" name="nome" class="form-control"placeholder="Digite o nome:" maxlength="50" >
                     </div>
                     <div class="form-group col-md-6">
-                        <label>Username</label>
-                        <input type="text" name="username" class="form-control"placeholder="Digite o nome de usuário:" maxlength="50" required>
+                        <label>Username*</label>
+                        <input type="text" name="username" class="form-control"placeholder="Digite o nome de usuário:" maxlength="50" >
                     </div>
                     <div class="form-group col-md-6">
-                        <label>Senha</label>
-                        <input type="password" name="senha" class="form-control"placeholder="Digite a senha" maxlength="50" required>
+                        <label>Senha*</label>
+                        <input type="password" name="senha" class="form-control"placeholder="Digite a senha" maxlength="50" >
                     </div>
                     <div class="form-group col-md-6">
-                        <label>Cargo</label>
-                        <input type="text" name="cargo" class="form-control"placeholder="Digite o cargo" maxlength="50" required>
+                        <label>Cargo*</label>
+                        <input type="text" name="cargo" class="form-control"placeholder="Digite o cargo" maxlength="50" >
                     </div>
                     <div class="form-group col-md-6">
-                        <label>Filial</label>
-                        <input type="text" name="filial" class="form-control"placeholder="Digite a filial" maxlength="50" required>
+                        <label>Filial*</label>
+                        <input type="text" name="filial" class="form-control"placeholder="Digite a filial" maxlength="50" >
                     </div>
+                    <div>
+                        <label>   Campos com (*) são obrigatórios!</label>
+                    </div>
+                    <c:if test="${msgErro != null}">
+                        <div class="erro" color="red" ><c:out value="${msgErro}" /></div>
+                    </c:if>
+                    <br>
                     <div class="form-group col-md-6">  
                         <button class="btn btn-info btn-sm" type="submit">Salvar</button>
                         <button class="btn btn-info btn-sm" type="reset" value="Reset">Resetar</button>

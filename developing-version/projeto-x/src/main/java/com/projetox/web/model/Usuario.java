@@ -7,7 +7,7 @@ import org.mindrot.jbcrypt.BCrypt;
  *
  * @author Fabio
  */
-public class Usuario implements Serializable {
+    public class Usuario implements Serializable {
 
     private int id;
     private String nome;

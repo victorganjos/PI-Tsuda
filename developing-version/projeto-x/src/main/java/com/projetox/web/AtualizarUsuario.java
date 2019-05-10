@@ -27,6 +27,7 @@ public class AtualizarUsuario extends HttpServlet {
         String cargo = request.getParameter("cargo");
         String filial = request.getParameter("filial");
 
+        if (!nome.isEmpty() && !username.isEmpty() && !senha.isEmpty() && !cargo.isEmpty() && !filial.isEmpty()) {
         //Armazena valores como atributos 
         request.setAttribute("metodoHttp", "POST");
         request.setAttribute("escondido", escondido);
@@ -44,6 +45,11 @@ public class AtualizarUsuario extends HttpServlet {
         RequestDispatcher dispatcher
                 = request.getRequestDispatcher("/WEB-INF/jsp/ConsultaUsuario.jsp");
         dispatcher.forward(request, response);
+        } else {
+            request.setAttribute("msgErro", "Preencha todos os campos obrigatórios");
+            request.getRequestDispatcher("/atualizarUsuario.jsp")
+                    .forward(request, response);
+        }
     }
 
     @Override
