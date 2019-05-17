@@ -44,10 +44,16 @@
                             <input type="text" name="filial" class="form-control" maxlength="50" value="${consulta.filial}" readonly>
                         </div>
                         <div class="form-group col-md-4">  
-                            <button class="btn btn-info btn-sm" type="submit">Excluir</button>
+                            <button class="btn btn-info btn-sm" Onclick="alerta()" type="submit">Excluir</button>
                         </div>
                     </c:forEach>
-                </div>        
+                </div> 
+                <script>
+                    function alerta()
+                    {
+                        alert("Exclusão do Usuário realizada com sucesso!");
+                    }
+                </script>
             </form>
         </div>
         <div class="container">

@@ -49,7 +49,7 @@ public class LoginServlet extends HttpServlet {
             HttpSession sessao = request.getSession();
             sessao.setAttribute("usuario", teste);
             //response.sendRedirect("adicionarFornecedor");
-            request.getRequestDispatcher("/index.jsp")
+            request.getRequestDispatcher("/homePage.jsp")
                     .forward(request, response);
         }else {
             request.setAttribute("msgErro", "Usuario ou senha inválido");

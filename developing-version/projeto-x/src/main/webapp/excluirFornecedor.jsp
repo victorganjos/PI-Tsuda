@@ -68,9 +68,15 @@
                             <input type="text" name="cep" class="form-control" maxlength="50" value="${consulta.cep}" readonly>
                         </div>
                         <div class="form-group col-md-4">  
-                            <button class="btn btn-info btn-sm" type="submit">Excluir</button>
+                            <button class="btn btn-info btn-sm" OnClick="alerta()" type="submit">Excluir</button>
                         </div>
                     </c:forEach>
+                    <script>
+                        function alerta()
+                        {
+                            alert("Exclusão do Fornecedor realizada com sucesso!");
+                        }
+                    </script>
                 </div>        
             </form>
         </div>

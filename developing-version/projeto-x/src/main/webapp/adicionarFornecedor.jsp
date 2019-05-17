@@ -72,8 +72,14 @@
                         <div class="erro" color="red" ><c:out value="${msgErro}" /></div>
                     </c:if>
                     <br>
+                    <script>
+                        function alerta()
+                        {
+                            alert("Fornecedor Cadastrado com Sucesso!");
+                        }
+                    </script>
                     <div class="form-group col-md-6">  
-                        <button class="btn btn-info btn-sm" type="submit">Salvar</button>
+                        <button class="btn btn-info btn-sm" OnClick="alerta()" type="submit">Salvar</button>
                         <button class="btn btn-info btn-sm" type="reset" value="Reset">Resetar</button>
                     </div>
                 </div>

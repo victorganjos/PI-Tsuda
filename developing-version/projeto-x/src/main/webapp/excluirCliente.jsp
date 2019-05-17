@@ -67,16 +67,22 @@
                             <input type="text" name="cep" class="form-control" maxlength="50" value="${consulta.cep}" readonly>
                         </div>
                         <div class="form-group col-md-4">  
-                            <button class="btn btn-info btn-sm" type="submit">Excluir</button>
+                            <button class="btn btn-info btn-sm" OnClick="alerta()" type="submit">Excluir</button>
                         </div>
-                </c:forEach>
-        </div>        
-    </form>
-</div>
-<div class="container">
-    <br>
-    <input class="btn btn-info btn-sm" type="submit" value="Página inicial" OnClick="parent.location.href = 'homePage.jsp'">
-    <input class="btn btn-info btn-sm" type="submit" value="Consultar Cliente" OnClick="parent.location.href = 'consultar-cliente'">
-</div>
-</body>
+                    </c:forEach>
+                </div> 
+                <script>
+                    function alerta()
+                    {
+                        alert("Exclusão do Cliente realizada com sucesso!");
+                    }
+                </script>
+            </form>
+        </div>
+        <div class="container">
+            <br>
+            <input class="btn btn-info btn-sm" type="submit" value="Página inicial" OnClick="parent.location.href = 'homePage.jsp'">
+            <input class="btn btn-info btn-sm" type="submit" value="Consultar Cliente" OnClick="parent.location.href = 'consultar-cliente'">
+        </div>
+    </body>
 </html>

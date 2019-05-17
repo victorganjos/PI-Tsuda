@@ -74,11 +74,18 @@
                                 <div class="erro" color="red" ><c:out value="${msgErro}" /></div>
                             </c:if>
                             <div class="form-group col-md-6">  
-                                <button class="btn btn-info btn-sm" type="submit">Salvar</button>
+                                <button class="btn btn-info btn-sm" OnClick="alerta()" type="submit">Salvar</button>
                             </div>
                         </div>
                     </c:forEach>
-                </c:if>    
+                </c:if>   
+
+                <script>
+                    function alerta()
+                    {
+                        alert("Fornecedor Atualizado com Sucesso!");
+                    }
+                </script>
             </form>
         </div>
         <div class="container">

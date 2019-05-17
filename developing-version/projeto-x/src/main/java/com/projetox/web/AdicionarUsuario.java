@@ -1,7 +1,9 @@
 package com.projetox.web;
 
 import com.projetox.web.controller.UsuarioController;
+import com.projetox.web.model.Usuario;
 import java.io.IOException;
+import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -44,8 +46,11 @@ public class AdicionarUsuario extends HttpServlet {
             request.setAttribute("filial", filial);
 
             UsuarioController.Salvar(nome, username, senha, cargo, filial);
+            
+        List<Usuario> lista = UsuarioController.consultar();
+        request.setAttribute("consulta", lista);
             RequestDispatcher dispatcher
-                    = request.getRequestDispatcher("index.jsp");
+                    = request.getRequestDispatcher("/WEB-INF/jsp/ConsultaUsuario.jsp");
             dispatcher.forward(request, response);
         } else {
             request.setAttribute("msgErro", "Preencha todos os campos obrigatórios");

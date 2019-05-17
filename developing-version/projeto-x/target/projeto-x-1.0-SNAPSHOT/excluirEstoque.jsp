@@ -40,7 +40,7 @@
 
             <br>
 
-            <input class="btn btn-info btn-sm" type="submit" value="Página inicial" OnClick="parent.location.href = 'index.jsp'">
+            <input class="btn btn-info btn-sm" type="submit" value="Página inicial" OnClick="parent.location.href = 'homePage.jsp'">
             <input class="btn btn-info btn-sm" type="submit" value="Consultar estoque" OnClick="parent.location.href = 'consultar-estoque'">
         </div>
     </body>
