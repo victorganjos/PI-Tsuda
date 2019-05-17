@@ -24,8 +24,8 @@
                     <input type="checkbox" id="check1">
                     <label for="check1">Cadastros</label>
                     <ul>
-                        <li><a href="adcionarUsuario.jsp" >Cadastrar Usuário</a></li>
-                        <li><a href="formulario.jsp">Cadastrar Cliente</a></li>
+                        <li><a href="adicionarUsuario.jsp" >Cadastrar Usuário</a></li>
+                        <li><a href="adicionarCliente.jsp">Cadastrar Cliente</a></li>
                         <li><a href="adicionarFornecedor.jsp">Cadastrar Fornecedor</a></li>
                     </ul>
                 </div>
@@ -33,9 +33,9 @@
                     <input type="checkbox" id="check2">
                     <label for="check2">Consultas</label>
                     <ul>
-                        <li><a href="/WEB-INF/jsp/ConsultaUsuario.jsp">Consultar Usuário</a></li>
-                        <li><a href="/WEB-INF/jsp/Consulta.jsp">Consultar Cliente</a></li>
-                        <li><a href="/WEB-INF/jsp/ConsultaFornecedor.jsp">Consultar Fornecedor</a></li>
+                        <li><a href="consultar-usuario">Consultar Usuário</a></li>
+                        <li><a href="consultar-cliente">Consultar Cliente</a></li>
+                        <li><a href="consultar-fornecedor">Consultar Fornecedor</a></li>
                     </ul>
                 </div>
                 <div class="item">

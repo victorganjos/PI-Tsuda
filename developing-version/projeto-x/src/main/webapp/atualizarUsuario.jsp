@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Usuario - Atualizar</title>
+        <title>Usuário - Atualizar</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
@@ -17,7 +17,7 @@
         </div>
 
         <div class="container">
-            <h1>Atualizar Usuário</h1>
+            <h2>Atualizar Usuário</h2>
             <br>
             <form action="atualizar-usuario" method="post">
                 <c:if test="${sessionScope.acesso != null && !sessionScope.acesso.isEmpty()}">
@@ -61,7 +61,7 @@
         </div>
         <div class="container">
             <br>
-            <input class="btn btn-info btn-sm" type="submit" value="Página inicial" OnClick="parent.location.href = 'index.jsp'">
+            <input class="btn btn-info btn-sm" type="submit" value="Página inicial" OnClick="parent.location.href = 'homePage.jsp'">
             <input class="btn btn-info btn-sm" type="submit" value="Consultar Usuários" OnClick="parent.location.href = 'consultar-usuario'">
         </div>
     </body>

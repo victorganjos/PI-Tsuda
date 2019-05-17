@@ -25,12 +25,22 @@ public class ClienteDAO {
     public void salvar(Cliente c) {
         Connection con = ConnectionFactory.obterConexao();
         PreparedStatement stmt = null;
-
+          
         try {
-            stmt = con.prepareStatement("INSERT INTO dadosCliente(nome,email,tipo) VALUE (?,?,?);");
+            stmt = con.prepareStatement("INSERT INTO DADOSCLIENTE(nome,email,CPF,telefone,endereco,"
+                    + "numero,complemento,estado,cidade,bairro,cep,tipo) VALUE (?,?,?,?,?,?,?,?,?,?,?,?);");
             stmt.setString(1, c.getNome());
             stmt.setString(2, c.getEmail());
-            stmt.setString(3, "C");
+            stmt.setLong(3, c.getCpf());
+            stmt.setString(4, c.getTelefone());
+            stmt.setString(5, c.getEndereco());
+            stmt.setInt(6, c.getNumero());
+            stmt.setString(7, c.getComplemento());
+            stmt.setString(8, c.getEstado());
+            stmt.setString(9, c.getCidade());
+            stmt.setString(10, c.getBairro());
+            stmt.setString(11, c.getCep());
+            stmt.setString(12, c.getTipo());
 
             stmt.executeUpdate();
             System.out.println("Salvar com sucesso!");
@@ -52,7 +62,7 @@ public class ClienteDAO {
         
         
         try{
-            stmt = con.prepareStatement("SELECT * FROM dadosCLIENTE WHERE TIPO = 'C'");
+            stmt = con.prepareStatement("SELECT * FROM dadosCLIENTE WHERE TIPO = 'c'");
             rs = stmt.executeQuery();
             
             while(rs.next()){
@@ -61,6 +71,16 @@ public class ClienteDAO {
                 c.setId(rs.getInt("id"));
                 c.setNome(rs.getString("nome"));
                 c.setEmail(rs.getString("email"));
+                c.setCpf(rs.getLong("cpf"));
+                c.setTelefone(rs.getString("telefone"));
+                c.setEndereco(rs.getString("endereco"));
+                c.setNumero(rs.getInt("numero"));
+                c.setComplemento(rs.getString("complemento"));
+                c.setEstado(rs.getString("estado"));
+                c.setCidade(rs.getString("cidade"));
+                c.setBairro(rs.getString("bairro"));
+                c.setCep(rs.getString("cep"));
+                c.setTipo(rs.getString("tipo"));
                 
                 clientes.add(c);
             }
@@ -84,15 +104,26 @@ public class ClienteDAO {
         
         
         try{
-            stmt = con.prepareStatement("SELECT * FROM CLIENTE WHERE nome LIKE ? AND TIPO = 'C';");
+            stmt = con.prepareStatement("SELECT * FROM CLIENTE WHERE nome LIKE ? AND TIPO = 'c';");
             stmt.setString(1,"%"+nome+"%");
             rs = stmt.executeQuery();
             
             while(rs.next()){
                 Cliente c = new Cliente();
                 
+                c.setId(rs.getInt("id"));
                 c.setNome(rs.getString("nome"));
                 c.setEmail(rs.getString("email"));
+                c.setCpf(rs.getLong("cpf"));
+                c.setTelefone(rs.getString("telefone"));
+                c.setEndereco(rs.getString("endereco"));
+                c.setNumero(rs.getInt("numero"));
+                c.setComplemento(rs.getString("complemento"));
+                c.setEstado(rs.getString("estado"));
+                c.setCidade(rs.getString("cidade"));
+                c.setBairro(rs.getString("bairro"));
+                c.setCep(rs.getString("cep"));
+                c.setTipo(rs.getString("tipo"));
                 
                 clientes.add(c);
             }
@@ -107,16 +138,68 @@ public class ClienteDAO {
        return clientes; 
     }
     
+    public List<Cliente> consultarPorId(int id){
+        Connection con = ConnectionFactory.obterConexao();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        
+        List<Cliente> clientes = new ArrayList<>();
+        
+        
+        try{
+            stmt = con.prepareStatement("SELECT * FROM DADOSCLIENTE WHERE id LIKE ?;");
+            stmt.setString(1,"%"+id+"%");
+            rs = stmt.executeQuery();
+            
+            while(rs.next()){
+                Cliente c = new Cliente();           
+                c.setId(rs.getInt("id"));
+                c.setNome(rs.getString("nome"));
+                c.setEmail(rs.getString("email"));
+                c.setCpf(rs.getLong("cpf"));
+                c.setTelefone(rs.getString("telefone"));
+                c.setEndereco(rs.getString("endereco"));
+                c.setNumero(rs.getInt("numero"));
+                c.setComplemento(rs.getString("complemento"));
+                c.setEstado(rs.getString("estado"));
+                c.setCidade(rs.getString("cidade"));
+                c.setBairro(rs.getString("bairro"));
+                c.setCep(rs.getString("cep"));
+                c.setTipo(rs.getString("tipo"));
+                
+                clientes.add(c);
+            }
+            
+        }
+        catch(SQLException ex){
+           Logger.getLogger(FornecedorDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        finally{
+            ConnectionFactory.fecharConexao(con,stmt,rs);
+        }
+       return clientes; 
+    }
+    
     public void atualizar(Cliente c){
         Connection con = ConnectionFactory.obterConexao();
         PreparedStatement stmt = null;
         
         try{
-            stmt = con.prepareStatement("UPDATE dadosCliente SET nome = ?, email = ? WHERE id = ?");
+            stmt = con.prepareStatement("UPDATE DADOSCLIENTE SET nome = ?,email=?, cpf = ?,telefone = ?,endereco = ?,numero = ?,complemento = ?,estado = ?,cidade = ?,bairro = ?,cep = ?,tipo = ? WHERE id = ?");
             
             stmt.setString(1, c.getNome());
-            stmt.setString(2, c.getEmail());
-            stmt.setInt(3,c.getId());
+            stmt.setString(2,c.getEmail());
+            stmt.setLong(3, c.getCpf());
+            stmt.setString(4,c.getTelefone());
+            stmt.setString(5,c.getEndereco());
+            stmt.setInt(6,c.getNumero());
+            stmt.setString(7,c.getComplemento());
+            stmt.setString(8,c.getEstado());
+            stmt.setString(9,c.getCidade());
+            stmt.setString(10,c.getBairro());
+            stmt.setString(11,c.getCep());
+            stmt.setString(12,c.getTipo());
+            stmt.setInt(13,c.getId());
             
             stmt.executeUpdate();
         }

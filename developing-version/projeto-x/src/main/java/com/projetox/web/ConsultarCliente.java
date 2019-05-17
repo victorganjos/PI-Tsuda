@@ -20,8 +20,8 @@ import javax.servlet.annotation.WebServlet;
  *
  * @author fabio.msilva21
  */
-@WebServlet(name = "ConsultarServlet", urlPatterns = {"/consultar-servlet"})
-public class ConsultarServlet extends HttpServlet{
+@WebServlet(name = "ConsultarServlet", urlPatterns = {"/consultar-cliente"})
+public class ConsultarCliente extends HttpServlet{
     
     
     @Override
@@ -31,7 +31,7 @@ public class ConsultarServlet extends HttpServlet{
         List<Cliente> lista = ClienteController.consultar();
         request.setAttribute("consulta", lista);
         RequestDispatcher dispatcher
-                = request.getRequestDispatcher("/WEB-INF/jsp/Consulta.jsp");
+                = request.getRequestDispatcher("/WEB-INF/jsp/ConsultaCliente.jsp");
         dispatcher.forward(request, response);
     }
 

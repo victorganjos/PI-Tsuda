@@ -10,18 +10,18 @@ import java.util.List;
  */
 public class ClienteController {
     
-    public static void Salvar(String nome, String email){
-        Cliente c = new Cliente(nome,email);
+    public static void salvar(String nome, String email, long cpf, String telefone, String endereco, int numero, String complemento, String estado, String cidade, String bairro, String cep, String tipo){
+        Cliente c = new Cliente(nome,email,cpf, telefone, endereco, numero, complemento, estado, cidade, bairro, cep, tipo);
         ClienteDAO cliente = new ClienteDAO();
         cliente.salvar(c);
     }
-    public static void Atualizar(int id, String nome, String email){
-        Cliente c = new Cliente(id, nome,email);
+    public static void atualizar(int id, String nome, String email, long cpf, String telefone, String endereco, int numero, String complemento, String estado, String cidade, String bairro, String cep, String tipo){
+        Cliente c = new Cliente(id, nome,email,cpf, telefone, endereco, numero, complemento, estado, cidade, bairro, cep, tipo);
         ClienteDAO cliente = new ClienteDAO();
         cliente.atualizar(c);
     }
     
-    public static void Excluir (int id){
+    public static void excluir (int id){
         ClienteDAO cliente = new ClienteDAO();
         cliente.deletar(id);
     }
@@ -32,5 +32,10 @@ public class ClienteController {
     public static List<Cliente> consultar(){
         ClienteDAO cliente = new ClienteDAO();
         return cliente.consultar();
+    }
+    
+    public static List<Cliente> consultarPorId(int id){
+        ClienteDAO cliente = new ClienteDAO();
+        return cliente.consultarPorId(id);
     }
 }

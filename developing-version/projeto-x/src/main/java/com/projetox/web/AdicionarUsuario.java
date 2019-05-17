@@ -10,13 +10,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @WebServlet(name = "UsuarioServlet", urlPatterns = {"/incluir-usuario"})
-public class AdcionarUsuario extends HttpServlet {
+public class AdicionarUsuario extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         RequestDispatcher dispatcher
-                = request.getRequestDispatcher("adcionarUsuario.jsp");
+                = request.getRequestDispatcher("adicionarUsuario.jsp");
         dispatcher.forward(request, response);
     }
 
@@ -49,7 +49,7 @@ public class AdcionarUsuario extends HttpServlet {
             dispatcher.forward(request, response);
         } else {
             request.setAttribute("msgErro", "Preencha todos os campos obrigatórios");
-            request.getRequestDispatcher("/adcionarUsuario.jsp")
+            request.getRequestDispatcher("/adicionarUsuario.jsp")
                     .forward(request, response);
         }
 
