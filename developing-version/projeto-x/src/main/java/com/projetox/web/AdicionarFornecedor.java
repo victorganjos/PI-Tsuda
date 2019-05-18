@@ -60,6 +60,8 @@ public class AdicionarFornecedor extends HttpServlet {
         request.setAttribute("bairro",bairro);
         request.setAttribute("cep",cep);
         request.setAttribute("tipo",tipo);
+        
+        request.setAttribute("msgSucess", true);
 
         FornecedorController.salvar(nome,email,Long.parseLong(cnpj),telefone,endereco,Integer.parseInt(numero),complemento,estado,cidade,bairro,cep,tipo);
 
@@ -70,7 +72,7 @@ public class AdicionarFornecedor extends HttpServlet {
         dispatcher.forward(request, response);
         
          } else {
-            request.setAttribute("msgErro", "Preencha todos os campos obrigatórios");
+            request.setAttribute("msgErro", true);
             request.getRequestDispatcher("/adicionarFornecedor.jsp")
                     .forward(request, response);
         }

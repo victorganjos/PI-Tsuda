@@ -18,11 +18,15 @@
         <div class="container">
             <h2>Adicionar Usuário</h2>
             <br>
+            <c:if test="${msgErro == true}">
+                <div class="alert-danger" role="alert" style="font-size: 20px"><strong>Preencha todos os campos Obrigatórios!</strong></div>
+            </c:if> 
+            <br>
             <form action="incluir-usuario" method="post">
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label>Nome Completo*</label>
-                        <input type="text" name="nome" class="form-control"placeholder="Digite o nome:" maxlength="50" >
+                        <input type="text" name="nome" class="form-control"placeholder="Digite o nome:" maxlength="50"  id="nome">
                     </div>
                     <div class="form-group col-md-6">
                         <label>Username*</label>
@@ -42,21 +46,13 @@
                     </div>
                     <div>
                         <label>   Campos com (*) são obrigatórios!</label>
-                    </div>
-                    <c:if test="${msgErro != null}">
-                        <div class="erro" color="red" ><c:out value="${msgErro}" /></div>
-                    </c:if>
+                    </div> 
                     <br>
-                    <script>
-                        function alerta()
-                        {
-                            alert("Usuario Cadastrado com Sucesso!");
-                        }
-                    </script>
                     <div class="form-group col-md-6">  
-                        <button class="btn btn-info btn-sm" OnClick="alerta()" type="submit">Salvar</button>
+                        <button class="btn btn-info btn-sm" type="submit">Salvar</button>
                         <button class="btn btn-info btn-sm" type="reset" value="Reset">Resetar</button>
                     </div>
+
                 </div>
             </form> 
         </div>

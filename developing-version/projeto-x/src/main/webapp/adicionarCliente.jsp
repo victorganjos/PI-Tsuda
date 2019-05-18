@@ -17,6 +17,10 @@
         <div class="container">
             <h2>Adicionar Cliente</h2>
             <br>
+            <c:if test="${msgErro == true}">
+                <div class="alert-danger" role="alert" style="font-size: 20px"><strong>Preencha todos os campos Obrigatórios!</strong></div>
+            </c:if> 
+            <br>
             <form action="cliente-servlet" method="post">
                 <input type="hidden" name="tipo" value="c" />
                 <div class="form-row">
@@ -67,18 +71,8 @@
                     <div>
                         <label>   Campos com (*) são obrigatórios!</label>
                     </div>
-                    <c:if test="${msgErro != null}">
-                        <div class="erro" color="red" ><c:out value="${msgErro}" /></div>
-                    </c:if>
-                    <br>
-                    <script>
-                        function alerta()
-                        {
-                            alert("Cliente Cadastrado com Sucesso!");
-                        }
-                    </script>
                     <div class="form-group col-md-6">  
-                        <button class="btn btn-info btn-sm" OnClick="alerta()" type="submit">Salvar</button>
+                        <button class="btn btn-info btn-sm" type="submit">Salvar</button>
                         <button class="btn btn-info btn-sm" type="reset" value="Reset">Resetar</button>
                     </div>
                 </div>
