@@ -52,6 +52,8 @@ public class AtualizarCliente extends HttpServlet {
             request.setAttribute("cep", cep);
             request.setAttribute("tipo", tipo);
             request.setAttribute("id", id);
+            
+            request.setAttribute("msgAtualiza", true);
 
             ClienteController.atualizar(Integer.parseInt(id), nome, email, Long.parseLong(cpf), telefone, endereco, Integer.parseInt(numero),
                     complemento, estado, cidade, bairro, cep, tipo);
@@ -63,7 +65,7 @@ public class AtualizarCliente extends HttpServlet {
             dispatcher.forward(request, response);
 
         } else {
-            request.setAttribute("msgErro", "Preencha todos os campos obrigatórios");
+            request.setAttribute("msgErro", true);
             request.getRequestDispatcher("/atualizarCliente.jsp")
                     .forward(request, response);
         }

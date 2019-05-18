@@ -34,7 +34,6 @@ public class AdicionarUsuario extends HttpServlet {
         String cargo = request.getParameter("cargo");
         String filial = request.getParameter("filial");
 
-
         if (!nome.isEmpty() && !username.isEmpty() && !senha.isEmpty() && !cargo.isEmpty() && !filial.isEmpty()) {
             //Armazena valores como atributos 
             request.setAttribute("metodoHttp", "POST");
@@ -44,16 +43,18 @@ public class AdicionarUsuario extends HttpServlet {
             request.setAttribute("senha", senha);
             request.setAttribute("cargo", cargo);
             request.setAttribute("filial", filial);
+            
+            request.setAttribute("msgSucess", true);
 
             UsuarioController.Salvar(nome, username, senha, cargo, filial);
-            
-        List<Usuario> lista = UsuarioController.consultar();
-        request.setAttribute("consulta", lista);
+
+            List<Usuario> lista = UsuarioController.consultar();
+            request.setAttribute("consulta", lista);
             RequestDispatcher dispatcher
                     = request.getRequestDispatcher("/WEB-INF/jsp/ConsultaUsuario.jsp");
             dispatcher.forward(request, response);
         } else {
-            request.setAttribute("msgErro", "Preencha todos os campos obrigatórios");
+            request.setAttribute("msgErro", true);
             request.getRequestDispatcher("/adicionarUsuario.jsp")
                     .forward(request, response);
         }

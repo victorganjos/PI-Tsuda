@@ -65,7 +65,7 @@ public class AdicionarCliente extends HttpServlet {
         request.setAttribute("cep", cep);
         request.setAttribute("tipo", tipo);
     
-        
+        request.setAttribute("msgSucess", true);
         
         ClienteController.salvar(nome,email,Long.parseLong(cpf),telefone,endereco,Integer.parseInt(numero),complemento,estado,cidade,bairro,cep, tipo);
         
@@ -77,7 +77,7 @@ public class AdicionarCliente extends HttpServlet {
         dispatcher.forward(request, response);
         
          } else {
-            request.setAttribute("msgErro", "Preencha todos os campos obrigatórios");
+            request.setAttribute("msgErro", true);
             request.getRequestDispatcher("/adicionarCliente.jsp")
                     .forward(request, response);
         }

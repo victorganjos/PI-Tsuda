@@ -34,6 +34,16 @@ CREATE TABLE ESTOQUE(
     DS_FILIAL VARCHAR(5)
 );
 
+CREATE TABLE PRODUTO(
+id int PRIMARY KEY NOT NULL AUTO_INCREMENT,
+nomeProd  varchar(50),
+categoria  varchar(80),
+descricao  varchar(80),
+valorVenda FLOAT,
+estoqueDisp int,
+situacao  varchar(80)
+);
+
 INSERT INTO DADOSUSUARIO VALUE (1,'fabio','fabio123','123','back','sp');
 INSERT INTO DADOSUSUARIO VALUE (2,'caio','caio123','123','vendedor','sp');
 INSERT INTO DADOSUSUARIO VALUE (3,'johnnys','johnnys123','123','back','sp');

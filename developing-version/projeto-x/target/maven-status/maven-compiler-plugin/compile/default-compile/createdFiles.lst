@@ -1,4 +1,6 @@
 com\projetox\web\LoginServlet.class
+com\projetox\web\model\Filial.class
+com\projetox\web\ExcluirFilial.class
 com\projetox\web\AtualizarUsuario.class
 com\projetox\web\IncluirEstoque.class
 com\projetox\web\controller\ProdutoController.class
@@ -7,7 +9,9 @@ com\projetox\web\controller\UsuarioController.class
 com\projetox\web\model\Fornecedor.class
 com\projetox\web\dao\ProdutoDAO.class
 com\projetox\web\connection\ConnectionFactory.class
+com\projetox\web\LogoutServlet.class
 com\projetox\web\ExcluirFornecedor.class
+com\projetox\web\dao\FilialDAO.class
 com\projetox\web\ConsultarFornecedor.class
 com\projetox\web\AdicionarUsuario.class
 com\projetox\web\AtualizarCliente.class
@@ -19,10 +23,15 @@ com\projetox\web\controller\FornecedorController.class
 com\projetox\web\ConsultarCliente.class
 com\projetox\web\ConsultarEstoque.class
 com\projetox\web\ConsultarProduto.class
+com\projetox\web\controller\FilialController.class
 com\projetox\web\dao\UsuarioDAO.class
 com\projetox\web\AtualizarEstoque.class
 com\projetox\web\dao\FornecedorDAO.class
+com\projetox\web\AtualizarFilial.class
+com\projetox\web\ConsultarFilial.class
+com\projetox\web\AdicionarFilial.class
 com\projetox\web\AdicionarCliente.class
+com\projetox\web\AdicionarProduto.class
 com\projetox\web\AdicionarFornecedor.class
 com\projetox\web\dao\ClienteDAO.class
 com\projetox\web\dao\EstoqueDAO.class

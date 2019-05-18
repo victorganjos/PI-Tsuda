@@ -37,6 +37,8 @@ public class AtualizarUsuario extends HttpServlet {
         request.setAttribute("senha", senha);
         request.setAttribute("cargo", cargo);
         request.setAttribute("filial", filial);
+        
+        request.setAttribute("msgAtualiza", true);
 
         UsuarioController.Atualizar(Integer.parseInt(id), nome, username, senha, cargo, filial);
 
@@ -46,7 +48,7 @@ public class AtualizarUsuario extends HttpServlet {
                 = request.getRequestDispatcher("/WEB-INF/jsp/ConsultaUsuario.jsp");
         dispatcher.forward(request, response);
         } else {
-            request.setAttribute("msgErro", "Preencha todos os campos obrigatórios");
+            request.setAttribute("msgErro", true);
             request.getRequestDispatcher("/atualizarUsuario.jsp")
                     .forward(request, response);
         }

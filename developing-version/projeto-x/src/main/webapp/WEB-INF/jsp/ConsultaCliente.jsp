@@ -25,6 +25,13 @@
         <div class="cotainer">
             <h1>Consulta de Cliente</h1>
             <hr>
+            <c:if test="${msgSucess == true}">
+                <div class="alert-success" role="alert" style="font-size: 25px"><strong>Cliente Cadastrado com Sucesso</strong></div>
+            </c:if>
+            <c:if test="${msgAtualiza == true}">
+                <div class="alert-success" role="alert" style="font-size: 25px"><strong>Cliente Atualizado com Sucesso</strong></div>
+            </c:if>
+            <br>
             <table class="table table-bordered">
                 <tr>
                     <th class="text-center">Nome CLIENTE</th>
@@ -53,7 +60,6 @@
                 </c:forEach>
             </table>
             <input class="btn btn-info btn-sm" type="submit" value="Pagina inicial" OnClick="parent.location.href = 'homePage.jsp'">
-            <input class="btn btn-info btn-sm" type="submit" value="Cadastrar novo cliente" OnClick="parent.location.href = 'adicionarCliente.jsp'">
         </div>
     </body>
 </html>
