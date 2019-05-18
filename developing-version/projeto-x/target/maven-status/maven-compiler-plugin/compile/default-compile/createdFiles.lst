@@ -5,8 +5,8 @@ com\projetox\web\ConsultarUsuario.class
 com\projetox\web\controller\UsuarioController.class
 com\projetox\web\model\Fornecedor.class
 com\projetox\web\connection\ConnectionFactory.class
+com\projetox\web\LogoutServlet.class
 com\projetox\web\ExcluirFornecedor.class
-.netbeans_automatic_build
 com\projetox\web\ConsultarFornecedor.class
 com\projetox\web\AdicionarUsuario.class
 com\projetox\web\AtualizarCliente.class

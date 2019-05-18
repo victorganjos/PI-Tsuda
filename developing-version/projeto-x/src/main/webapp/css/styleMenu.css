@@ -76,3 +76,13 @@ h1 {
     max-height: 200px;
     transform: all;
 }
+
+.sair{
+    
+    text-decoration: none;
+    display: block;
+    color: #000;
+}
+.sair:hover{
+    color: #fff;
+}
