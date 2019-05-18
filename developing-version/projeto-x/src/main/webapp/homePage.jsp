@@ -27,6 +27,8 @@
                         <li><a href="adicionarUsuario.jsp" >Cadastrar Usuário</a></li>
                         <li><a href="adicionarCliente.jsp">Cadastrar Cliente</a></li>
                         <li><a href="adicionarFornecedor.jsp">Cadastrar Fornecedor</a></li>
+                        <li><a href="adicionarProduto.jsp">Cadastrar Produto</a></li>
+                        <li><a href="adicionarFilial.jsp">Cadastrar Filial</a></li>
                     </ul>
                 </div>
                 <div class="item">
@@ -36,6 +38,8 @@
                         <li><a href="consultar-usuario">Consultar Usuário</a></li>
                         <li><a href="consultar-cliente">Consultar Cliente</a></li>
                         <li><a href="consultar-fornecedor">Consultar Fornecedor</a></li>
+                        <li><a href="consultar-produto">Consultar Produto</a></li>
+                        <li><a href="consultar-filial">Consultar Filial</a></li>
                     </ul>
                 </div>
                 <div class="item">

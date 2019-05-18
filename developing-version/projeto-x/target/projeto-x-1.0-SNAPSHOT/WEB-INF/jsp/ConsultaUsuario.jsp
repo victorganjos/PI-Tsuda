@@ -44,6 +44,7 @@
             </c:forEach>
         </table>
         <input class="btn btn-info btn-sm" type="submit" value="Pagina inicial" OnClick="parent.location.href = 'homePage.jsp'">
+        <input class="btn btn-info btn-sm" type="submit" value="Cadastrar novo usuário" OnClick="parent.location.href = 'adicionarUsuario.jsp'">
     </div>
 </body>
 </html>

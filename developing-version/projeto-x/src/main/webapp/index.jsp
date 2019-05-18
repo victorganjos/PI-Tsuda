@@ -27,6 +27,9 @@
                     <div class="form-row">
  			<input class="btn btn-sucess btn-sm" type="submit" value="Cadastrar Fornecedor" OnClick="parent.location.href='adicionarFornecedor.jsp'">
                     </div>
+                    <div class="form-row">
+ 			<input class="btn btn-sucess btn-sm" type="submit" value="Cadastrar Produto" OnClick="parent.location.href='adicionarProduto.jsp'">
+                    </div>
                 </div>
             </div>
             <div class="dropdown">
@@ -40,6 +43,9 @@
                     </div>
                     <div class="form-row">
                         <input class="btn btn-info btn-sm" type="submit" value="Consulta Fornecedor" OnClick="parent.location.href='consultar-fornecedor'">
+                    </div>
+                    <div class="form-row">
+                        <input class="btn btn-info btn-sm" type="submit" value="Consulta Produto" OnClick="parent.location.href='consultar-produto'">
                     </div>
                 </div>
             </div>	

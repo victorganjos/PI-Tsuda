@@ -1,9 +1,9 @@
 <%@page import="java.util.ArrayList"%>
-<%@page import="com.projetox.web.controller.FornecedorController"%>
+<%@page import="com.projetox.web.controller.FilialController"%>
 <%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import="com.projetox.web.model.Fornecedor"%>
-<%@page import="com.projetox.web.dao.FornecedorDAO"%>
+<%@page import="com.projetox.web.model.Filial"%>
+<%@page import="com.projetox.web.dao.FilialDAO"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
@@ -13,7 +13,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-    <title>Fornecedor - Consulta</title>
+    <title>Filial - Consulta</title>
 </head>
 <body>   
     <div style="background:#4072A6 !important" class="jumbotron jumbotron-fluid">
@@ -22,11 +22,11 @@
         </div>
     </div>
     <div class="cotainer">
-        <h1>Consulta de Fornecedor</h1>
+        <h1>Consulta de Filial</h1>
         <hr>
         <table class="table table-bordered">
             <tr>
-                <th class="text-center">Nome Fornecedor</th>
+                <th class="text-center">Nome Filial</th>
                 <th class="text-center">Email</th>
                 <th class="text-center">CNPJ</th>
                 <th class="text-center">Telefone</th>
@@ -42,17 +42,17 @@
                 <td class="text-center"><c:out value="${cat.telefone}"/></td>
                 <td class="text-center"><c:out value="${cat.endereco}"/></td>
                 <td class="text-center"><c:out value="${cat.numero}"/></td>
-                <form method="get" action="${pageContext.request.contextPath}/atualizar-fornecedor">
+                <form method="get" action="${pageContext.request.contextPath}/atualizar-filial">
                     <td class="text-center"><button class="btn btn-warning btn-sm" type="submit" value="${cat.id}" name="id">Atualizar</td>
                 </form>
-                <form method="get" action="${pageContext.request.contextPath}/excluir-fornecedor">
+                <form method="get" action="${pageContext.request.contextPath}/excluir-filial">
                     <td class="text-center"><button class="btn btn-danger btn-sm" type="submit" value="${cat.id}" name="id">Excluir</td>
                 </form>   
             </tr>
             </c:forEach>
         </table>
         <input class="btn btn-info btn-sm" type="submit" value="Pagina inicial" OnClick="parent.location.href = 'homePage.jsp'">
-        <input class="btn btn-info btn-sm" type="submit" value="Cadastrar novo fornecedor" OnClick="parent.location.href = 'adicionarFornecedor.jsp'">
+        <input class="btn btn-info btn-sm" type="submit" value="Cadastrar nova filial" OnClick="parent.location.href = 'adicionarFilial.jsp'">
     </div>
 </body>
 </html>
