@@ -5,47 +5,57 @@
  */
 package com.projetox.web.model;
 
+import java.util.Date;
+
 /**
  *
  * @author caio.hcpereira
  */
 public class Venda {
-    private int Id;
-    private int Cliente;
-    private String FormaPagamento;
-    private float ValorTotal;
-
+    private int id;
+    private int cliente;
+    private String formaPagamento;
+    private float valorTotal;
+    private Date dataVenda;
+    
     public int getId() {
-        return Id;
+        return id;
     }
 
-    public void setId(int Id) {
-        this.Id = Id;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public int getCliente() {
-        return Cliente;
+        return cliente;
     }
 
-    public void setCliente(int Cliente) {
-        this.Cliente = Cliente;
+    public void setCliente(int cliente) {
+        this.cliente = cliente;
     }
 
     public String getFormaPagamento() {
-        return FormaPagamento;
+        return formaPagamento;
     }
 
-    public void setFormaPagamento(String FormaPagamento) {
-        this.FormaPagamento = FormaPagamento;
+    public void setFormaPagamento(String formaPagamento) {
+        this.formaPagamento = formaPagamento;
     }
 
     public double getValorTotal() {
-        return ValorTotal;
+        return valorTotal;
     }
 
-    public void setValorTotal(float ValorTotal) {
-        this.ValorTotal = ValorTotal;
+    public void setValorTotal(float valorTotal) {
+        this.valorTotal = valorTotal;
     }
-    
+
+    public Date getDataVenda() {
+        return dataVenda;
+    }
+
+    public void setDataVenda(Date dataVenda) {
+        this.dataVenda = dataVenda;
+    }
     
 }

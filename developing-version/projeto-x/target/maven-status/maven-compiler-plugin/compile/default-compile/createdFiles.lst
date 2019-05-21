@@ -19,7 +19,6 @@ com\projetox\web\ExcluirCliente.class
 com\projetox\web\model\Estoque.class
 com\projetox\web\model\Usuario.class
 com\projetox\web\LoginServlet.class
-com\projetox\web\controller\VendaController.class
 com\projetox\web\model\Filial.class
 com\projetox\web\ExcluirFilial.class
 com\projetox\web\AtualizarUsuario.class

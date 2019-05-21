@@ -14,8 +14,8 @@ import java.util.List;
  * @author caio.hcpereira
  */
 public class VendaController {
-        public static List<Venda> consultar(){
+        public static List<Venda> consultar(String cliente){
         VendaDAO Venda = new VendaDAO();
-        return Venda.consultar();
+        return Venda.consultar(cliente);
     }
 }

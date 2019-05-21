@@ -21,47 +21,54 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <div style="background:#4072A6" class="jumbotron jumbotron-fluid">
-            <div class="container">
-                <h1 class="display-4" style="color: #FCFCFC">Livraria Tades</h1>
-            </div>
-        </div>
-
-        <div class="cotainer">
-            <h1>Relatório de Vendas</h1>
-            <hr>
-            <br>
-            <div class="form-row">
-                <div class="form-group col-md-10">
-                    <label>Data inicial: &nbsp </label>
-                    <input  id="date" type="date" name="dataIni"> &nbsp&nbsp
-
-                    <label>Data final: &nbsp </label>
-                    <input  id="date" type="date" name="dataFim"> &nbsp&nbsp
-
-                    <label>Cliente </label>
-                    <input type="text" name="id" maxlength="10"> 
-
-                    <br><br>
+        <form action="relatorio-venda" method="post">
+            <div style="background:#4072A6" class="jumbotron jumbotron-fluid">
+                <div class="container">
+                    <h1 class="display-4" style="color: #FCFCFC">Livraria Tades</h1>
                 </div>
             </div>
-            <table class="table table-bordered">
-                <tr>
-                    <th class="text-center">Id Pedido</th>
-                    <th class="text-center">Cliente</th>
-                    <th class="text-center">Forma de Pagamento</th>
-                    <th class="text-center">Valor Total</th>
-                </tr>
-                <form method="get" action="relatorio-venda">
+
+            <div class="cotainer">
+                <h1>Relatório de Vendas</h1>
+                <hr>
+                <br>
+                <div class="form-row">
+                    <div class="form-group col-md-10">
+                        <label>Data inicial: &nbsp </label>
+                        <input  id="date" type="date" name="dataIni"> &nbsp&nbsp
+
+                        <label>Data final: &nbsp </label>
+                        <input  id="date" type="date" name="dataFim"> &nbsp&nbsp
+
+                        <label>Cliente </label>
+                        <input type="text" name="codigo" maxlength="10"> 
+
+                        <br><br>
+                    </div>
+                </div>
+                <table class="table table-bordered">
+                    <tr>
+                        <th class="text-center">Id Pedido</th>
+                        <th class="text-center">Cliente</th>
+                        <th class="text-center">Forma de Pagamento</th>
+                        <th class="text-center">Data Venda</th>
+                        <th class="text-center">Valor Total</th>
+                    </tr>
+
                     <button class="btn btn-warning btn-sm" type="submit" >Consultar </button>
-                    <c:forEach var="cat" items="${consulta}">
+                    <c:forEach items="${consulta}" var="cat" >
                         <tr>
-                            <td class="text-center"><c:out value="${cat.Id}"/></td>
+                            <td class="text-center"><c:out value="${cat.id}"/></td>
+                            <td class="text-center"><c:out value="${cat.cliente}"/></td>
+                            <td class="text-center"><c:out value="${cat.formaPagamento}"/></td>
+                            <td class="text-center"><c:out value="${cat.dataVenda}"/></td>
+                            <td class="text-center"><c:out value="${cat.valorTotal}"/></td>
                         </tr>
                     </c:forEach>
-                </form>
-            </table>
-            <input class="btn btn-info btn-sm" type="submit" value="Pagina inicial" OnClick="parent.location.href = 'homePage.jsp'">
-        </div>
-    </body>
+
+                </table>
+        </form>
+    </div>
+    <input class="btn btn-info btn-sm" type="submit" value="Pagina inicial" OnClick="parent.location.href = 'homePage.jsp'">
+</body>
 </html>
