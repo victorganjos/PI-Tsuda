@@ -7,6 +7,7 @@ package com.projetox.web.controller;
 
 import com.projetox.web.dao.VendaDAO;
 import com.projetox.web.model.Venda;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -14,8 +15,19 @@ import java.util.List;
  * @author caio.hcpereira
  */
 public class VendaController {
-        public static List<Venda> consultar(String cliente){
+
+    public static void salvar(int cliente, String formaPagamento, float valorTotal, Date dataVenda) {
+        Venda v = new Venda(cliente, formaPagamento, valorTotal, dataVenda);
+        VendaDAO venda = new VendaDAO();
+        venda.salvar(v);
+    }
+
+    public static List<Venda> consultar(String cliente) {
         VendaDAO Venda = new VendaDAO();
         return Venda.consultar(cliente);
+    }
+    public static void excluir (int id){
+        VendaDAO venda = new VendaDAO();
+        venda.deletar(id);
     }
 }

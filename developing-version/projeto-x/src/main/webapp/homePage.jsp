@@ -32,7 +32,7 @@
                             <input type="checkbox" id="check2">
                             <label for="check2">Consultas</label>
                             <ul>
-                                <li><a href="protegido/consultar-usuario">Consultar Usuário</a></li>
+                                <li><a href="consultar-usuario">Consultar Usuário</a></li>
                                 <li><a href="consultar-cliente">Consultar Cliente</a></li>
                                 <li><a href="consultar-fornecedor">Consultar Fornecedor</a></li>
                                 <li><a href="consultar-produto">Consultar Produto</a></li>
@@ -43,8 +43,8 @@
                             <input type="checkbox" id="check3">
                             <label for="check3">Estoque</label>
                             <ul>
-                                <li><a href="adicionarEstoque.jsp">Incluir Estoque</a></li>
-                                <li><a href="/WEB-IN/jsp/ConsultaEstoque.jsp">Consultar Estoque</a></li>
+                                <li><a href="incluirEstoque.jsp">Incluir Estoque</a></li>
+                                <li><a href="consultar-estoque">Consultar Estoque</a></li>
                             </ul>
                         </div>
 

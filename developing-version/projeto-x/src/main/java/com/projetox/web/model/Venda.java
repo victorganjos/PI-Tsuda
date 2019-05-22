@@ -17,6 +17,27 @@ public class Venda {
     private String formaPagamento;
     private float valorTotal;
     private Date dataVenda;
+
+    public Venda() {
+    }
+    
+    
+    public Venda(int cliente, String formaPagamento, float valorTotal, Date dataVenda) {
+        this.cliente = cliente;
+        this.formaPagamento = formaPagamento;
+        this.valorTotal = valorTotal;
+        this.dataVenda = dataVenda;
+    }
+
+    public Venda(int id, int cliente, String formaPagamento, float valorTotal, Date dataVenda) {
+        this.id = id;
+        this.cliente = cliente;
+        this.formaPagamento = formaPagamento;
+        this.valorTotal = valorTotal;
+        this.dataVenda = dataVenda;
+    }
+    
+    
     
     public int getId() {
         return id;

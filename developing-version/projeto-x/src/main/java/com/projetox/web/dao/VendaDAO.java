@@ -8,13 +8,11 @@ package com.projetox.web.dao;
 import com.projetox.web.connection.ConnectionFactory;
 import com.projetox.web.model.Venda;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -24,7 +22,28 @@ import java.util.logging.Logger;
  * @author caio.hcpereira
  */
 public class VendaDAO {
+    //(int cliente, String formaPagamento, float valorTotal, Date dataVenda)
+    public void salvar(Venda v) {
+        Connection con = ConnectionFactory.obterConexao();
+        PreparedStatement stmt = null;
+        
+        try {
+            stmt = con.prepareStatement("INSERT INTO venda(cliente,formaPagamento,valorTotal,dataVenda) value (?,?,?,?);");
+            stmt.setInt(1, v.getCliente());
+            stmt.setString(2, v.getFormaPagamento());
+            stmt.setDouble(3, v.getValorTotal());
+            stmt.setDate(4, (Date) v.getDataVenda());
+            
+            stmt.executeUpdate();
+            System.out.println("Salvar com sucesso!");
+        } catch (SQLException ex) {
+            java.util.logging.Logger.getLogger(ClienteDAO.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("Erro ao salvar");
+        } finally {
+            ConnectionFactory.fecharConexao(con, stmt);
+        }
 
+    }
     public List<Venda> consultar(String cliente) {
         String condicao = "";
 
@@ -65,5 +84,24 @@ public class VendaDAO {
             ConnectionFactory.fecharConexao(con, stmt, rs);
         }
         return Venda;
+    }
+    
+    public void deletar(int id){
+        Connection con = ConnectionFactory.obterConexao();
+        PreparedStatement stmt = null;
+        
+        try{
+           stmt = con.prepareStatement("Delete from venda WHERE id = ?;");
+           
+           stmt.setInt(1, id);
+           
+           stmt.executeUpdate();
+        }
+        catch(SQLException ex){
+            Logger.getLogger(ClienteDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        finally{
+            ConnectionFactory.fecharConexao(con,stmt);
+        }
     }
 }
