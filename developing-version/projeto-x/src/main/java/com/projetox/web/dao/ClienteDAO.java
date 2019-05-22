@@ -137,6 +137,48 @@ public class ClienteDAO {
         }
        return clientes; 
     }
+    public List<Cliente> consultarPorCpf(Long cpf){
+        Connection con = ConnectionFactory.obterConexao();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        
+        List<Cliente> clientes = new ArrayList<>();
+        
+        
+        try{
+            stmt = con.prepareStatement("SELECT * FROM dadoscliente WHERE cpf LIKE ? AND TIPO = 'c';");
+            stmt.setString(1,""+cpf+"");
+            rs = stmt.executeQuery();
+            
+            while(rs.next()){
+                Cliente c = new Cliente();
+                
+                c.setId(rs.getInt("id"));
+                c.setNome(rs.getString("nome"));
+                c.setEmail(rs.getString("email"));
+                c.setCpf(rs.getLong("cpf"));
+                c.setTelefone(rs.getString("telefone"));
+                c.setEndereco(rs.getString("endereco"));
+                c.setNumero(rs.getInt("numero"));
+                c.setComplemento(rs.getString("complemento"));
+                c.setEstado(rs.getString("estado"));
+                c.setCidade(rs.getString("cidade"));
+                c.setBairro(rs.getString("bairro"));
+                c.setCep(rs.getString("cep"));
+                c.setTipo(rs.getString("tipo"));
+                
+                clientes.add(c);
+            }
+            
+        }
+        catch(SQLException ex){
+           Logger.getLogger(ClienteDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        finally{
+            ConnectionFactory.fecharConexao(con,stmt,rs);
+        }
+       return clientes; 
+    }
     
     public List<Cliente> consultarPorId(int id){
         Connection con = ConnectionFactory.obterConexao();

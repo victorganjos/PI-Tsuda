@@ -38,4 +38,8 @@ public class ClienteController {
         ClienteDAO cliente = new ClienteDAO();
         return cliente.consultarPorId(id);
     }
+    public static List<Cliente> consultarPorCpf(long cpf){
+        ClienteDAO cliente = new ClienteDAO();
+        return cliente.consultarPorCpf(cpf);
+    }
 }

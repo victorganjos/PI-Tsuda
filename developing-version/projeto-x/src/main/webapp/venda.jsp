@@ -14,9 +14,15 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h2>Venda</h2>
+        
+        <div style="background:#4072A6 !important" class="jumbotron jumbotron-fluid">
+            <div class="container">
+                <h1 class="display-4" style="color: #FCFCFC">Livraria Tades</h1>
+            </div>
+        </div>
         <div>
-            <div class="container" style="width: 400px">
+            <h2 style="text-align: center">Venda</h2>
+            <div  style="width: 400px">
                 <form action="${pageContext.request.contextPath}/consultar-produto-por-nome" method="get">
                     <div class="form-row">
                         <label>Produto</label>
@@ -44,35 +50,26 @@
             </div>	
         </div>
         <div>
-            <div class="container" style="width: 400px">
+            <div  style="width: 400px">
                 <form action="${pageContext.request.contextPath}/consultar-cliente-por-nome" method="get">
                     <div class="form-row">
                         <label>Cliente</label>
-                        <input type="text" name="cliente" class="form-control is-valid" placeholder="Cliente" required>
+                        <input type="text" name="cliente" class="form-control is-valid" placeholder="CPF" required>
                     </div>
                     <button class="btn btn-primary" type="submit">Enviar</button>           
                 </form>
                 <table class="table table-bordered">
-                <tr>
-                    <th class="text-center">Nome CLIENTE</th>
-                    <th class="text-center">Email</th>
-                    <th class="text-center">CPF</th>
-                    <th class="text-center">Telefone</th>
-                    <th class="text-center">Endereço</th>
-                    <th class="text-center">Nº</th>
-                    <th class="text-center" colspan="2">Ação</th>
-                </tr>
-                <c:forEach var="cat" items="${consultaCliente}" >
                     <tr>
-                        <td class="text-center"><c:out value="${cat.nome}"/></td>
-                        <td class="text-center"><c:out value="${cat.email}"/></td>
-                        <td class="text-center"><c:out value="${cat.cpf}"/></td>
-                        <td class="text-center"><c:out value="${cat.telefone}"/></td>
-                        <td class="text-center"><c:out value="${cat.endereco}"/></td>
-                        <td class="text-center"><c:out value="${cat.numero}"/></td>
+                        <th class="text-center">Nome CLIENTE</th>
+                        <th class="text-center" colspan="2">Ação</th>
                     </tr>
-                </c:forEach>
-            </table>
+                    <c:forEach var="cat" items="${consultaCliente}" >
+                        <tr>
+                            <td class="text-center"><c:out value="${cat.nome}"/></td>
+
+                        </tr>
+                    </c:forEach>
+                </table>
             </div>	
         </div>
     </body>

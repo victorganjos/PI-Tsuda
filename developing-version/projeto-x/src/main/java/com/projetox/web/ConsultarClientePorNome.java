@@ -15,6 +15,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -26,11 +27,11 @@ public class ConsultarClientePorNome extends HttpServlet{
      protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException{
          
-         String nome = request.getParameter("cliente");
-
-
-        List<Cliente> lista = ClienteController.consultarPorNome(nome);
-        request.setAttribute("consultaCliente", lista);
+         String cpf = request.getParameter("cliente");
+         
+        HttpSession sessao = request.getSession();
+        List<Cliente> lista = ClienteController.consultarPorCpf(Long.parseLong(cpf));
+        sessao.setAttribute("consultaCliente", lista);
         RequestDispatcher dispatcher
                 = request.getRequestDispatcher("/venda.jsp");
         dispatcher.forward(request, response);

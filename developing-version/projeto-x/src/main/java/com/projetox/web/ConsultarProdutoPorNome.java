@@ -15,6 +15,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -27,10 +28,9 @@ public class ConsultarProdutoPorNome extends HttpServlet{
             throws ServletException, IOException{
          
          String nome = request.getParameter("produto");
-
-
+         HttpSession sessao = request.getSession();
         List<Produto> lista = ProdutoController.consultarPorNome(nome);
-        request.setAttribute("consulta", lista);
+        sessao.setAttribute("consulta", lista);
         
 
         RequestDispatcher dispatcher
