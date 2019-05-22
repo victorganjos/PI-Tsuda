@@ -30,7 +30,7 @@ public class ConsultarClientePorNome extends HttpServlet{
 
 
         List<Cliente> lista = ClienteController.consultarPorNome(nome);
-        request.setAttribute("consulta", lista);
+        request.setAttribute("consultaCliente", lista);
         RequestDispatcher dispatcher
                 = request.getRequestDispatcher("/venda.jsp");
         dispatcher.forward(request, response);

@@ -104,7 +104,7 @@ public class ClienteDAO {
         
         
         try{
-            stmt = con.prepareStatement("SELECT * FROM CLIENTE WHERE nome LIKE ? AND TIPO = 'c';");
+            stmt = con.prepareStatement("SELECT * FROM dadoscliente WHERE nome LIKE ? AND TIPO = 'c';");
             stmt.setString(1,"%"+nome+"%");
             rs = stmt.executeQuery();
             
