@@ -31,6 +31,8 @@ public class ConsultarProdutoPorNome extends HttpServlet{
 
         List<Produto> lista = ProdutoController.consultarPorNome(nome);
         request.setAttribute("consulta", lista);
+        
+
         RequestDispatcher dispatcher
                 = request.getRequestDispatcher("/venda.jsp");
         dispatcher.forward(request, response);
@@ -40,10 +42,16 @@ public class ConsultarProdutoPorNome extends HttpServlet{
             throws ServletException, IOException{
          
          String nome = request.getParameter("produto");
-
+         
+         
          request.setAttribute("produto", nome);
         List<Produto> lista = ProdutoController.consultarPorNome(nome);
         request.setAttribute("consulta", lista);
+        
+        int teste2 = 99;
+        for(Produto c: lista){
+            teste2 = c.getId();
+        }
         RequestDispatcher dispatcher
                 = request.getRequestDispatcher("/venda.jsp");
         dispatcher.forward(request, response);

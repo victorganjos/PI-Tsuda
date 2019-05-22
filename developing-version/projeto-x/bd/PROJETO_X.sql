@@ -44,6 +44,10 @@ estoqueDisp int,
 situacao  varchar(80)
 );
 
+
+
+select * from produto;
+
 create table venda(
 	id int not null primary key not null auto_increment,
     cliente int,
@@ -52,7 +56,7 @@ create table venda(
     dataVenda date
 );
 
-INSERT INTO VENDA VALUE (1,1,'CREDITO',25.20, 06-06-2018);
+INSERT INTO VENDA VALUE (3,1,'CREDITO',25.20, 2018-06-06);
 select * from venda;
 INSERT INTO DADOSUSUARIO VALUE (1,'fabio','fabio123','123','back','sp');
 INSERT INTO DADOSUSUARIO VALUE (2,'caio','caio123','123','vendedor','sp');

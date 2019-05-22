@@ -11,6 +11,7 @@ com\projetox\web\controller\FornecedorController.class
 com\projetox\web\ConsultarEstoque.class
 com\projetox\web\controller\FilialController.class
 com\projetox\web\dao\UsuarioDAO.class
+com\projetox\web\ConsultarClientePorNome.class
 com\projetox\web\ConsultarProdutoPorNome.class
 com\projetox\web\dao\FornecedorDAO.class
 com\projetox\web\ConsultarFilial.class

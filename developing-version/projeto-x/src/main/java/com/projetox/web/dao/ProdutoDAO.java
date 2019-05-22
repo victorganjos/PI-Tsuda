@@ -73,7 +73,14 @@ public class ProdutoDAO {
         }
         return produtos;
     }
-
+    /*
+    private int id;
+    private String nomeProd;
+    private String categoria;
+    private String descricao;
+    private float valorVenda;
+    private int estoqueDisp;
+    private String situacao;*/
     public List<Produto> consultarPorNomeProduto(String nomeProd) {
         Connection con = ConnectionFactory.obterConexao();
         PreparedStatement stmt = null;
@@ -82,20 +89,20 @@ public class ProdutoDAO {
         List<Produto> produtos = new ArrayList<>();
 
         try {
-            stmt = con.prepareStatement("SELECT * FROM produto WHERE nome LIKE ?;");
+            stmt = con.prepareStatement("SELECT * FROM produto WHERE nomeProd LIKE ?;");
             stmt.setString(1, "%" + nomeProd + "%");
             rs = stmt.executeQuery();
 
             while (rs.next()) {
                 Produto p = new Produto();
 
-                p.setId(rs.getInt("id"));
                 p.setNomeProd(rs.getString("nomeProd"));
                 p.setCategoria(rs.getString("categoria"));
                 p.setDescricao(rs.getString("descricao"));
                 p.setValorVenda(rs.getFloat("valorVenda"));
                 p.setEstoqueDisp(rs.getInt("estoqueDisp"));
                 p.setSituacao(rs.getString("situacao"));
+                
                 produtos.add(p);
             }
 
