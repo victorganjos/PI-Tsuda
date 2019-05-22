@@ -14,7 +14,7 @@
         <title>JSP Page</title>
     </head>
     <body>
-        
+
         <div style="background:#4072A6 !important" class="jumbotron jumbotron-fluid">
             <div class="container">
                 <h1 class="display-4" style="color: #FCFCFC">Livraria Tades</h1>
@@ -44,33 +44,59 @@
                             <td class="text-center"><c:out value="${cat.valorVenda}"/></td>
                             <td class="text-center"><c:out value="${cat.estoqueDisp}"/></td>
                             <td class="text-center"><c:out value="${cat.situacao}"/></td>
+                        <form method="get" action="${pageContext.request.contextPath}/adicionar-item-venda">
+                        <td class="text-center"><button class="btn btn-warning btn-sm" type="submit" value="${cat.id}" name="id">Atualizar</td>
+                    </form>                       
                         </tr>
                     </c:forEach>
                 </table>
-            </div>	
-        </div>
-        <div>
-            <div  style="width: 400px">
-                <form action="${pageContext.request.contextPath}/consultar-cliente-por-nome" method="get">
-                    <div class="form-row">
-                        <label>Cliente</label>
-                        <input type="text" name="cliente" class="form-control is-valid" placeholder="CPF" required>
-                    </div>
-                    <button class="btn btn-primary" type="submit">Enviar</button>           
-                </form>
-                <table class="table table-bordered">
-                    <tr>
-                        <th class="text-center">Nome CLIENTE</th>
-                        <th class="text-center" colspan="2">Ação</th>
-                    </tr>
-                    <c:forEach var="cat" items="${consultaCliente}" >
+            </div>
+            <div>
+                <h3>Lista de Produtos</h3>
+                <div  style="width: 400px">
+                    
+                    <table class="table table-bordered">
                         <tr>
-                            <td class="text-center"><c:out value="${cat.nome}"/></td>
-
+                            <th class="text-center">Nome Produto</th><th class="text-center">Categoria</th><th class="text-center">Descrição</th>
+                            <th class="text-center">Valor Venda</th><th class="text-center">Estoque Disponível</th><th class="text-center">Situação</th>
+                            <th class="text-center" colspan="2">Ação</th>
+                        </tr>     
+                        <c:forEach var="cat" items="${consultaProduto}" >
+                            <tr>
+                                <td class="text-center"><c:out value="${cat.nomeProd}"/></td>
+                                <td class="text-center"><c:out value="${cat.categoria}"/></td>
+                                <td class="text-center"><c:out value="${cat.descricao}"/></td>
+                                <td class="text-center"><c:out value="${cat.valorVenda}"/></td>
+                                <td class="text-center"><c:out value="${cat.estoqueDisp}"/></td>
+                                <td class="text-center"><c:out value="${cat.situacao}"/></td>
+                            </tr>
+                        </c:forEach>
+                    </table>
+                   
+                </div>	
+            </div>
+            <div>
+                <div  style="width: 400px">
+                    <form action="${pageContext.request.contextPath}/consultar-cliente-por-nome" method="get">
+                        <div class="form-row">
+                            <label>Cliente</label>
+                            <input type="text" name="cliente" class="form-control is-valid" placeholder="CPF" required>
+                        </div>
+                        <button class="btn btn-primary" type="submit">Enviar</button>           
+                    </form>
+                    <table class="table table-bordered">
+                        <tr>
+                            <th class="text-center">Nome CLIENTE</th>
+                            <th class="text-center" colspan="2">Ação</th>
                         </tr>
-                    </c:forEach>
-                </table>
-            </div>	
-        </div>
+                        <c:forEach var="cat" items="${consultaCliente}" >
+                            <tr>
+                                <td class="text-center"><c:out value="${cat.nome}"/></td>
+
+                            </tr>
+                        </c:forEach>
+                    </table>
+                </div>	
+            </div>
     </body>
 </html>

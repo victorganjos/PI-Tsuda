@@ -95,7 +95,8 @@ public class ProdutoDAO {
 
             while (rs.next()) {
                 Produto p = new Produto();
-
+                
+                p.setId(rs.getInt("id"));
                 p.setNomeProd(rs.getString("nomeProd"));
                 p.setCategoria(rs.getString("categoria"));
                 p.setDescricao(rs.getString("descricao"));
@@ -123,7 +124,7 @@ public class ProdutoDAO {
 
         try {
             stmt = con.prepareStatement("SELECT * FROM produto WHERE id LIKE ?;");
-            stmt.setString(1, "%" + id + "%");
+            stmt.setString(1, "" + id + "");
             rs = stmt.executeQuery();
 
             while (rs.next()) {
