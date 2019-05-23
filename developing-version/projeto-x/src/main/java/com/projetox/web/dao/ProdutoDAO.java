@@ -148,6 +148,37 @@ public class ProdutoDAO {
         }
         return produtos;
     }
+    public Produto consultarPorIdVenda(int id) {
+        Connection con = ConnectionFactory.obterConexao();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        Produto produtos = new Produto();
+                
+        try {
+            stmt = con.prepareStatement("SELECT * FROM produto WHERE id LIKE ?;");
+            stmt.setString(1, "" + id + "");
+            rs = stmt.executeQuery();
+            
+                Produto p = new Produto();
+
+                p.setId(rs.getInt("id"));
+                p.setNomeProd(rs.getString("nomeProd"));
+                p.setCategoria(rs.getString("categoria"));
+                p.setDescricao(rs.getString("descricao"));
+                p.setValorVenda(rs.getFloat("valorVenda"));
+                p.setEstoqueDisp(rs.getInt("estoqueDisp"));
+                p.setSituacao(rs.getString("situacao"));
+                produtos = p;
+
+        } catch (SQLException ex) {
+            Logger.getLogger(ProdutoDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            ConnectionFactory.fecharConexao(con, stmt, rs);
+        }
+        return produtos;
+    }
+    
+    
 
     public static List<Produto> pesquisar(int id) {
         Connection con = ConnectionFactory.obterConexao();

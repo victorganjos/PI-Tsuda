@@ -37,6 +37,11 @@ public class ProdutoController {
         return pDao.consultarPorId(id);
     }
     
+    public static Produto consultarPorIdVenda(int id){
+        ProdutoDAO pDao = new ProdutoDAO();
+        return pDao.consultarPorIdVenda(id);
+    }
+    
     public static List<Produto> consultar(){
     ProdutoDAO pDao = new ProdutoDAO();
     return pDao.consultar();

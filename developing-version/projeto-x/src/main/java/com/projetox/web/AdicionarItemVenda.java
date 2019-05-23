@@ -30,14 +30,21 @@ public class AdicionarItemVenda extends HttpServlet{
 
         int id = Integer.parseInt(request.getParameter("id"));
         HttpSession sessao = request.getSession();
-
+        
         List<Produto> lista = ProdutoController.consultarPorId(id);
-        sessao.setAttribute("consultaProduto", lista);
+        if (sessao.getAttribute("consultaProduto") == null) {
+            sessao.setAttribute("consultaProduto", lista);
+        }else{
+
+        List<Produto> acesso = (List<Produto>) sessao.getAttribute("consultaProduto");
+   
+        acesso.add(lista.get(0));
+     
         
-        List<Produto> acesso = (List<Produto>) sessao.getAttribute("acesso");
         request.setAttribute("id", id);
-        request.setAttribute("acesso", acesso);
-        
+        request.setAttribute("consultaProduto", acesso);
+  
+        }
         RequestDispatcher dispatcher
                 = request.getRequestDispatcher("/venda.jsp");
         dispatcher.forward(request, response);
