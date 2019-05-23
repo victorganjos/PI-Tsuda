@@ -73,14 +73,7 @@ public class ProdutoDAO {
         }
         return produtos;
     }
-    /*
-    private int id;
-    private String nomeProd;
-    private String categoria;
-    private String descricao;
-    private float valorVenda;
-    private int estoqueDisp;
-    private String situacao;*/
+
     public List<Produto> consultarPorNomeProduto(String nomeProd) {
         Connection con = ConnectionFactory.obterConexao();
         PreparedStatement stmt = null;
@@ -95,7 +88,7 @@ public class ProdutoDAO {
 
             while (rs.next()) {
                 Produto p = new Produto();
-                
+
                 p.setId(rs.getInt("id"));
                 p.setNomeProd(rs.getString("nomeProd"));
                 p.setCategoria(rs.getString("categoria"));
@@ -103,7 +96,7 @@ public class ProdutoDAO {
                 p.setValorVenda(rs.getFloat("valorVenda"));
                 p.setEstoqueDisp(rs.getInt("estoqueDisp"));
                 p.setSituacao(rs.getString("situacao"));
-                
+
                 produtos.add(p);
             }
 
@@ -148,19 +141,20 @@ public class ProdutoDAO {
         }
         return produtos;
     }
+
     public Produto consultarPorIdVenda(int id) {
         Connection con = ConnectionFactory.obterConexao();
         PreparedStatement stmt = null;
         ResultSet rs = null;
         Produto produtos = new Produto();
-                
+
         try {
             stmt = con.prepareStatement("SELECT * FROM produto WHERE id LIKE ?;");
             stmt.setString(1, "" + id + "");
             rs = stmt.executeQuery();
-            
-                Produto p = new Produto();
 
+            Produto p = new Produto();
+            while (rs.next()) {
                 p.setId(rs.getInt("id"));
                 p.setNomeProd(rs.getString("nomeProd"));
                 p.setCategoria(rs.getString("categoria"));
@@ -169,7 +163,7 @@ public class ProdutoDAO {
                 p.setEstoqueDisp(rs.getInt("estoqueDisp"));
                 p.setSituacao(rs.getString("situacao"));
                 produtos = p;
-
+            }
         } catch (SQLException ex) {
             Logger.getLogger(ProdutoDAO.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
@@ -177,8 +171,6 @@ public class ProdutoDAO {
         }
         return produtos;
     }
-    
-    
 
     public static List<Produto> pesquisar(int id) {
         Connection con = ConnectionFactory.obterConexao();

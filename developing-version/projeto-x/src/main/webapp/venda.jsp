@@ -13,9 +13,9 @@
         <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <title>JSP Page</title>
         <script>
-            
+
         </script>
-        
+
     </head>
     <body>
 
@@ -49,8 +49,8 @@
                             <td class="text-center"><c:out value="${cat.estoqueDisp}"/></td>
                             <td class="text-center"><c:out value="${cat.situacao}"/></td>
                         <form method="get" action="${pageContext.request.contextPath}/adicionar-item-venda">
-                        <td class="text-center"><button class="btn btn-warning btn-sm" type="submit" value="${cat.id}" name="id">Atualizar</td>
-                    </form>                       
+                            <td class="text-center"><button class="btn btn-success btn-sm" type="submit" value="${cat.id}" name="id">Adicionar</td>
+                        </form>                       
                         </tr>
                     </c:forEach>
                 </table>
@@ -58,7 +58,7 @@
             <div>
                 <h3>Lista de Produtos</h3>
                 <div  style="width: 400px">
-                    
+
                     <table class="table table-bordered">
                         <tr>
                             <th class="text-center">Nome Produto</th><th class="text-center">Categoria</th><th class="text-center">Descrição</th>
@@ -73,10 +73,13 @@
                                 <td class="text-center"><c:out value="${cat.valorVenda}"/></td>
                                 <td class="text-center"><c:out value="${cat.estoqueDisp}"/></td>
                                 <td class="text-center"><c:out value="${cat.situacao}"/></td>
+                            <form method="post" action="${pageContext.request.contextPath}/adicionar-item-venda">
+                                <td class="text-center"><button class="btn btn-danger btn-sm" type="submit" value="${cat.id}" name="id">Excluir</td>
+                            </form>
                             </tr>
                         </c:forEach>
                     </table>
-                   
+
                 </div>	
             </div>
             <div>

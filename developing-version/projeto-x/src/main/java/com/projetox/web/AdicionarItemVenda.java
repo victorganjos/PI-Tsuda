@@ -22,29 +22,54 @@ import javax.servlet.http.HttpSession;
  * @author fabio.msilva21
  */
 @WebServlet(name = "AdicionarItemVenda", urlPatterns = {"/adicionar-item-venda"})
-public class AdicionarItemVenda extends HttpServlet{
+public class AdicionarItemVenda extends HttpServlet {
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
 
         int id = Integer.parseInt(request.getParameter("id"));
         HttpSession sessao = request.getSession();
-        
+
         List<Produto> lista = ProdutoController.consultarPorId(id);
         if (sessao.getAttribute("consultaProduto") == null) {
             sessao.setAttribute("consultaProduto", lista);
-        }else{
+        } else {
 
-        List<Produto> acesso = (List<Produto>) sessao.getAttribute("consultaProduto");
-   
-        acesso.add(lista.get(0));
-     
-        
-        request.setAttribute("id", id);
-        request.setAttribute("consultaProduto", acesso);
-  
+            List<Produto> acesso = (List<Produto>) sessao.getAttribute("consultaProduto");
+
+            acesso.add(lista.get(0));
+
+            request.setAttribute("id", id);
+            request.setAttribute("consultaProduto", acesso);
+
         }
+        RequestDispatcher dispatcher
+                = request.getRequestDispatcher("/venda.jsp");
+        dispatcher.forward(request, response);
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+
+        int id = Integer.parseInt(request.getParameter("id"));
+        HttpSession sessao = request.getSession();
+       
+            List<Produto> acesso = (List<Produto>) sessao.getAttribute("consultaProduto");
+           int aux=0;
+           for(int i=0;i<acesso.size();i++){
+           if(id==acesso.get(aux).getId()){
+           acesso.remove(aux);
+           break;
+           }
+           aux++;
+           }
+            
+            request.setAttribute("id", id);
+            request.setAttribute("consultaProduto", acesso);
+
+        
         RequestDispatcher dispatcher
                 = request.getRequestDispatcher("/venda.jsp");
         dispatcher.forward(request, response);
