@@ -27,51 +27,61 @@ public class AdicionarItemVenda extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
+        String as = request.getParameter("id");
+        for (int i = 0; i < as.length(); i++) {
+            if (as.charAt(i) == 'a') {
+                String aux = as.replaceAll("a", "");
 
-        int id = Integer.parseInt(request.getParameter("id"));
-        HttpSession sessao = request.getSession();
+                int id = Integer.parseInt(aux);
 
-        List<Produto> lista = ProdutoController.consultarPorId(id);
-        if (sessao.getAttribute("consultaProduto") == null) {
-            sessao.setAttribute("consultaProduto", lista);
-        } else {
+                HttpSession sessao = request.getSession();
 
-            List<Produto> acesso = (List<Produto>) sessao.getAttribute("consultaProduto");
+                List<Produto> lista = ProdutoController.consultarPorId(id);
+                if (sessao.getAttribute("consultaProduto") == null) {
+                    sessao.setAttribute("consultaProduto", lista);
 
-            acesso.add(lista.get(0));
+                } else {
+                    List<Produto> acesso = (List<Produto>) sessao.getAttribute("consultaProduto");
+                    acesso.add(lista.get(0));
+                    request.setAttribute("id", id);
+                    request.setAttribute("consultaProduto", acesso);
 
-            request.setAttribute("id", id);
-            request.setAttribute("consultaProduto", acesso);
+                }
+                RequestDispatcher dispatcher
+                        = request.getRequestDispatcher("/venda.jsp");
+                dispatcher.forward(request, response);
+            } else if (as.charAt(i) == 'b') {
+                String aux = as.replaceAll("b", "");
+                int id = Integer.parseInt(aux);
+                HttpSession sessao = request.getSession();
+              
 
+                List<Produto> acesso = (List<Produto>) sessao.getAttribute("consultaProduto");
+                int aux2 = 0;
+                for (int j = 0; j < acesso.size(); j++) {
+                    if (id == acesso.get(aux2).getId()) {
+                        acesso.remove(aux2);
+                        break;
+                    }
+                    aux2++;
+                }
+
+                request.setAttribute("id", id);
+                request.setAttribute("consultaProduto", acesso);
+               
+
+                RequestDispatcher dispatcher
+                        = request.getRequestDispatcher("/venda.jsp");
+                dispatcher.forward(request, response);
+            }
         }
-        RequestDispatcher dispatcher
-                = request.getRequestDispatcher("/venda.jsp");
-        dispatcher.forward(request, response);
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        int id = Integer.parseInt(request.getParameter("id"));
-        HttpSession sessao = request.getSession();
-       
-            List<Produto> acesso = (List<Produto>) sessao.getAttribute("consultaProduto");
-           int aux=0;
-           for(int i=0;i<acesso.size();i++){
-           if(id==acesso.get(aux).getId()){
-           acesso.remove(aux);
-           break;
-           }
-           aux++;
-           }
-            
-            request.setAttribute("id", id);
-            request.setAttribute("consultaProduto", acesso);
-
-        
-        RequestDispatcher dispatcher
-                = request.getRequestDispatcher("/venda.jsp");
-        dispatcher.forward(request, response);
-    }
+       }
 }
+

@@ -49,7 +49,7 @@
                             <td class="text-center"><c:out value="${cat.estoqueDisp}"/></td>
                             <td class="text-center"><c:out value="${cat.situacao}"/></td>
                         <form method="get" action="${pageContext.request.contextPath}/adicionar-item-venda">
-                            <td class="text-center"><button class="btn btn-success btn-sm" type="submit" value="${cat.id}" name="id">Adicionar</td>
+                            <td class="text-center"><button class="btn btn-success btn-sm" type="submit" value="${cat.id}a" name="id">Adicionar</td>
                         </form>                       
                         </tr>
                     </c:forEach>
@@ -73,8 +73,8 @@
                                 <td class="text-center"><c:out value="${cat.valorVenda}"/></td>
                                 <td class="text-center"><c:out value="${cat.estoqueDisp}"/></td>
                                 <td class="text-center"><c:out value="${cat.situacao}"/></td>
-                            <form method="post" action="${pageContext.request.contextPath}/adicionar-item-venda">
-                                <td class="text-center"><button class="btn btn-danger btn-sm" type="submit" value="${cat.id}" name="id">Excluir</td>
+                            <form method="get" action="${pageContext.request.contextPath}/adicionar-item-venda">
+                                <td class="text-center"><button class="btn btn-danger btn-sm" type="submit" value="${cat.id}b" name="id">Excluir</td>
                             </form>
                             </tr>
                         </c:forEach>
