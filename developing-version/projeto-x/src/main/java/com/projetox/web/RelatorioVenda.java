@@ -29,17 +29,7 @@ public class RelatorioVenda extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         //recupera as informações do formulario
-/*
-        String cliente = request.getParameter("codigo");
-        JOptionPane.showMessageDialog(null, request.getParameter("codigo"));
 
-        if (cliente == null) {
-            cliente = "";
-        }
-
-        List<Venda> lista = VendaController.consultar(cliente);
-        request.setAttribute("consulta", lista);
-         */
         RequestDispatcher dispatcher
                 = request.getRequestDispatcher("/relatorioVenda.jsp");
         dispatcher.forward(request, response);
@@ -53,33 +43,26 @@ public class RelatorioVenda extends HttpServlet {
         
         try {
             String cliente = request.getParameter("codigo");
+            String dataIni = request.getParameter("dataIni");
+            String dataFim = request.getParameter("dataFim");
             
             if (cliente == null) {
                 cliente = "";
             }
             
-            lista = VendaController.consultar(cliente);
+            if(dataIni == null){
+                dataIni = "";
+            }
+            
+            if(dataFim == null){
+                dataFim = "";
+            }
+            
+            lista = VendaController.consultar(cliente, dataIni, dataFim);
         } catch (Exception ex) {
             Logger.getLogger(RelatorioVenda.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        /*
-        venda.setId(Integer.parseInt(lista.("id")));
-        venda.setCliente(Integer.parseInt(request.getParameter("cliente")));
-        venda.setFormaPagamento(request.getParameter("formaPagamento"));
-
-        String dataVenda = request.getParameter("dataVenda");
-        try {
-            dateVenda = (Date) formatter.parse(dataVenda);
-        } catch (ParseException ex) {
-            Logger.getLogger(RelatorioVenda.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        venda.setDataVenda(dateVenda);
-
-        venda.setValorTotal(Float.parseFloat(request.getParameter("valorTotal")));
-
-        VendaDAO daoVenda = new VendaDAO();
-         */
         request.setAttribute("consulta", lista);
         RequestDispatcher dispatcher
                 = request.getRequestDispatcher("/relatorioVenda.jsp");

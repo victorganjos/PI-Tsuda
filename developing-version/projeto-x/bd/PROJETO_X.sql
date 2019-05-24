@@ -45,9 +45,6 @@ situacao  varchar(80)
 );
 
 
-
-select * from produto;
-
 create table venda(
 	id int not null primary key not null auto_increment,
     cliente int,

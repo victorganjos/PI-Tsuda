@@ -16,20 +16,21 @@ public class Venda {
     private int cliente;
     private String formaPagamento;
     private float valorTotal;
-    private Date dataVenda;
-
+    private String dataVenda;
+    private String nomeCliente;
+    
     public Venda() {
     }
     
     
-    public Venda(int cliente, String formaPagamento, float valorTotal, Date dataVenda) {
+    public Venda(int cliente, String formaPagamento, float valorTotal, String dataVenda) {
         this.cliente = cliente;
         this.formaPagamento = formaPagamento;
         this.valorTotal = valorTotal;
         this.dataVenda = dataVenda;
     }
 
-    public Venda(int id, int cliente, String formaPagamento, float valorTotal, Date dataVenda) {
+    public Venda(int id, int cliente, String formaPagamento, float valorTotal, String dataVenda) {
         this.id = id;
         this.cliente = cliente;
         this.formaPagamento = formaPagamento;
@@ -37,6 +38,14 @@ public class Venda {
         this.dataVenda = dataVenda;
     }
     
+        public Venda(int id, int cliente, String formaPagamento, float valorTotal, String dataVenda, String nomeCliente) {
+        this.id = id;
+        this.cliente = cliente;
+        this.formaPagamento = formaPagamento;
+        this.valorTotal = valorTotal;
+        this.dataVenda = dataVenda;
+        this.nomeCliente = nomeCliente;
+    }
     
     
     public int getId() {
@@ -71,12 +80,22 @@ public class Venda {
         this.valorTotal = valorTotal;
     }
 
-    public Date getDataVenda() {
+    public String getDataVenda() {
         return dataVenda;
     }
 
-    public void setDataVenda(Date dataVenda) {
+    public void setDataVenda(String dataVenda) {
         this.dataVenda = dataVenda;
     }
+
+    public String getNomeCliente() {
+        return nomeCliente;
+    }
+
+    public void setNomeCliente(String nomeCliente) {
+        this.nomeCliente = nomeCliente;
+    }
+    
+    
     
 }

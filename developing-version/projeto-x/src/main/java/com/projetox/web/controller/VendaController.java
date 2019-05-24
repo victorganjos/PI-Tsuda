@@ -16,15 +16,15 @@ import java.util.List;
  */
 public class VendaController {
 
-    public static void salvar(int cliente, String formaPagamento, float valorTotal, Date dataVenda) {
+    public static void salvar(int cliente, String formaPagamento, float valorTotal, String dataVenda) {
         Venda v = new Venda(cliente, formaPagamento, valorTotal, dataVenda);
         VendaDAO venda = new VendaDAO();
         venda.salvar(v);
     }
 
-    public static List<Venda> consultar(String cliente) {
+    public static List<Venda> consultar(String cliente, String dataIni, String dataFim) {
         VendaDAO Venda = new VendaDAO();
-        return Venda.consultar(cliente);
+        return Venda.consultar(cliente, dataIni, dataFim);
     }
     public static void excluir (int id){
         VendaDAO venda = new VendaDAO();

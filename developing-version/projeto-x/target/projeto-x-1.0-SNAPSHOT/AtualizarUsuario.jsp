@@ -4,61 +4,66 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Usuario - Atualizar</title>
+        <title>Usuário - Atualizar</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
-        <h1>Usuario - Atualizar</h1>
-        <div>
-            <form action="atualizar-usuario" method="post">
-                <input type="hidden" name="escondido" value="xpto" />
+        <div style="background:#4072A6 !important" class="jumbotron jumbotron-fluid">
+            <div class="container">
+                <h1 class="display-4" style="color: #FCFCFC">Livraria Tades</h1>
+            </div>
+        </div>
 
-                <c:forEach items="${consulta}" var="consulta">
-                    <div>
-                        <label>Id</label>
-                        <div>
-                            <input type="number" name="id" value="${consulta.id}" readonly/> 
-                        </div>
-                    </div>
-                    <div>
-                        <label>Nome</label>
-                        <div>
-                            <input type="text" name="nome" maxlength="50" value="${consulta.nome}"required/>
-                        </div>
-                    </div>
-                    <div>
-                        <label>Username</label>
-                        <div>
-                            <input type="text" name="username" maxlength="50" value="${consulta.username}" required/>
-                        </div>
-                    </div>
-                    <div>
-                        <label>Senha</label>
-                        <div>
-                            <input type="password" name="senha" maxlength="50" value="${consulta.senha}" required/>
-                        </div>
-                    </div>
-                    <div>
-                        <label>Cargo</label>
-                        <div>
-                            <input type="text" name="cargo" maxlength="50" value="${consulta.cargo}" required/>
-                        </div>
-                    </div>
-                    <div>
-                        <label>Filial</label>
-                        <div>
-                            <input type="text" name="filial" maxlength="50" value="${consulta.filial}" required/>
-                        </div>
-                    </div>
-                    
-                </c:forEach>
-                <button type="submit">Salvar</button>
-
-            </form>
+        <div class="container">
+            <h2>Atualizar Usuário</h2>
             <br>
-            <input class="btn btn-info btn-sm" type="submit" value="Pagina inicial" OnClick="parent.location.href = 'index.jsp'">
+            <c:if test="${msgErro == true}">
+                <div class="alert-danger" role="alert" style="font-size: 20px"><strong>Preencha todos os campos Obrigatórios!</strong></div>
+            </c:if> 
+            <br>
+            <form action="atualizar-usuario" method="post">
+                <c:if test="${sessionScope.acesso != null && !sessionScope.acesso.isEmpty()}">
+                    <c:forEach items="${sessionScope.acesso}" var="acesso">
+                        <input type="hidden" name="id" maxlength="10" value="${acesso.id}"/>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label>Nome Completo*</label>
+                                <input type="text" name="nome" class="form-control" maxlength="50" value="${acesso.nome}" >
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>Username*</label>
+                                <input  type="text" name="username" class="form-control" maxlength="50" value="${acesso.username}" >
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>Senha*</label>
+                                <input  type="password" name="senha" class="form-control" maxlength="50" value="${acesso.senha}" >
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>Cargo*</label>
+                                <input  type="text" name="cargo" class="form-control" maxlength="50" value="${acesso.cargo}" >
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>Filial*</label>
+                                <input type="text" name="filial" class="form-control" maxlength="50" value="${acesso.filial}" >
+                            </div>
+                            <div>
+                                <label>   Campos com (*) são obrigatórios!</label>
+                            </div>
+                            <br>
+                            <div class="form-group col-md-6">  
+                                <button class="btn btn-info btn-sm" type="submit">Salvar</button>
+                            </div>
+                        </div>
+                    </c:forEach>
+                </c:if> 
+            </form>
+        </div>
+        <div class="container">
+            <br>
+            <input class="btn btn-info btn-sm" type="submit" value="Página inicial" OnClick="parent.location.href = 'homePage.jsp'">
+            <input class="btn btn-info btn-sm" type="submit" value="Consultar Usuários" OnClick="parent.location.href = 'consultar-usuario'">
         </div>
     </body>
 </html>
