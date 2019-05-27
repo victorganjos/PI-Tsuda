@@ -43,7 +43,7 @@
                             <input type="checkbox" id="check3">
                             <label for="check3">Estoque</label>
                             <ul>
-                                <li><a href="incluirEstoque.jsp">Incluir Estoque</a></li>
+                                <li><a href="adicionarEstoque.jsp">Incluir Estoque</a></li>
                                 <li><a href="consultar-estoque">Consultar Estoque</a></li>
                             </ul>
                         </div>

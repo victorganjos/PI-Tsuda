@@ -12,10 +12,21 @@
         <title>JSP Page</title>
     </head>
     <body>
+        <div style="background:#4072A6 !important" class="jumbotron jumbotron-fluid">
+            <div class="container">
+                <h1 class="display-4" style="color: #FCFCFC">Livraria Tades</h1>
+            </div>
+        </div>
         <div class="cotainer">
-            <h1>Consulta</h1>
+            <h1>Consulta de Produtos</h1>
             <hr>
-
+            <c:if test="${msgSucess == true}">
+                <div class="alert-success" role="alert" style="font-size: 25px"><strong>Produto Cadastrado com Sucesso</strong></div>
+            </c:if>
+            <c:if test="${msgAtualiza == true}">
+                <div class="alert-success" role="alert" style="font-size: 25px"><strong>Produto Atualizado com Sucesso</strong></div>
+            </c:if>
+            <br>
             <table class="table table-bordered">
                 <tr>
                     <th class="text-center">ID</th>

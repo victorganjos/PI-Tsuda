@@ -20,9 +20,11 @@ public class ExcluirEstoque extends HttpServlet {
         //recupera as informações do formulario
         String id = request.getParameter("id");
         String descricao = request.getParameter("descricao");
+        String filial = request.getParameter("filial");
 
         request.setAttribute("id", id);
         request.setAttribute("descricao", descricao);
+        request.setAttribute("filial", filial);
 
         EstoqueController.Excluir(Integer.parseInt(id));
 
@@ -39,11 +41,11 @@ public class ExcluirEstoque extends HttpServlet {
 
         int id = Integer.parseInt(request.getParameter("id"));
 
-        List<Estoque> lista = EstoqueController.consultarPorId(id);
+        List<Estoque> lista = EstoqueController.pesquisar(id);
         request.setAttribute("id", id);
         request.setAttribute("consulta", lista);
         RequestDispatcher dispatcher
-                = request.getRequestDispatcher("/atualizarEstoque.jsp");
+                = request.getRequestDispatcher("/excluirEstoque.jsp");
         dispatcher.forward(request, response);
     }
     

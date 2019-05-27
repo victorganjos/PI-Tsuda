@@ -26,7 +26,7 @@ public class IncluirEstoque extends HttpServlet {
             throws ServletException, IOException {
 
         RequestDispatcher dispatcher
-                = request.getRequestDispatcher("incluirEstoque.jsp");
+                = request.getRequestDispatcher("adicionarEstoque.jsp");
         dispatcher.forward(request, response);
     }
 
@@ -37,10 +37,12 @@ public class IncluirEstoque extends HttpServlet {
         String descricao = request.getParameter("descricao");
         String filial = request.getParameter("filial");
 
-        //Armazena valores como atributos 
+    if (!descricao.isEmpty() && !filial.isEmpty()) {
         request.setAttribute("metodoHttp", "POST");
         request.setAttribute("descricao", descricao);
-        request.setAttribute("email", filial);
+        request.setAttribute("filial", filial);
+        
+        request.setAttribute("msgSucess", true);
 
         EstoqueController.Salvar(descricao, filial);
 
@@ -49,6 +51,12 @@ public class IncluirEstoque extends HttpServlet {
         RequestDispatcher dispatcher
                 = request.getRequestDispatcher("/WEB-INF/jsp/ConsultaEstoque.jsp");
         dispatcher.forward(request, response);
+        
+        } else {
+            request.setAttribute("msgErro", true);
+            request.getRequestDispatcher("/adicionarEstoque.jsp")
+                    .forward(request, response);
+        }
     }
 
 }

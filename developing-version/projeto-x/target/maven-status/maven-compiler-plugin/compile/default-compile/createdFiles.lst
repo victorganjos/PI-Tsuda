@@ -30,6 +30,7 @@ com\projetox\web\model\Fornecedor.class
 com\projetox\web\Venda.class
 com\projetox\web\dao\ProdutoDAO.class
 com\projetox\web\connection\ConnectionFactory.class
+com\projetox\web\model\ItemPedido.class
 com\projetox\web\AdicionarItemVenda.class
 com\projetox\web\LogoutServlet.class
 com\projetox\web\ExcluirFornecedor.class

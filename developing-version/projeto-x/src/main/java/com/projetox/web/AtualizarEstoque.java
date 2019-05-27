@@ -8,9 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import com.projetox.web.controller.EstoqueController;
-import com.projetox.web.controller.UsuarioController;
 import com.projetox.web.model.Estoque;
-import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.http.HttpSession;
 
@@ -22,15 +20,20 @@ public class AtualizarEstoque extends HttpServlet {
             throws ServletException, IOException {
 
         //recupera as informações do formulario
+        String escondido = request.getParameter("escondido");
+        String id = request.getParameter("id");
         String descricao = request.getParameter("descricao");
         String filial = request.getParameter("filial");
-        String id = request.getParameter("id");
-
+        
+        if (!descricao.isEmpty() && !filial.isEmpty()){
         //Armazena valores como atributos 
         request.setAttribute("metodoHttp", "POST");
+        request.setAttribute("id", id);
         request.setAttribute("descricao", descricao);
         request.setAttribute("filial", filial);
-        request.setAttribute("id", id);
+        
+        request.setAttribute("msgAtualiza", true);
+        
 
         EstoqueController.Atualizar(Integer.parseInt(id), descricao, filial);
 
@@ -39,6 +42,11 @@ public class AtualizarEstoque extends HttpServlet {
         RequestDispatcher dispatcher
                 = request.getRequestDispatcher("/WEB-INF/jsp/ConsultaEstoque.jsp");
         dispatcher.forward(request, response);
+    } else {
+            request.setAttribute("msgErro", true);
+            request.getRequestDispatcher("/atualizarEstoque.jsp")
+                    .forward(request, response);
+        }
     }
 
     @Override
@@ -49,10 +57,8 @@ public class AtualizarEstoque extends HttpServlet {
 
         HttpSession sessao = request.getSession();
 
-        List<Estoque> lista = EstoqueController.consultarPorId(id);
-        if (sessao.getAttribute("acesso") == null) {
-            sessao.setAttribute("acesso", lista);
-        }
+        List<Estoque> lista = EstoqueController.pesquisar(id);
+        sessao.setAttribute("acesso", lista);
 
         List<Estoque> acesso = (List<Estoque>) sessao.getAttribute("acesso");
         request.setAttribute("id", id);

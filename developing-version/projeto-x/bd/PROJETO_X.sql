@@ -46,7 +46,7 @@ situacao  varchar(80)
 
 
 create table venda(
-	id int not null primary key not null auto_increment,
+    id int not null primary key not null auto_increment,
     cliente int,
     formaPagamento Varchar(255),
     valorTotal float(4,2),

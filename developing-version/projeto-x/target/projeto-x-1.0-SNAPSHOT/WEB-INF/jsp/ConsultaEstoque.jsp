@@ -1,9 +1,5 @@
-<%@page import="java.util.ArrayList"%>
-<%@page import="com.projetox.web.controller.EstoqueController"%>
-<%@page import="java.util.List"%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import="com.projetox.web.model.Estoque"%>
-<%@page import="com.projetox.web.dao.EstoqueDAO"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
@@ -15,16 +11,29 @@
         <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <title>JSP Page</title>
     </head>
-    <body>
+    <body>   
+        <div style="background:#4072A6 !important" class="jumbotron jumbotron-fluid">
+            <div class="container">
+                <h1 class="display-4" style="color: #FCFCFC">Livraria Tades</h1>
+            </div>
+        </div>
         <div class="cotainer">
-            <h1>Consulta de Estoques</h1>
+            <h1>Consulta de Estoque</h1>
             <hr>
-
+            <c:if test="${msgSucess == true}">
+                <div class="alert-success" role="alert" style="font-size: 25px"><strong>Estoque Cadastrado com Sucesso</strong></div>
+            </c:if>
+            <c:if test="${msgAtualiza == true}">
+                <div class="alert-success" role="alert" style="font-size: 25px"><strong>Estoque Atualizado com Sucesso</strong></div>
+            </c:if>
+            <br>
             <table class="table table-bordered">
                 <tr>
-                    <th class="text-center">Id</th><th class="text-center">Descrição</th><th class="text-center">Filial</th><th class="text-center" colspan="2">Ação</th>
+                    <th class="text-center">Id</th>
+                    <th class="text-center">Descrição</th>
+                    <th class="text-center">Filial</th>
+                    <th class="text-center" colspan="2">Ação</th>
                 </tr>
-
                 <c:forEach var="cat" items="${consulta}" >
                     <tr>
                         <td class="text-center"><c:out value="${cat.id}"/></td>
@@ -40,7 +49,6 @@
                 </c:forEach>
             </table>
             <input class="btn btn-info btn-sm" type="submit" value="Pagina inicial" OnClick="parent.location.href = 'homePage.jsp'">
-            <input class="btn btn-info btn-sm" type="submit" value="Cadastrar novo estoque" OnClick="parent.location.href = 'adicionarEstoque.jsp'">
         </div>
     </body>
 </html>

@@ -39,4 +39,9 @@ public class EstoqueController {
         EstoqueDAO estoque = new EstoqueDAO();
         return estoque.consultar();
     }
+    
+        public static List<Estoque> pesquisar(int id){
+        EstoqueDAO estoque = new EstoqueDAO();
+        return estoque.pesquisar(id);
+    }
 }

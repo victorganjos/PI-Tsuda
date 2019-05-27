@@ -10,38 +10,44 @@
         <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
-        <h1>Estoque - Excluir</h1>
-        <div>
-            <form action="excluir-estoque" method="post">
-
-                <c:forEach items="${consulta}" var="consulta">
-                    <div>
-                        <label>Id</label>
-                        <div>
-                            <input type="text" name="id" maxlength="10" value="${consulta.id}" readonly/>
-                        </div>
-                    </div>
-                    <div>
-                        <label>Decrição</label>
-                        <div>
-                            <input type="text" name="descricao" maxlength="50" value="${consulta.descricao}"/>
-                        </div>
-                    </div>
-                    <div>
-                        <label>Filial</label>
-                        <div>
-                            <input type="text" name="filial" maxlength="5" value="${consulta.filial}" />
-                        </div>
-                    </div>               
-                </c:forEach>
-
-                <button type="submit">Excluir</button>
-            </form>
-
+        <div style="background:#4072A6 !important" class="jumbotron jumbotron-fluid">
+            <div class="container">
+                <h1 class="display-4" style="color: #FCFCFC">Livraria Tades</h1>
+            </div>
+        </div>    
+        <div class="container">
+            <h2>Excluir Estoque</h2>
             <br>
-
+            <form action="excluir-estoque" method="post">
+                <c:forEach items="${consulta}" var="consulta">
+                    <input type="hidden" name="tipo" value="f"/>
+                    <input type="hidden" name="id" maxlength="10" value="${consulta.id}"/>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label>Descrição</label>
+                            <input type="text" name="descricao" class="form-control" maxlength="50" value="${consulta.descricao}" readonly>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label>Filial</label>
+                            <input  type="text" name="filial" class="form-control" maxlength="50" value="${consulta.filial}" readonly>
+                        </div>
+                        <div class="form-group col-md-4">  
+                            <button class="btn btn-info btn-sm" Onclick="alerta()" type="submit">Excluir</button>
+                        </div>
+                    </c:forEach>
+                </div> 
+                <script>
+                    function alerta()
+                    {
+                        alert("Exclusão do Estoque realizada com sucesso!");
+                    }
+                </script>
+            </form>
+        </div>
+        <div class="container">
+            <br>
             <input class="btn btn-info btn-sm" type="submit" value="Página inicial" OnClick="parent.location.href = 'homePage.jsp'">
-            <input class="btn btn-info btn-sm" type="submit" value="Consultar estoque" OnClick="parent.location.href = 'consultar-estoque'">
+            <input class="btn btn-info btn-sm" type="submit" value="Consultar Estoque" OnClick="parent.location.href = 'consultar-estoque'">
         </div>
     </body>
 </html>

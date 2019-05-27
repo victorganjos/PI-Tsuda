@@ -178,4 +178,39 @@ public class EstoqueDAO {
             ConnectionFactory.fecharConexao(con,stmt);
         }
     }
+    
+        public static List <Estoque> pesquisar (int id){
+        Connection con = ConnectionFactory.obterConexao();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        
+        List<Estoque> estoque = new ArrayList<>();
+        
+        try{
+            stmt = con.prepareStatement("SELECT * FROM ESTOQUE WHERE PK_ID = ?");
+            stmt.setInt(1, id);
+            rs = stmt.executeQuery();
+            
+            while(rs.next()){
+                Estoque c = new Estoque();
+                
+                
+                c.setId(rs.getInt("PK_ID"));
+                c.setDescricao(rs.getString("DS_DESCRICAO"));
+                c.setFilial(rs.getString("DS_FILIAL"));
+                
+                
+                estoque.add(c);
+            }
+            
+        }
+        catch(SQLException ex){
+           Logger.getLogger(EstoqueDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        finally{
+            ConnectionFactory.fecharConexao(con,stmt,rs);
+        }
+       return estoque;
+        
+    }
 }

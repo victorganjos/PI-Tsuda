@@ -18,7 +18,7 @@ public class AtualizarProduto extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
         //recupera as informações do formulario
         String nomeProd = request.getParameter("nomeProd");
         String categoria = request.getParameter("categoria");
@@ -29,22 +29,31 @@ public class AtualizarProduto extends HttpServlet {
         String id = request.getParameter("id");
 
         //Armazena valores como atributos 
-        request.setAttribute("metodoHttp", "POST");
-        request.setAttribute("id",id);
-        request.setAttribute("nomeProd", nomeProd);
-        request.setAttribute("categoria", categoria);
-        request.setAttribute("descricao", descricao);
-        request.setAttribute("valorVenda", valorVenda);
-        request.setAttribute("estoqueDisp", estoqueDisp);
-        request.setAttribute("situacao", situacao);
+        if (!nomeProd.isEmpty() && !categoria.isEmpty() && !valorVenda.isEmpty() && !estoqueDisp.isEmpty() && !situacao.isEmpty()) {
+            request.setAttribute("metodoHttp", "POST");
+            request.setAttribute("id", id);
+            request.setAttribute("nomeProd", nomeProd);
+            request.setAttribute("categoria", categoria);
+            request.setAttribute("descricao", descricao);
+            request.setAttribute("valorVenda", valorVenda);
+            request.setAttribute("estoqueDisp", estoqueDisp);
+            request.setAttribute("situacao", situacao);
 
-        ProdutoController.atualizar(Integer.parseInt(id), nomeProd, categoria, descricao,Float.parseFloat(valorVenda), Integer.parseInt(estoqueDisp), situacao);
+            request.setAttribute("msgAtualiza", true);
 
-        List<Produto> lista = ProdutoController.consultar();
-        request.setAttribute("consulta", lista);
-        RequestDispatcher dispatcher
-                = request.getRequestDispatcher("/WEB-INF/jsp/ConsultaProduto.jsp");
-        dispatcher.forward(request, response);
+            ProdutoController.atualizar(Integer.parseInt(id), nomeProd, categoria, descricao, Float.parseFloat(valorVenda), Integer.parseInt(estoqueDisp), situacao);
+
+            List<Produto> lista = ProdutoController.consultar();
+            request.setAttribute("consulta", lista);
+            RequestDispatcher dispatcher
+                    = request.getRequestDispatcher("/WEB-INF/jsp/ConsultaProduto.jsp");
+            dispatcher.forward(request, response);
+        } else {
+            request.setAttribute("msgErro", true);
+            request.getRequestDispatcher("/atualizarProduto.jsp")
+                    .forward(request, response);
+        }
+
     }
 
     @Override
@@ -53,7 +62,7 @@ public class AtualizarProduto extends HttpServlet {
 
         int id = Integer.parseInt(request.getParameter("id"));
 
-         HttpSession sessao = request.getSession();
+        HttpSession sessao = request.getSession();
 
         List<Produto> lista = ProdutoController.consultarPorId(id);
         if (sessao.getAttribute("acesso") == null) {
