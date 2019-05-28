@@ -13,7 +13,7 @@ public class Venda {
     private int id;
     private int cliente;
     private String formaPagamento;
-    private float valorTotal;
+    private double valorTotal;
     private String dataVenda;
     private String nomeCliente;
     
@@ -21,14 +21,14 @@ public class Venda {
     }
     
     
-    public Venda(int cliente, String formaPagamento, float valorTotal, String dataVenda) {
+    public Venda(int cliente, String formaPagamento, double valorTotal, String dataVenda) {
         this.cliente = cliente;
         this.formaPagamento = formaPagamento;
         this.valorTotal = valorTotal;
         this.dataVenda = dataVenda;
     }
 
-    public Venda(int id, int cliente, String formaPagamento, float valorTotal, String dataVenda) {
+    public Venda(int id, int cliente, String formaPagamento, double valorTotal, String dataVenda) {
         this.id = id;
         this.cliente = cliente;
         this.formaPagamento = formaPagamento;
@@ -36,7 +36,7 @@ public class Venda {
         this.dataVenda = dataVenda;
     }
     
-        public Venda(int id, int cliente, String formaPagamento, float valorTotal, String dataVenda, String nomeCliente) {
+        public Venda(int id, int cliente, String formaPagamento, double valorTotal, String dataVenda, String nomeCliente) {
         this.id = id;
         this.cliente = cliente;
         this.formaPagamento = formaPagamento;
@@ -70,11 +70,11 @@ public class Venda {
         this.formaPagamento = formaPagamento;
     }
 
-    public float getValorTotal() {
+    public double getValorTotal() {
         return valorTotal;
     }
 
-    public void setValorTotal(float valorTotal) {
+    public void setValorTotal(double valorTotal) {
         this.valorTotal = valorTotal;
     }
 
