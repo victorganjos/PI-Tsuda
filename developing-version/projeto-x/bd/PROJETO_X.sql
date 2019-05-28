@@ -1,3 +1,4 @@
+
 CREATE	DATABASE PROJETO_X;
 USE PROJETO_X;
 
@@ -43,16 +44,22 @@ valorVenda FLOAT,
 estoqueDisp int,
 situacao  varchar(80)
 );
-
-
-create table venda(
-    id int not null primary key not null auto_increment,
-    cliente int,
-    formaPagamento Varchar(255),
-    valorTotal float(4,2),
+create table vendadois(
+	id int not null primary key auto_increment,
+    idcliente int,
+    valortotal decimal,
     dataVenda date
 );
 
+
+create table venda(
+    id int not null primary key auto_increment,
+    cliente int,
+    formaPagamento Varchar(255),
+    valorTotal float,
+    dataVenda date
+);
+select * from venda;
 create table itemVenda (
     id int not null primary key auto_increment,
     idVenda int,
@@ -61,7 +68,11 @@ create table itemVenda (
     FOREIGN KEY (idVenda) REFERENCES venda(id)
 );
 
+select * from dadoscliente;
+select * from venda;
+select * from vendadois;
 INSERT INTO VENDA VALUE (3,1,'CREDITO',25.20, 2018-06-06);
+iNSERT INTO venda(cliente,formaPagamento,valorTotal,dataVenda) value (2,'credito',30.30,'2019-05-05');
 select * from venda;
 INSERT INTO DADOSUSUARIO VALUE (1,'fabio','fabio123','123','back','sp');
 INSERT INTO DADOSUSUARIO VALUE (2,'caio','caio123','123','vendedor','sp');

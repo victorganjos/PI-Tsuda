@@ -6,8 +6,12 @@
 package com.projetox.web;
 
 import com.projetox.web.controller.ProdutoController;
+import com.projetox.web.controller.VendaController;
+import com.projetox.web.controller.VendaDoisController;
 import com.projetox.web.model.Produto;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -71,7 +75,7 @@ public class AdicionarItemVenda extends HttpServlet {
                 for (int j = 0; j < acesso.size(); j++) {
                     if (id == acesso.get(aux2).getId()) {
                         soma -= acesso.get(aux2).getValorVenda();
-            
+
                     }
                     sessao.setAttribute("somaVenda", soma);
                     if (id == acesso.get(aux2).getId()) {
@@ -87,6 +91,25 @@ public class AdicionarItemVenda extends HttpServlet {
                 RequestDispatcher dispatcher
                         = request.getRequestDispatcher("/venda.jsp");
                 dispatcher.forward(request, response);
+
+            } else if (as.charAt(i) == 'c') {
+                
+                String aux = as.replaceAll("c", "");
+                int id = Integer.parseInt(aux);
+                Date data = new Date(System.currentTimeMillis());
+                
+                
+                SimpleDateFormat formatarDate = new SimpleDateFormat("yyyy-MM-dd");
+                
+                float somaVendaFinal = (float) soma;
+                VendaController.salvar(id, "credito",somaVendaFinal, formatarDate.format(data));
+                VendaController.salvar(id, "credito", (float) 10.0, formatarDate.format(data));
+                VendaDoisController.salvar(id, soma, formatarDate.format(data));
+
+                RequestDispatcher dispatcher
+                        = request.getRequestDispatcher("/homePage.jsp");
+                dispatcher.forward(request, response);
+
             }
         }
     }
@@ -95,5 +118,15 @@ public class AdicionarItemVenda extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
+        Date data = new Date(System.currentTimeMillis());
+        SimpleDateFormat formatarDate = new SimpleDateFormat("yyyy-MM-dd");
+        String id = request.getParameter("id");
+
+        VendaController.salvar(Integer.parseInt(id), "credito", (float) 30.31, formatarDate.format(data));
+
+        RequestDispatcher dispatcher
+                = request.getRequestDispatcher("/homePage.jsp");
+        dispatcher.forward(request, response);
     }
+
 }

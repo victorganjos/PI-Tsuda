@@ -11,6 +11,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="css/modelar.css" rel="stylesheet" type="text/css"/>
         <title>JSP Page</title>
         <script>
 
@@ -26,7 +27,7 @@
         </div>
         <div>
             <h2 style="text-align: center">Venda</h2>
-            <div  style="width: 400px">
+            <div  style="width: 800px">
                 <form action="${pageContext.request.contextPath}/consultar-produto-por-nome" method="get">
                     <div class="form-row">
                         <label>Produto</label>
@@ -49,22 +50,19 @@
                             <td class="text-center"><c:out value="${cat.estoqueDisp}"/></td>
                             <td class="text-center"><c:out value="${cat.situacao}"/></td>
                         <form method="get" action="${pageContext.request.contextPath}/adicionar-item-venda">
-                            <td class="text-center"><button class="btn btn-success btn-sm" type="submit" value="${cat.id}a" name="id">Adicionar</td>
+                            <td class="text-center"><button class="btn btn-primary btn-sm" type="submit" value="${cat.id}a" name="id">Adicionar</td>
                         </form>                       
                         </tr>
                     </c:forEach>
                 </table>
             </div>
-            <div>
+        </div>
+        <div id="externo">
+            <div class="interno">
                 <h3>Lista de Produtos</h3>
                 <div  style="width: 400px">
-
                     <table class="table table-bordered">
-                        <tr>
-                            <th class="text-center">Nome Produto</th><th class="text-center">Categoria</th><th class="text-center">Descrição</th>
-                            <th class="text-center">Valor Venda</th><th class="text-center">Estoque Disponível</th><th class="text-center">Situação</th>
-                            <th class="text-center" colspan="2">Ação</th>
-                        </tr>     
+
                         <c:forEach var="cat" items="${consultaProduto}" >
                             <tr>
                                 <td class="text-center"><c:out value="${cat.nomeProd}"/></td>
@@ -81,7 +79,8 @@
                     </table>
                 </div>	
             </div>
-            <div style="width: 250px">
+            <div class="interno" style="width: 250px">
+                <h3>Valor</h3>
                 <table class="table table-bordered">
                     <tr>
                         <th class="text-center" colspan="3">Total Venda</th>
@@ -92,7 +91,7 @@
                 </table>
             </div>
             <div>
-                <div  style="width: 400px">
+                <div style="width: 400px">
                     <form action="${pageContext.request.contextPath}/consultar-cliente-por-nome" method="get">
                         <div class="form-row">
                             <label>Cliente</label>
@@ -108,11 +107,14 @@
                         <c:forEach var="cat" items="${consultaCliente}" >
                             <tr>
                                 <td class="text-center"><c:out value="${cat.nome}"/></td>
-
+                                <form method="get" action="${pageContext.request.contextPath}/adicionar-item-venda">
+                                <td class="text-center"><button class="btn btn-success btn-sm" type="submit" value="${cat.id}c" name="id">Finalizar Venda</td>
+                            </form>
                             </tr>
                         </c:forEach>
                     </table>
                 </div>	
             </div>
+        </div>
     </body>
 </html>

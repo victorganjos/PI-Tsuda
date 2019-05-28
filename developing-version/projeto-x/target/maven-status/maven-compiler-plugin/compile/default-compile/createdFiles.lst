@@ -37,7 +37,6 @@ com\projetox\web\AdicionarItemVenda.class
 com\projetox\web\LogoutServlet.class
 com\projetox\web\ExcluirFornecedor.class
 com\projetox\web\model\Venda.class
-.netbeans_automatic_build
 com\projetox\web\ConsultarFornecedor.class
 com\projetox\web\dao\ItemVendaDAO.class
 com\projetox\web\controller\ClienteController.class

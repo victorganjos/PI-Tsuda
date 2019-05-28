@@ -5,8 +5,6 @@
  */
 package com.projetox.web.model;
 
-import java.util.Date;
-
 /**
  *
  * @author caio.hcpereira
@@ -72,7 +70,7 @@ public class Venda {
         this.formaPagamento = formaPagamento;
     }
 
-    public double getValorTotal() {
+    public float getValorTotal() {
         return valorTotal;
     }
 

@@ -7,10 +7,8 @@ package com.projetox.web.dao;
 
 import com.projetox.web.connection.ConnectionFactory;
 import com.projetox.web.model.Venda;
-import com.projetox.web.dao.ClienteDAO;
 import com.projetox.web.model.Cliente;
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -31,10 +29,10 @@ public class VendaDAO {
         PreparedStatement stmt = null;
 
         try {
-            stmt = con.prepareStatement("INSERT INTO venda(cliente,formaPagamento,valorTotal,dataVenda) value (?,?,?,?);");
+            stmt = con.prepareStatement("INSERT INTO VENDA(cliente,formaPagamento,valorTotal,dataVenda) value (?,?,?,?);");
             stmt.setInt(1, v.getCliente());
             stmt.setString(2, v.getFormaPagamento());
-            stmt.setDouble(3, v.getValorTotal());
+            stmt.setFloat(3, v.getValorTotal());
             stmt.setString(4, v.getDataVenda());
 
             stmt.executeUpdate();
