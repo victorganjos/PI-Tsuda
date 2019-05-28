@@ -79,8 +79,17 @@
                             </tr>
                         </c:forEach>
                     </table>
-
                 </div>	
+            </div>
+            <div style="width: 250px">
+                <table class="table table-bordered">
+                    <tr>
+                        <th class="text-center" colspan="3">Total Venda</th>
+                    </tr>
+                    <tr>
+                        <td class="text-center" colspas="3"><c:out value="${somaVenda}"/></td>   
+                    </tr>
+                </table>
             </div>
             <div>
                 <div  style="width: 400px">

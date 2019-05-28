@@ -53,6 +53,14 @@ create table venda(
     dataVenda date
 );
 
+create table itemVenda (
+    id int not null primary key auto_increment,
+    idVenda int,
+    idProduto int,
+    valorUnitario float,
+    FOREIGN KEY (idVenda) REFERENCES venda(id)
+);
+
 INSERT INTO VENDA VALUE (3,1,'CREDITO',25.20, 2018-06-06);
 select * from venda;
 INSERT INTO DADOSUSUARIO VALUE (1,'fabio','fabio123','123','back','sp');

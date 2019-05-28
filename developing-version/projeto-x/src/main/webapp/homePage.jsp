@@ -47,15 +47,24 @@
                                 <li><a href="consultar-estoque">Consultar Estoque</a></li>
                             </ul>
                         </div>
-
                         <div class="item">
                             <input type="checkbox" id="check4">
-                            <label for="check4">Relatórios</label>
+                            <label for="check4">Vendas</label>
+                            <ul>
+                                <li><a href="venda.jsp">Venda</a></li>
+                            </ul>
+                        </div>
+                 
+
+                        <div class="item">
+                            <input type="checkbox" id="check5">
+                            <label for="check5">Relatórios</label>
                             <ul>
                                 <li><a href="relatorioVenda.jsp">Relatório de Vendas</a></li>
                             </ul>
                         </div>
-                        
+
+
                         <div class="item">
                             <label><a class="sair" href="${pageContext.request.contextPath}/logout">Sair</a></label>
                         </div>

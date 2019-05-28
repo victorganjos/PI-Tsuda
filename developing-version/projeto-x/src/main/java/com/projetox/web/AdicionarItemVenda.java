@@ -24,10 +24,12 @@ import javax.servlet.http.HttpSession;
 @WebServlet(name = "AdicionarItemVenda", urlPatterns = {"/adicionar-item-venda"})
 public class AdicionarItemVenda extends HttpServlet {
 
+    double soma;
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
         String as = request.getParameter("id");
         for (int i = 0; i < as.length(); i++) {
             if (as.charAt(i) == 'a') {
@@ -36,30 +38,42 @@ public class AdicionarItemVenda extends HttpServlet {
                 int id = Integer.parseInt(aux);
 
                 HttpSession sessao = request.getSession();
-
+                soma = 0;
                 List<Produto> lista = ProdutoController.consultarPorId(id);
                 if (sessao.getAttribute("consultaProduto") == null) {
                     sessao.setAttribute("consultaProduto", lista);
+                    for (Produto li : lista) {
+                        soma += li.getValorVenda();
+                    }
+                    sessao.setAttribute("somaVenda", soma);
 
                 } else {
                     List<Produto> acesso = (List<Produto>) sessao.getAttribute("consultaProduto");
                     acesso.add(lista.get(0));
                     request.setAttribute("id", id);
                     request.setAttribute("consultaProduto", acesso);
-
+                    for (Produto li : acesso) {
+                        soma += li.getValorVenda();
+                    }
+                    sessao.setAttribute("somaVenda", soma);
                 }
+
                 RequestDispatcher dispatcher
                         = request.getRequestDispatcher("/venda.jsp");
                 dispatcher.forward(request, response);
             } else if (as.charAt(i) == 'b') {
+
                 String aux = as.replaceAll("b", "");
                 int id = Integer.parseInt(aux);
                 HttpSession sessao = request.getSession();
-              
-
                 List<Produto> acesso = (List<Produto>) sessao.getAttribute("consultaProduto");
                 int aux2 = 0;
                 for (int j = 0; j < acesso.size(); j++) {
+                    if (id == acesso.get(aux2).getId()) {
+                        soma -= acesso.get(aux2).getValorVenda();
+            
+                    }
+                    sessao.setAttribute("somaVenda", soma);
                     if (id == acesso.get(aux2).getId()) {
                         acesso.remove(aux2);
                         break;
@@ -69,7 +83,6 @@ public class AdicionarItemVenda extends HttpServlet {
 
                 request.setAttribute("id", id);
                 request.setAttribute("consultaProduto", acesso);
-               
 
                 RequestDispatcher dispatcher
                         = request.getRequestDispatcher("/venda.jsp");
@@ -82,6 +95,5 @@ public class AdicionarItemVenda extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-       }
+    }
 }
-
