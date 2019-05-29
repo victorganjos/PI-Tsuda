@@ -31,20 +31,19 @@ public class AdicionarItemVenda extends HttpServlet {
     double soma;
     List<Produto> lista;
     List<Produto> acesso;
-    
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         HttpSession sessao = request.getSession();
         String as = request.getParameter("id");
+        
         for (int i = 0; i < as.length(); i++) {
             if (as.charAt(i) == 'a') {
                 String aux = as.replaceAll("a", "");
 
                 int id = Integer.parseInt(aux);
 
-                
-                
                 soma = 0;
                 lista = ProdutoController.consultarPorId(id);
                 if (sessao.getAttribute("consultaProduto") == null) {
@@ -64,7 +63,6 @@ public class AdicionarItemVenda extends HttpServlet {
                     }
                     sessao.setAttribute("somaVenda", soma);
                 }
-                request.setAttribute("consulta","");
                 RequestDispatcher dispatcher
                         = request.getRequestDispatcher("/venda.jsp");
                 dispatcher.forward(request, response);
@@ -88,16 +86,16 @@ public class AdicionarItemVenda extends HttpServlet {
                     aux2++;
                 }
 
-                request.setAttribute("id", id);
-                request.setAttribute("consultaProduto", acesso);
-                request.setAttribute("consulta","");
+                sessao.setAttribute("id", id);
+                sessao.setAttribute("consultaProduto", acesso);
+                sessao.removeAttribute("consulta");
                 RequestDispatcher dispatcher
                         = request.getRequestDispatcher("/venda.jsp");
                 dispatcher.forward(request, response);
 
-            } 
+            }
         }
-        
+
     }
 
     @Override
@@ -107,41 +105,39 @@ public class AdicionarItemVenda extends HttpServlet {
         Date data = new Date(System.currentTimeMillis());
         SimpleDateFormat formatarDate = new SimpleDateFormat("yyyy-MM-dd");
         String id = request.getParameter("id");
-        
+
         String disponivelStr = request.getParameter("opcao");
-   
-        
+
         String tipoPagamento;
-        
-        if(disponivelStr.equals("1")){
+
+        if (disponivelStr.equals("1")) {
             tipoPagamento = "Debito";
-        }else{
+        } else {
             tipoPagamento = "Credito";
         }
-        VendaController.salvar(Integer.parseInt(id),tipoPagamento, (float) soma, formatarDate.format(data));
-        
+        VendaController.salvar(Integer.parseInt(id), tipoPagamento, (float) soma, formatarDate.format(data));
+
         HttpSession sessao = request.getSession();
         List<Produto> teste = (List<Produto>) sessao.getAttribute("consultaProduto");
         int ultimoId = ItemVendaController.consultId();
-        
+
         for (Produto ac : teste) {
-            ItemVendaController.salvar(ultimoId,ac.getId(), ac.getValorVenda());
+            ItemVendaController.salvar(ultimoId, ac.getId(), ac.getValorVenda());
         }
-        
-      /*  teste.clear();
+
+        /*  teste.clear();
         lista.clear();
         sessao.setAttribute("consulta", lista);
         acesso.clear();
         soma = 0;
         sessao.setAttribute("somaVenda", soma);*/
-      sessao.removeAttribute("consultaProduto");
-      sessao.removeAttribute("somaVenda");
-      request.setAttribute("consulta","");
-      sessao.removeAttribute(String.valueOf(teste));
-      
+        sessao.removeAttribute("consultaProduto"); //Limpar o formulário
+        sessao.removeAttribute("somaVenda");//Limpar o formulário
+        sessao.removeAttribute("consultaCliente");//Limpar o formulário
+
         RequestDispatcher dispatcher
-                    = request.getRequestDispatcher("/WEB-INF/jsp/VendaFinalizada.jsp");
-            dispatcher.forward(request, response);
+                = request.getRequestDispatcher("/WEB-INF/jsp/VendaFinalizada.jsp");
+        dispatcher.forward(request, response);
     }
 
 }

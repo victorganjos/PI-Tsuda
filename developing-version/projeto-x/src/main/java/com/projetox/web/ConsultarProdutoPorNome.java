@@ -40,13 +40,13 @@ public class ConsultarProdutoPorNome extends HttpServlet{
     @Override
      protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException{
-         
+         HttpSession sessao = request.getSession();
          String nome = request.getParameter("produto");
          
          
-         request.setAttribute("produto", nome);
+         sessao.setAttribute("produto", nome);
         List<Produto> lista = ProdutoController.consultarPorNome(nome);
-        request.setAttribute("consulta", lista);
+        sessao.setAttribute("consulta", lista);
         
         int teste2 = 99;
         for(Produto c: lista){

@@ -32,6 +32,7 @@ public class ConsultarClientePorNome extends HttpServlet{
         HttpSession sessao = request.getSession();
         List<Cliente> lista = ClienteController.consultarPorCpf(Long.parseLong(cpf));
         sessao.setAttribute("consultaCliente", lista);
+        sessao.removeAttribute("consulta");
         RequestDispatcher dispatcher
                 = request.getRequestDispatcher("/venda.jsp");
         dispatcher.forward(request, response);
