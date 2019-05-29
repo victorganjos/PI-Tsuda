@@ -2,7 +2,6 @@ com\projetox\web\IncluirEstoque.class
 com\projetox\web\ConsultarUsuario.class
 com\projetox\web\controller\UsuarioController.class
 com\projetox\web\RelatorioVenda.class
-com\projetox\web\model\VendaDois.class
 com\projetox\web\dao\FilialDAO.class
 com\projetox\web\controller\ItemVendaController.class
 com\projetox\web\AdicionarUsuario.class
@@ -36,11 +35,9 @@ com\projetox\web\connection\ConnectionFactory.class
 com\projetox\web\model\ItemPedido.class
 com\projetox\web\AdicionarItemVenda.class
 com\projetox\web\LogoutServlet.class
-com\projetox\web\controller\VendaDoisController.class
 com\projetox\web\ExcluirFornecedor.class
 com\projetox\web\model\Venda.class
 com\projetox\web\ConsultarFornecedor.class
-com\projetox\web\dao\VendaDoisDAO.class
 com\projetox\web\dao\ItemVendaDAO.class
 com\projetox\web\controller\ClienteController.class
 com\projetox\web\controller\EstoqueController.class

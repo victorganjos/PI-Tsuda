@@ -13,15 +13,12 @@ C:\Users\Fabio\Documents\NetBeansProjects\PI-Tsuda\developing-version\projeto-x\
 C:\Users\Fabio\Documents\NetBeansProjects\PI-Tsuda\developing-version\projeto-x\src\main\java\com\projetox\web\LoginServlet.java
 C:\Users\Fabio\Documents\NetBeansProjects\PI-Tsuda\developing-version\projeto-x\src\main\java\com\projetox\web\connection\ConnectionFactory.java
 C:\Users\Fabio\Documents\NetBeansProjects\PI-Tsuda\developing-version\projeto-x\src\main\java\com\projetox\web\AdicionarProduto.java
-C:\Users\Fabio\Documents\NetBeansProjects\PI-Tsuda\developing-version\projeto-x\src\main\java\com\projetox\web\controller\VendaDoisController.java
 C:\Users\Fabio\Documents\NetBeansProjects\PI-Tsuda\developing-version\projeto-x\src\main\java\com\projetox\web\dao\EstoqueDAO.java
 C:\Users\Fabio\Documents\NetBeansProjects\PI-Tsuda\developing-version\projeto-x\src\main\java\com\projetox\web\dao\UsuarioDAO.java
 C:\Users\Fabio\Documents\NetBeansProjects\PI-Tsuda\developing-version\projeto-x\src\main\java\com\projetox\web\LogoutServlet.java
 C:\Users\Fabio\Documents\NetBeansProjects\PI-Tsuda\developing-version\projeto-x\src\main\java\com\projetox\web\ExcluirFilial.java
 C:\Users\Fabio\Documents\NetBeansProjects\PI-Tsuda\developing-version\projeto-x\src\main\java\com\projetox\web\controller\UsuarioController.java
 C:\Users\Fabio\Documents\NetBeansProjects\PI-Tsuda\developing-version\projeto-x\src\main\java\com\projetox\web\controller\EstoqueController.java
-C:\Users\Fabio\Documents\NetBeansProjects\PI-Tsuda\developing-version\projeto-x\src\main\java\com\projetox\web\model\VendaDois.java
-C:\Users\Fabio\Documents\NetBeansProjects\PI-Tsuda\developing-version\projeto-x\src\main\java\com\projetox\web\dao\VendaDoisDAO.java
 C:\Users\Fabio\Documents\NetBeansProjects\PI-Tsuda\developing-version\projeto-x\src\main\java\com\projetox\web\ConsultarClientePorNome.java
 C:\Users\Fabio\Documents\NetBeansProjects\PI-Tsuda\developing-version\projeto-x\src\main\java\com\projetox\web\model\ItemPedido.java
 C:\Users\Fabio\Documents\NetBeansProjects\PI-Tsuda\developing-version\projeto-x\src\main\java\com\projetox\web\controller\ClienteController.java

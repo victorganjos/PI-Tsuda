@@ -56,13 +56,13 @@
                     </tr>
 
                     <button class="btn btn-warning btn-sm" type="submit" >Consultar </button>
-                    <c:forEach items="${consulta}" var="cat" >
+                    <c:forEach items="${venda}" var="cat" >
                         <tr>
                             <td class="text-center"><c:out value="${cat.id}"/></td>
                             <td class="text-center"><c:out value="${cat.nomeCliente}"/></td>
-                            <td class="text-center"><c:out value="${cat.formaPagamento}"/></td>
-                            <td class="text-center"><c:out value="${cat.valorTotal}"/></td>
+                            <td class="text-center"><c:out value="${cat.formaPagamento}"/></td>                            
                             <td class="text-center"><c:out value="${cat.dataVenda}"/></td>
+                            <td class="text-center"><c:out value="${cat.valorTotal}"/></td>
                         </tr>
                     </c:forEach>
 

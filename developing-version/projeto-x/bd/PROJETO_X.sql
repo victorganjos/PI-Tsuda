@@ -44,6 +44,7 @@ valorVenda FLOAT,
 estoqueDisp int,
 situacao  varchar(80)
 );
+SELECT VEN.*, CLI.NOME AS DS_NOMECLIENTE FROM VENDA VEN LEFT JOIN DADOSCLIENTE CLI ON CLI.ID = VEN.CLIENTE  'fabio';
 create table venda(
     id int not null primary key auto_increment,
     cliente int,
@@ -59,6 +60,8 @@ create table itemVenda (
     valorUnitario float,
     FOREIGN KEY (idVenda) REFERENCES venda(id)
 );
+select * from venda;
+select * from itemvenda;
 
 
 INSERT INTO DADOSUSUARIO VALUE (1,'fabio','fabio123','123','back','sp');

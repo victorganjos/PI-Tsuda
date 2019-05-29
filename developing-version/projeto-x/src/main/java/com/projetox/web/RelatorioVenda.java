@@ -9,18 +9,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import com.projetox.web.controller.VendaController;
 import com.projetox.web.model.Venda;
-import com.projetox.web.dao.VendaDAO;
-import java.text.DateFormat;
-import java.text.DecimalFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.servlet.http.HttpSession;
-import javax.swing.*;
 
 @WebServlet(name = "RelatorioVenda", urlPatterns = {"/relatorio-venda"})
 public class RelatorioVenda extends HttpServlet {
@@ -63,7 +55,7 @@ public class RelatorioVenda extends HttpServlet {
             Logger.getLogger(RelatorioVenda.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        request.setAttribute("consulta", lista);
+        request.setAttribute("venda", lista);
         RequestDispatcher dispatcher
                 = request.getRequestDispatcher("/relatorioVenda.jsp");
         dispatcher.forward(request, response);

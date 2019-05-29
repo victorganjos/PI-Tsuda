@@ -29,6 +29,8 @@ import javax.servlet.http.HttpSession;
 public class AdicionarItemVenda extends HttpServlet {
 
     double soma;
+    List<Produto> lista;
+    List<Produto> acesso;
     
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -43,7 +45,7 @@ public class AdicionarItemVenda extends HttpServlet {
 
                 HttpSession sessao = request.getSession();
                 soma = 0;
-                List<Produto> lista = ProdutoController.consultarPorId(id);
+                lista = ProdutoController.consultarPorId(id);
                 if (sessao.getAttribute("consultaProduto") == null) {
                     sessao.setAttribute("consultaProduto", lista);
                     for (Produto li : lista) {
@@ -52,7 +54,7 @@ public class AdicionarItemVenda extends HttpServlet {
                     sessao.setAttribute("somaVenda", soma);
 
                 } else {
-                    List<Produto> acesso = (List<Produto>) sessao.getAttribute("consultaProduto");
+                    acesso = (List<Produto>) sessao.getAttribute("consultaProduto");
                     acesso.add(lista.get(0));
                     request.setAttribute("id", id);
                     request.setAttribute("consultaProduto", acesso);
@@ -70,7 +72,7 @@ public class AdicionarItemVenda extends HttpServlet {
                 String aux = as.replaceAll("b", "");
                 int id = Integer.parseInt(aux);
                 HttpSession sessao = request.getSession();
-                List<Produto> acesso = (List<Produto>) sessao.getAttribute("consultaProduto");
+                acesso = (List<Produto>) sessao.getAttribute("consultaProduto");
                 int aux2 = 0;
                 for (int j = 0; j < acesso.size(); j++) {
                     if (id == acesso.get(aux2).getId()) {
@@ -104,17 +106,32 @@ public class AdicionarItemVenda extends HttpServlet {
         SimpleDateFormat formatarDate = new SimpleDateFormat("yyyy-MM-dd");
         String id = request.getParameter("id");
         
-        VendaController.salvar(Integer.parseInt(id),"CREDITO", (float) soma, formatarDate.format(data));
+        String disponivelStr = request.getParameter("opcao");
+   
+        
+        String tipoPagamento;
+        
+        if(disponivelStr.equals("1")){
+            tipoPagamento = "Debito";
+        }else{
+            tipoPagamento = "Credito";
+        }
+        VendaController.salvar(Integer.parseInt(id),tipoPagamento, (float) soma, formatarDate.format(data));
         
         HttpSession sessao = request.getSession();
         List<Produto> teste = (List<Produto>) sessao.getAttribute("consultaProduto");
         int ultimoId = ItemVendaController.consultId();
-
+        
         for (Produto ac : teste) {
             ItemVendaController.salvar(ultimoId,ac.getId(), ac.getValorVenda());
-
         }
-
+        
+      /*  teste.clear();
+        lista.clear();
+        sessao.setAttribute("consulta", lista);
+        acesso.clear();
+        soma = 0;
+        sessao.setAttribute("somaVenda", soma);*/
         RequestDispatcher dispatcher
                     = request.getRequestDispatcher("/WEB-INF/jsp/VendaFinalizada.jsp");
             dispatcher.forward(request, response);

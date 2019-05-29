@@ -101,13 +101,21 @@
                     </form>
                     <table class="table table-bordered">
                         <tr>
-                            <th class="text-center">Nome CLIENTE</th>
+                            <th class="text-center">Cpf cliente</th>
+                            <th class="text-center">Tipo de Pagamento</th>
                             <th class="text-center" colspan="2">Ação</th>
                         </tr>
                         <c:forEach var="cat" items="${consultaCliente}" >
                             <tr>
                                 <td class="text-center"><c:out value="${cat.nome}"/></td>
-                                <form method="post" action="${pageContext.request.contextPath}/adicionar-item-venda">
+
+                            <form method="post" action="${pageContext.request.contextPath}/adicionar-item-venda">
+                                <td>
+                                    <fieldset>
+                                        <input type="radio" value="1" name="opcao"/> <label>Debito</label>
+                                        <input type="radio" value="0" name="opcao"/> <label>Credito</label>
+                                    </fieldset>
+                                </td>
                                 <td class="text-center"><button class="btn btn-success btn-sm" type="submit" value="${cat.id}" name="id">Finalizar Venda</td>
                             </form>
                             </tr>
