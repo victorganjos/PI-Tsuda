@@ -46,7 +46,7 @@ public class UsuarioDAO {
         
         
         try{
-            stmt = con.prepareStatement("SELECT * FROM PROJETO_X.dadosusuario;");
+            stmt = con.prepareStatement("SELECT * FROM DADOSUSUARIO;");
             rs = stmt.executeQuery();
             
             while(rs.next()){
@@ -82,7 +82,7 @@ public class UsuarioDAO {
         
         
         try{
-            stmt = con.prepareStatement("SELECT * FROM USUARIO WHERE nome LIKE ?;");
+            stmt = con.prepareStatement("SELECT * FROM DADOSUSUARIO WHERE nome LIKE ?;");
             stmt.setString(1,"%"+nome+"%");
             rs = stmt.executeQuery();
             
@@ -113,7 +113,7 @@ public class UsuarioDAO {
         
         String usuario = null;
         try{
-            stmt = con.prepareStatement("SELECT * FROM dadosusuario WHERE username LIKE ?;");
+            stmt = con.prepareStatement("SELECT * FROM DADOSUSUARIO WHERE username LIKE ?;");
             stmt.setString(1,""+username+"");
             rs = stmt.executeQuery();
             
@@ -149,7 +149,7 @@ public class UsuarioDAO {
         List<Usuario> usuarios = new ArrayList<>();
         
         try{
-            stmt = con.prepareStatement("SELECT * FROM PROJETO_X.DADOSUSUARIO WHERE id = ?");
+            stmt = con.prepareStatement("SELECT * FROM DADOSUSUARIO WHERE id = ?");
             stmt.setInt(1, id);
             rs = stmt.executeQuery();
             
@@ -183,7 +183,7 @@ public class UsuarioDAO {
         PreparedStatement stmt = null;
         
         try{
-            stmt = con.prepareStatement("UPDATE PROJETO_X.dadosUsuario SET nome = ?, username = ?, senha = ?, cargo = ?, filial = ?  WHERE id = ?");
+            stmt = con.prepareStatement("UPDATE DADOSUSUARIO SET nome = ?, username = ?, senha = ?, cargo = ?, filial = ?  WHERE id = ?");
             
             stmt.setString(1, c.getNome());
             stmt.setString(2, c.getUsername());
@@ -207,7 +207,7 @@ public class UsuarioDAO {
         PreparedStatement stmt = null;
         
         try{
-           stmt = con.prepareStatement("Delete from dadosUsuario WHERE id = ?;");
+           stmt = con.prepareStatement("Delete from DADOSUSUARIO WHERE id = ?;");
            
            stmt.setInt(1, id);
            

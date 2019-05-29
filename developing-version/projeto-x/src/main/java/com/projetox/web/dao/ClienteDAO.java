@@ -62,7 +62,7 @@ public class ClienteDAO {
         
         
         try{
-            stmt = con.prepareStatement("SELECT * FROM dadosCLIENTE WHERE TIPO = 'c'");
+            stmt = con.prepareStatement("SELECT * FROM DADOSCLIENTE WHERE tipo = 'c'");
             rs = stmt.executeQuery();
             
             while(rs.next()){
@@ -104,7 +104,7 @@ public class ClienteDAO {
         
         
         try{
-            stmt = con.prepareStatement("SELECT * FROM dadoscliente WHERE nome LIKE ? AND TIPO = 'c';");
+            stmt = con.prepareStatement("SELECT * FROM DADOSCLIENTE WHERE nome LIKE ? AND tipo = 'c';");
             stmt.setString(1,"%"+nome+"%");
             rs = stmt.executeQuery();
             
@@ -146,7 +146,7 @@ public class ClienteDAO {
         
         
         try{
-            stmt = con.prepareStatement("SELECT * FROM dadoscliente WHERE cpf LIKE ? AND TIPO = 'c';");
+            stmt = con.prepareStatement("SELECT * FROM DADOSCLIENTE WHERE cpf LIKE ? AND tipo = 'c';");
             stmt.setString(1,""+cpf+"");
             rs = stmt.executeQuery();
             
@@ -258,7 +258,7 @@ public class ClienteDAO {
         PreparedStatement stmt = null;
         
         try{
-           stmt = con.prepareStatement("Delete from dadosCliente WHERE id = ?;");
+           stmt = con.prepareStatement("Delete from DADOSCLIENTE WHERE id = ?;");
            
            stmt.setInt(1, id);
            

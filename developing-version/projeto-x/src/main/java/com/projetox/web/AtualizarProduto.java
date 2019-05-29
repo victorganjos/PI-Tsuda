@@ -65,13 +65,13 @@ public class AtualizarProduto extends HttpServlet {
         HttpSession sessao = request.getSession();
 
         List<Produto> lista = ProdutoController.consultarPorId(id);
-        if (sessao.getAttribute("acesso") == null) {
-            sessao.setAttribute("acesso", lista);
-        }
 
-        List<Produto> acesso = (List<Produto>) sessao.getAttribute("acesso");
+            sessao.setAttribute("acesso", lista);
+        
+
+        List<Produto> acessoProd = (List<Produto>) sessao.getAttribute("acesso");
         request.setAttribute("id", id);
-        request.setAttribute("acesso", acesso);
+        request.setAttribute("acesso", acessoProd);
 
         RequestDispatcher dispatcher
                 = request.getRequestDispatcher("/atualizarProduto.jsp");

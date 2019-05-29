@@ -1,57 +1,57 @@
-C:\Users\Fabio\Documents\NetBeansProjects\PI-Tsuda\developing-version\projeto-x\src\main\java\com\projetox\web\ConsultarUsuario.java
-C:\Users\Fabio\Documents\NetBeansProjects\PI-Tsuda\developing-version\projeto-x\src\main\java\com\projetox\web\AtualizarUsuario.java
-C:\Users\Fabio\Documents\NetBeansProjects\PI-Tsuda\developing-version\projeto-x\src\main\java\com\projetox\web\AtualizarCliente.java
-C:\Users\Fabio\Documents\NetBeansProjects\PI-Tsuda\developing-version\projeto-x\src\main\java\com\projetox\web\AtualizarFornecedor.java
-C:\Users\Fabio\Documents\NetBeansProjects\PI-Tsuda\developing-version\projeto-x\src\main\java\com\projetox\web\model\Venda.java
-C:\Users\Fabio\Documents\NetBeansProjects\PI-Tsuda\developing-version\projeto-x\src\main\java\com\projetox\web\model\Cliente.java
-C:\Users\Fabio\Documents\NetBeansProjects\PI-Tsuda\developing-version\projeto-x\src\main\java\com\projetox\web\ConsultarCliente.java
-C:\Users\Fabio\Documents\NetBeansProjects\PI-Tsuda\developing-version\projeto-x\src\main\java\com\projetox\web\ConsultarFilial.java
-C:\Users\Fabio\Documents\NetBeansProjects\PI-Tsuda\developing-version\projeto-x\src\main\java\com\projetox\web\ExcluirCliente.java
-C:\Users\Fabio\Documents\NetBeansProjects\PI-Tsuda\developing-version\projeto-x\src\main\java\com\projetox\web\model\Usuario.java
-C:\Users\Fabio\Documents\NetBeansProjects\PI-Tsuda\developing-version\projeto-x\src\main\java\com\projetox\web\controller\VendaController.java
-C:\Users\Fabio\Documents\NetBeansProjects\PI-Tsuda\developing-version\projeto-x\src\main\java\com\projetox\web\IncluirEstoque.java
-C:\Users\Fabio\Documents\NetBeansProjects\PI-Tsuda\developing-version\projeto-x\src\main\java\com\projetox\web\LoginServlet.java
-C:\Users\Fabio\Documents\NetBeansProjects\PI-Tsuda\developing-version\projeto-x\src\main\java\com\projetox\web\connection\ConnectionFactory.java
-C:\Users\Fabio\Documents\NetBeansProjects\PI-Tsuda\developing-version\projeto-x\src\main\java\com\projetox\web\AdicionarProduto.java
-C:\Users\Fabio\Documents\NetBeansProjects\PI-Tsuda\developing-version\projeto-x\src\main\java\com\projetox\web\dao\EstoqueDAO.java
-C:\Users\Fabio\Documents\NetBeansProjects\PI-Tsuda\developing-version\projeto-x\src\main\java\com\projetox\web\dao\UsuarioDAO.java
-C:\Users\Fabio\Documents\NetBeansProjects\PI-Tsuda\developing-version\projeto-x\src\main\java\com\projetox\web\LogoutServlet.java
-C:\Users\Fabio\Documents\NetBeansProjects\PI-Tsuda\developing-version\projeto-x\src\main\java\com\projetox\web\ExcluirFilial.java
-C:\Users\Fabio\Documents\NetBeansProjects\PI-Tsuda\developing-version\projeto-x\src\main\java\com\projetox\web\controller\UsuarioController.java
-C:\Users\Fabio\Documents\NetBeansProjects\PI-Tsuda\developing-version\projeto-x\src\main\java\com\projetox\web\controller\EstoqueController.java
-C:\Users\Fabio\Documents\NetBeansProjects\PI-Tsuda\developing-version\projeto-x\src\main\java\com\projetox\web\ConsultarClientePorNome.java
-C:\Users\Fabio\Documents\NetBeansProjects\PI-Tsuda\developing-version\projeto-x\src\main\java\com\projetox\web\model\ItemPedido.java
-C:\Users\Fabio\Documents\NetBeansProjects\PI-Tsuda\developing-version\projeto-x\src\main\java\com\projetox\web\controller\ClienteController.java
-C:\Users\Fabio\Documents\NetBeansProjects\PI-Tsuda\developing-version\projeto-x\src\main\java\com\projetox\web\model\ItemVenda.java
-C:\Users\Fabio\Documents\NetBeansProjects\PI-Tsuda\developing-version\projeto-x\src\main\java\com\projetox\web\dao\FornecedorDAO.java
-C:\Users\Fabio\Documents\NetBeansProjects\PI-Tsuda\developing-version\projeto-x\src\main\java\com\projetox\web\model\Produto.java
-C:\Users\Fabio\Documents\NetBeansProjects\PI-Tsuda\developing-version\projeto-x\src\main\java\com\projetox\web\model\Filial.java
-C:\Users\Fabio\Documents\NetBeansProjects\PI-Tsuda\developing-version\projeto-x\src\main\java\com\projetox\web\AdicionarCliente.java
-C:\Users\Fabio\Documents\NetBeansProjects\PI-Tsuda\developing-version\projeto-x\src\main\java\com\projetox\web\AtualizarEstoque.java
-C:\Users\Fabio\Documents\NetBeansProjects\PI-Tsuda\developing-version\projeto-x\src\main\java\com\projetox\web\AtualizarFilial.java
-C:\Users\Fabio\Documents\NetBeansProjects\PI-Tsuda\developing-version\projeto-x\src\main\java\com\projetox\web\AdicionarUsuario.java
-C:\Users\Fabio\Documents\NetBeansProjects\PI-Tsuda\developing-version\projeto-x\src\main\java\com\projetox\web\ExcluirProduto.java
-C:\Users\Fabio\Documents\NetBeansProjects\PI-Tsuda\developing-version\projeto-x\src\main\java\com\projetox\web\ConsultarEstoque.java
-C:\Users\Fabio\Documents\NetBeansProjects\PI-Tsuda\developing-version\projeto-x\src\main\java\com\projetox\web\model\Fornecedor.java
-C:\Users\Fabio\Documents\NetBeansProjects\PI-Tsuda\developing-version\projeto-x\src\main\java\com\projetox\web\controller\FornecedorController.java
-C:\Users\Fabio\Documents\NetBeansProjects\PI-Tsuda\developing-version\projeto-x\src\main\java\com\projetox\web\controller\ProdutoController.java
-C:\Users\Fabio\Documents\NetBeansProjects\PI-Tsuda\developing-version\projeto-x\src\main\java\com\projetox\web\dao\ProdutoDAO.java
-C:\Users\Fabio\Documents\NetBeansProjects\PI-Tsuda\developing-version\projeto-x\src\main\java\com\projetox\web\AdicionarItemVenda.java
-C:\Users\Fabio\Documents\NetBeansProjects\PI-Tsuda\developing-version\projeto-x\src\main\java\com\projetox\web\model\Estoque.java
-C:\Users\Fabio\Documents\NetBeansProjects\PI-Tsuda\developing-version\projeto-x\src\main\java\com\projetox\web\Venda.java
-C:\Users\Fabio\Documents\NetBeansProjects\PI-Tsuda\developing-version\projeto-x\src\main\java\com\projetox\web\controller\ItemVendaController.java
-C:\Users\Fabio\Documents\NetBeansProjects\PI-Tsuda\developing-version\projeto-x\src\main\java\com\projetox\web\ExcluirEstoque.java
-C:\Users\Fabio\Documents\NetBeansProjects\PI-Tsuda\developing-version\projeto-x\src\main\java\com\projetox\web\ConsultarProdutoPorNome.java
-C:\Users\Fabio\Documents\NetBeansProjects\PI-Tsuda\developing-version\projeto-x\src\main\java\com\projetox\web\ConsultarProduto.java
-C:\Users\Fabio\Documents\NetBeansProjects\PI-Tsuda\developing-version\projeto-x\src\main\java\com\projetox\web\controller\FilialController.java
-C:\Users\Fabio\Documents\NetBeansProjects\PI-Tsuda\developing-version\projeto-x\src\main\java\com\projetox\web\ExcluirFornecedor.java
-C:\Users\Fabio\Documents\NetBeansProjects\PI-Tsuda\developing-version\projeto-x\src\main\java\com\projetox\web\dao\VendaDAO.java
-C:\Users\Fabio\Documents\NetBeansProjects\PI-Tsuda\developing-version\projeto-x\src\main\java\com\projetox\web\dao\ItemVendaDAO.java
-C:\Users\Fabio\Documents\NetBeansProjects\PI-Tsuda\developing-version\projeto-x\src\main\java\com\projetox\web\ConsultarFornecedor.java
-C:\Users\Fabio\Documents\NetBeansProjects\PI-Tsuda\developing-version\projeto-x\src\main\java\com\projetox\web\dao\ClienteDAO.java
-C:\Users\Fabio\Documents\NetBeansProjects\PI-Tsuda\developing-version\projeto-x\src\main\java\com\projetox\web\AdicionarFilial.java
-C:\Users\Fabio\Documents\NetBeansProjects\PI-Tsuda\developing-version\projeto-x\src\main\java\com\projetox\web\ExcluirUsuario.java
-C:\Users\Fabio\Documents\NetBeansProjects\PI-Tsuda\developing-version\projeto-x\src\main\java\com\projetox\web\dao\FilialDAO.java
-C:\Users\Fabio\Documents\NetBeansProjects\PI-Tsuda\developing-version\projeto-x\src\main\java\com\projetox\web\AdicionarFornecedor.java
-C:\Users\Fabio\Documents\NetBeansProjects\PI-Tsuda\developing-version\projeto-x\src\main\java\com\projetox\web\AtualizarProduto.java
-C:\Users\Fabio\Documents\NetBeansProjects\PI-Tsuda\developing-version\projeto-x\src\main\java\com\projetox\web\RelatorioVenda.java
+/home/victor/Área de Trabalho/NewFolder/PI-Tsuda/developing-version/projeto-x/src/main/java/com/projetox/web/ConsultarClientePorNome.java
+/home/victor/Área de Trabalho/NewFolder/PI-Tsuda/developing-version/projeto-x/src/main/java/com/projetox/web/AtualizarUsuario.java
+/home/victor/Área de Trabalho/NewFolder/PI-Tsuda/developing-version/projeto-x/src/main/java/com/projetox/web/ConsultarCliente.java
+/home/victor/Área de Trabalho/NewFolder/PI-Tsuda/developing-version/projeto-x/src/main/java/com/projetox/web/ExcluirCliente.java
+/home/victor/Área de Trabalho/NewFolder/PI-Tsuda/developing-version/projeto-x/src/main/java/com/projetox/web/ExcluirUsuario.java
+/home/victor/Área de Trabalho/NewFolder/PI-Tsuda/developing-version/projeto-x/src/main/java/com/projetox/web/controller/FornecedorController.java
+/home/victor/Área de Trabalho/NewFolder/PI-Tsuda/developing-version/projeto-x/src/main/java/com/projetox/web/ConsultarUsuario.java
+/home/victor/Área de Trabalho/NewFolder/PI-Tsuda/developing-version/projeto-x/src/main/java/com/projetox/web/controller/EstoqueController.java
+/home/victor/Área de Trabalho/NewFolder/PI-Tsuda/developing-version/projeto-x/src/main/java/com/projetox/web/dao/EstoqueDAO.java
+/home/victor/Área de Trabalho/NewFolder/PI-Tsuda/developing-version/projeto-x/src/main/java/com/projetox/web/controller/ClienteController.java
+/home/victor/Área de Trabalho/NewFolder/PI-Tsuda/developing-version/projeto-x/src/main/java/com/projetox/web/model/Produto.java
+/home/victor/Área de Trabalho/NewFolder/PI-Tsuda/developing-version/projeto-x/src/main/java/com/projetox/web/controller/UsuarioController.java
+/home/victor/Área de Trabalho/NewFolder/PI-Tsuda/developing-version/projeto-x/src/main/java/com/projetox/web/ExcluirFilial.java
+/home/victor/Área de Trabalho/NewFolder/PI-Tsuda/developing-version/projeto-x/src/main/java/com/projetox/web/AdicionarFilial.java
+/home/victor/Área de Trabalho/NewFolder/PI-Tsuda/developing-version/projeto-x/src/main/java/com/projetox/web/dao/FilialDAO.java
+/home/victor/Área de Trabalho/NewFolder/PI-Tsuda/developing-version/projeto-x/src/main/java/com/projetox/web/model/Estoque.java
+/home/victor/Área de Trabalho/NewFolder/PI-Tsuda/developing-version/projeto-x/src/main/java/com/projetox/web/dao/UsuarioDAO.java
+/home/victor/Área de Trabalho/NewFolder/PI-Tsuda/developing-version/projeto-x/src/main/java/com/projetox/web/model/Fornecedor.java
+/home/victor/Área de Trabalho/NewFolder/PI-Tsuda/developing-version/projeto-x/src/main/java/com/projetox/web/connection/ConnectionFactory.java
+/home/victor/Área de Trabalho/NewFolder/PI-Tsuda/developing-version/projeto-x/src/main/java/com/projetox/web/AtualizarFornecedor.java
+/home/victor/Área de Trabalho/NewFolder/PI-Tsuda/developing-version/projeto-x/src/main/java/com/projetox/web/model/Filial.java
+/home/victor/Área de Trabalho/NewFolder/PI-Tsuda/developing-version/projeto-x/src/main/java/com/projetox/web/ConsultarProdutoPorNome.java
+/home/victor/Área de Trabalho/NewFolder/PI-Tsuda/developing-version/projeto-x/src/main/java/com/projetox/web/dao/FornecedorDAO.java
+/home/victor/Área de Trabalho/NewFolder/PI-Tsuda/developing-version/projeto-x/src/main/java/com/projetox/web/ConsultarProduto.java
+/home/victor/Área de Trabalho/NewFolder/PI-Tsuda/developing-version/projeto-x/src/main/java/com/projetox/web/AtualizarFilial.java
+/home/victor/Área de Trabalho/NewFolder/PI-Tsuda/developing-version/projeto-x/src/main/java/com/projetox/web/AdicionarFornecedor.java
+/home/victor/Área de Trabalho/NewFolder/PI-Tsuda/developing-version/projeto-x/src/main/java/com/projetox/web/ConsultarFilial.java
+/home/victor/Área de Trabalho/NewFolder/PI-Tsuda/developing-version/projeto-x/src/main/java/com/projetox/web/model/Venda.java
+/home/victor/Área de Trabalho/NewFolder/PI-Tsuda/developing-version/projeto-x/src/main/java/com/projetox/web/AtualizarEstoque.java
+/home/victor/Área de Trabalho/NewFolder/PI-Tsuda/developing-version/projeto-x/src/main/java/com/projetox/web/ConsultarEstoque.java
+/home/victor/Área de Trabalho/NewFolder/PI-Tsuda/developing-version/projeto-x/src/main/java/com/projetox/web/ConsultarFornecedor.java
+/home/victor/Área de Trabalho/NewFolder/PI-Tsuda/developing-version/projeto-x/src/main/java/com/projetox/web/dao/ProdutoDAO.java
+/home/victor/Área de Trabalho/NewFolder/PI-Tsuda/developing-version/projeto-x/src/main/java/com/projetox/web/AdicionarCliente.java
+/home/victor/Área de Trabalho/NewFolder/PI-Tsuda/developing-version/projeto-x/src/main/java/com/projetox/web/RelatorioVenda.java
+/home/victor/Área de Trabalho/NewFolder/PI-Tsuda/developing-version/projeto-x/src/main/java/com/projetox/web/AdicionarItemVenda.java
+/home/victor/Área de Trabalho/NewFolder/PI-Tsuda/developing-version/projeto-x/src/main/java/com/projetox/web/AdicionarUsuario.java
+/home/victor/Área de Trabalho/NewFolder/PI-Tsuda/developing-version/projeto-x/src/main/java/com/projetox/web/controller/FilialController.java
+/home/victor/Área de Trabalho/NewFolder/PI-Tsuda/developing-version/projeto-x/src/main/java/com/projetox/web/dao/ItemVendaDAO.java
+/home/victor/Área de Trabalho/NewFolder/PI-Tsuda/developing-version/projeto-x/src/main/java/com/projetox/web/model/ItemPedido.java
+/home/victor/Área de Trabalho/NewFolder/PI-Tsuda/developing-version/projeto-x/src/main/java/com/projetox/web/AtualizarProduto.java
+/home/victor/Área de Trabalho/NewFolder/PI-Tsuda/developing-version/projeto-x/src/main/java/com/projetox/web/ExcluirEstoque.java
+/home/victor/Área de Trabalho/NewFolder/PI-Tsuda/developing-version/projeto-x/src/main/java/com/projetox/web/LogoutServlet.java
+/home/victor/Área de Trabalho/NewFolder/PI-Tsuda/developing-version/projeto-x/src/main/java/com/projetox/web/ExcluirFornecedor.java
+/home/victor/Área de Trabalho/NewFolder/PI-Tsuda/developing-version/projeto-x/src/main/java/com/projetox/web/dao/VendaDAO.java
+/home/victor/Área de Trabalho/NewFolder/PI-Tsuda/developing-version/projeto-x/src/main/java/com/projetox/web/LoginServlet.java
+/home/victor/Área de Trabalho/NewFolder/PI-Tsuda/developing-version/projeto-x/src/main/java/com/projetox/web/controller/VendaController.java
+/home/victor/Área de Trabalho/NewFolder/PI-Tsuda/developing-version/projeto-x/src/main/java/com/projetox/web/IncluirEstoque.java
+/home/victor/Área de Trabalho/NewFolder/PI-Tsuda/developing-version/projeto-x/src/main/java/com/projetox/web/dao/ClienteDAO.java
+/home/victor/Área de Trabalho/NewFolder/PI-Tsuda/developing-version/projeto-x/src/main/java/com/projetox/web/ExcluirProduto.java
+/home/victor/Área de Trabalho/NewFolder/PI-Tsuda/developing-version/projeto-x/src/main/java/com/projetox/web/model/Usuario.java
+/home/victor/Área de Trabalho/NewFolder/PI-Tsuda/developing-version/projeto-x/src/main/java/com/projetox/web/controller/ProdutoController.java
+/home/victor/Área de Trabalho/NewFolder/PI-Tsuda/developing-version/projeto-x/src/main/java/com/projetox/web/model/Cliente.java
+/home/victor/Área de Trabalho/NewFolder/PI-Tsuda/developing-version/projeto-x/src/main/java/com/projetox/web/Venda.java
+/home/victor/Área de Trabalho/NewFolder/PI-Tsuda/developing-version/projeto-x/src/main/java/com/projetox/web/model/ItemVenda.java
+/home/victor/Área de Trabalho/NewFolder/PI-Tsuda/developing-version/projeto-x/src/main/java/com/projetox/web/AdicionarProduto.java
+/home/victor/Área de Trabalho/NewFolder/PI-Tsuda/developing-version/projeto-x/src/main/java/com/projetox/web/controller/ItemVendaController.java
+/home/victor/Área de Trabalho/NewFolder/PI-Tsuda/developing-version/projeto-x/src/main/java/com/projetox/web/AtualizarCliente.java

@@ -27,7 +27,7 @@ public class EstoqueDAO {
         PreparedStatement stmt = null;
 
         try {
-            stmt = con.prepareStatement("INSERT INTO ESTOQUE(DS_DESCRICAO,DS_FILIAL) VALUE (?,?);");
+            stmt = con.prepareStatement("INSERT INTO ESTOQUE(ds_descricao,ds_filial) VALUE (?,?);");
             stmt.setString(1, e.getDescricao());
             stmt.setString(2, e.getFilial());
 
@@ -57,9 +57,9 @@ public class EstoqueDAO {
             while(rs.next()){
                 Estoque e = new Estoque();
                 
-                e.setId(rs.getInt("PK_ID"));
-                e.setDescricao(rs.getString("DS_DESCRICAO"));
-                e.setFilial(rs.getString("DS_FILIAL"));
+                e.setId(rs.getInt("pk_id"));
+                e.setDescricao(rs.getString("ds_descricao"));
+                e.setFilial(rs.getString("ds_filial"));
                 
                 estoques.add(e);
             }
@@ -83,15 +83,15 @@ public class EstoqueDAO {
         
         
         try{
-            stmt = con.prepareStatement("SELECT * FROM ESTOQUE WHERE DS_DESCRICAO LIKE ?;");
+            stmt = con.prepareStatement("SELECT * FROM ESTOQUE WHERE ds_descricao LIKE ?;");
             stmt.setString(1,"%"+descricao+"%");
             rs = stmt.executeQuery();
             
             while(rs.next()){
                 Estoque e = new Estoque();
                 
-                e.setDescricao(rs.getString("DS_DESCRICAO"));
-                e.setFilial(rs.getString("DS_FILIAL"));
+                e.setDescricao(rs.getString("ds_descricao"));
+                e.setFilial(rs.getString("ds_filial"));
                 
                 estoques.add(e);
             }
@@ -115,16 +115,16 @@ public class EstoqueDAO {
         
         
         try{
-            stmt = con.prepareStatement("SELECT * FROM ESTOQUE WHERE PK_ID = ?;");
+            stmt = con.prepareStatement("SELECT * FROM ESTOQUE WHERE pk_id = ?;");
             stmt.setInt(1, id);
             rs = stmt.executeQuery();
             
             while(rs.next()){
                 Estoque e = new Estoque();
                 
-                e.setId(rs.getInt("PK_ID"));
-                e.setDescricao(rs.getString("DS_DESCRICAO"));
-                e.setFilial(rs.getString("DS_FILIAL"));
+                e.setId(rs.getInt("pk_id"));
+                e.setDescricao(rs.getString("ds_descricao"));
+                e.setFilial(rs.getString("ds_filial"));
                 
                 estoques.add(e);
             }
@@ -144,7 +144,7 @@ public class EstoqueDAO {
         PreparedStatement stmt = null;
         
         try{
-            stmt = con.prepareStatement("UPDATE ESTOQUE SET DS_DESCRICAO = ?, DS_FILIAL = ? WHERE PK_ID = ?");
+            stmt = con.prepareStatement("UPDATE ESTOQUE SET ds_descricao = ?, ds_filial = ? WHERE pk_id = ?");
             
             stmt.setString(1, e.getDescricao());
             stmt.setString(2, e.getFilial());
@@ -165,7 +165,7 @@ public class EstoqueDAO {
         PreparedStatement stmt = null;
         
         try{
-           stmt = con.prepareStatement("DELETE FROM ESTOQUE WHERE PK_ID = ?;");
+           stmt = con.prepareStatement("DELETE FROM ESTOQUE WHERE pk_id = ?;");
            
            stmt.setInt(1, id);
            
@@ -187,7 +187,7 @@ public class EstoqueDAO {
         List<Estoque> estoque = new ArrayList<>();
         
         try{
-            stmt = con.prepareStatement("SELECT * FROM ESTOQUE WHERE PK_ID = ?");
+            stmt = con.prepareStatement("SELECT * FROM ESTOQUE WHERE pk_id = ?");
             stmt.setInt(1, id);
             rs = stmt.executeQuery();
             
@@ -195,9 +195,9 @@ public class EstoqueDAO {
                 Estoque c = new Estoque();
                 
                 
-                c.setId(rs.getInt("PK_ID"));
-                c.setDescricao(rs.getString("DS_DESCRICAO"));
-                c.setFilial(rs.getString("DS_FILIAL"));
+                c.setId(rs.getInt("pk_id"));
+                c.setDescricao(rs.getString("ds_descricao"));
+                c.setFilial(rs.getString("ds_filial"));
                 
                 
                 estoque.add(c);

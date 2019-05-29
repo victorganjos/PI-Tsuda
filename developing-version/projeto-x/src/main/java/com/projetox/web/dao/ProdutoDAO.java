@@ -22,7 +22,7 @@ public class ProdutoDAO {
         PreparedStatement stmt = null;
 
         try {
-            stmt = con.prepareStatement("INSERT INTO PRODUTO(nomeProd, categoria, descricao, valorVenda, estoqueDisp, situacao) VALUE (?,?,?,?,?,?);");
+            stmt = con.prepareStatement("INSERT INTO PRODUTO(nomeprod, categoria, descricao, valorVenda, estoquedisp, situacao) VALUE (?,?,?,?,?,?);");
             stmt.setString(1, p.getNomeProd());
             stmt.setString(2, p.getCategoria());
             stmt.setString(3, p.getDescricao());
@@ -56,11 +56,11 @@ public class ProdutoDAO {
                 Produto p = new Produto();
 
                 p.setId(rs.getInt("id"));
-                p.setNomeProd(rs.getString("nomeProd"));
+                p.setNomeProd(rs.getString("nomeprod"));
                 p.setCategoria(rs.getString("categoria"));
                 p.setDescricao(rs.getString("descricao"));
-                p.setValorVenda(rs.getFloat("valorVenda"));
-                p.setEstoqueDisp(rs.getInt("estoqueDisp"));
+                p.setValorVenda(rs.getFloat("valorvenda"));
+                p.setEstoqueDisp(rs.getInt("estoquedisp"));
                 p.setSituacao(rs.getString("situacao"));
 
                 produtos.add(p);
@@ -82,7 +82,7 @@ public class ProdutoDAO {
         List<Produto> produtos = new ArrayList<>();
 
         try {
-            stmt = con.prepareStatement("SELECT * FROM produto WHERE nomeProd LIKE ?;");
+            stmt = con.prepareStatement("SELECT * FROM PRODUTO WHERE nomeprod LIKE ?;");
             stmt.setString(1, "%" + nomeProd + "%");
             rs = stmt.executeQuery();
 
@@ -90,11 +90,11 @@ public class ProdutoDAO {
                 Produto p = new Produto();
 
                 p.setId(rs.getInt("id"));
-                p.setNomeProd(rs.getString("nomeProd"));
+                p.setNomeProd(rs.getString("nomeprod"));
                 p.setCategoria(rs.getString("categoria"));
                 p.setDescricao(rs.getString("descricao"));
-                p.setValorVenda(rs.getFloat("valorVenda"));
-                p.setEstoqueDisp(rs.getInt("estoqueDisp"));
+                p.setValorVenda(rs.getFloat("valorvenda"));
+                p.setEstoqueDisp(rs.getInt("estoquedisp"));
                 p.setSituacao(rs.getString("situacao"));
 
                 produtos.add(p);
@@ -116,7 +116,7 @@ public class ProdutoDAO {
         List<Produto> produtos = new ArrayList<>();
 
         try {
-            stmt = con.prepareStatement("SELECT * FROM produto WHERE id LIKE ?;");
+            stmt = con.prepareStatement("SELECT * FROM PRODUTO WHERE id LIKE ?;");
             stmt.setString(1, "" + id + "");
             rs = stmt.executeQuery();
 
@@ -124,11 +124,11 @@ public class ProdutoDAO {
                 Produto p = new Produto();
 
                 p.setId(rs.getInt("id"));
-                p.setNomeProd(rs.getString("nomeProd"));
+                p.setNomeProd(rs.getString("nomeprod"));
                 p.setCategoria(rs.getString("categoria"));
                 p.setDescricao(rs.getString("descricao"));
-                p.setValorVenda(rs.getFloat("valorVenda"));
-                p.setEstoqueDisp(rs.getInt("estoqueDisp"));
+                p.setValorVenda(rs.getFloat("valorvenda"));
+                p.setEstoqueDisp(rs.getInt("estoquedisp"));
                 p.setSituacao(rs.getString("situacao"));
 
                 produtos.add(p);
@@ -149,18 +149,18 @@ public class ProdutoDAO {
         Produto produtos = new Produto();
 
         try {
-            stmt = con.prepareStatement("SELECT * FROM produto WHERE id LIKE ?;");
+            stmt = con.prepareStatement("SELECT * FROM PRODUTO WHERE id LIKE ?;");
             stmt.setString(1, "" + id + "");
             rs = stmt.executeQuery();
 
             Produto p = new Produto();
             while (rs.next()) {
                 p.setId(rs.getInt("id"));
-                p.setNomeProd(rs.getString("nomeProd"));
+                p.setNomeProd(rs.getString("nomeprod"));
                 p.setCategoria(rs.getString("categoria"));
                 p.setDescricao(rs.getString("descricao"));
-                p.setValorVenda(rs.getFloat("valorVenda"));
-                p.setEstoqueDisp(rs.getInt("estoqueDisp"));
+                p.setValorVenda(rs.getFloat("valorvenda"));
+                p.setEstoqueDisp(rs.getInt("estoquedisp"));
                 p.setSituacao(rs.getString("situacao"));
                 produtos = p;
             }
@@ -188,11 +188,11 @@ public class ProdutoDAO {
                 Produto P = new Produto();
 
                 P.setId(rs.getInt("id"));
-                P.setNomeProd(rs.getString("nomeProd"));
+                P.setNomeProd(rs.getString("nomeprod"));
                 P.setCategoria(rs.getString("categoria"));
                 P.setDescricao(rs.getString("descricao"));
-                P.setValorVenda(rs.getFloat("valorVenda"));
-                P.setEstoqueDisp(rs.getInt("estoqueDisp"));
+                P.setValorVenda(rs.getFloat("valorvenda"));
+                P.setEstoqueDisp(rs.getInt("estoquedisp"));
                 P.setSituacao(rs.getString("situacao"));
 
                 produto.add(P);
@@ -212,7 +212,7 @@ public class ProdutoDAO {
         PreparedStatement stmt = null;
 
         try {
-            stmt = con.prepareStatement("UPDATE PRODUTO SET nomeProd = ?, categoria = ?, descricao = ?, valorVenda = ?, estoqueDisp = ?, situacao = ? WHERE id = ?");
+            stmt = con.prepareStatement("UPDATE PRODUTO SET nomeprod = ?, categoria = ?, descricao = ?, valorvenda = ?, estoquedisp = ?, situacao = ? WHERE id = ?");
 
             stmt.setString(1, p.getNomeProd());
             stmt.setString(2, p.getCategoria());

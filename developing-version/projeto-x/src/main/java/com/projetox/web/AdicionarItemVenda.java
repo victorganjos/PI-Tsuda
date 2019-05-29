@@ -35,7 +35,7 @@ public class AdicionarItemVenda extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
+        HttpSession sessao = request.getSession();
         String as = request.getParameter("id");
         for (int i = 0; i < as.length(); i++) {
             if (as.charAt(i) == 'a') {
@@ -43,7 +43,8 @@ public class AdicionarItemVenda extends HttpServlet {
 
                 int id = Integer.parseInt(aux);
 
-                HttpSession sessao = request.getSession();
+                
+                
                 soma = 0;
                 lista = ProdutoController.consultarPorId(id);
                 if (sessao.getAttribute("consultaProduto") == null) {
@@ -63,7 +64,7 @@ public class AdicionarItemVenda extends HttpServlet {
                     }
                     sessao.setAttribute("somaVenda", soma);
                 }
-
+                request.setAttribute("consulta","");
                 RequestDispatcher dispatcher
                         = request.getRequestDispatcher("/venda.jsp");
                 dispatcher.forward(request, response);
@@ -71,7 +72,7 @@ public class AdicionarItemVenda extends HttpServlet {
 
                 String aux = as.replaceAll("b", "");
                 int id = Integer.parseInt(aux);
-                HttpSession sessao = request.getSession();
+
                 acesso = (List<Produto>) sessao.getAttribute("consultaProduto");
                 int aux2 = 0;
                 for (int j = 0; j < acesso.size(); j++) {
@@ -89,13 +90,14 @@ public class AdicionarItemVenda extends HttpServlet {
 
                 request.setAttribute("id", id);
                 request.setAttribute("consultaProduto", acesso);
-
+                request.setAttribute("consulta","");
                 RequestDispatcher dispatcher
                         = request.getRequestDispatcher("/venda.jsp");
                 dispatcher.forward(request, response);
 
             } 
         }
+        
     }
 
     @Override
@@ -132,6 +134,11 @@ public class AdicionarItemVenda extends HttpServlet {
         acesso.clear();
         soma = 0;
         sessao.setAttribute("somaVenda", soma);*/
+      sessao.removeAttribute("consultaProduto");
+      sessao.removeAttribute("somaVenda");
+      request.setAttribute("consulta","");
+      sessao.removeAttribute(String.valueOf(teste));
+      
         RequestDispatcher dispatcher
                     = request.getRequestDispatcher("/WEB-INF/jsp/VendaFinalizada.jsp");
             dispatcher.forward(request, response);

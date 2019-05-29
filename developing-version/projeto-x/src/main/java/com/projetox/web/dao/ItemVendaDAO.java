@@ -33,7 +33,7 @@ public class ItemVendaDAO {
         PreparedStatement stmt = null;
           
         try {
-            stmt = con.prepareStatement("INSERT INTO itemVenda(idVenda,idProduto,valorUnitario) VALUE (?,?,?);");
+            stmt = con.prepareStatement("INSERT INTO ITEMVENDA(idvenda,idproduto,valorunitario) VALUE (?,?,?);");
             stmt.setInt(1, v.getIdVenda());
             stmt.setInt(2, v.getIdProduto());
             stmt.setFloat(3, v.getValorUnitario());
@@ -58,16 +58,16 @@ public class ItemVendaDAO {
         
         
         try{
-            stmt = con.prepareStatement("SELECT * FROM itemVenda");
+            stmt = con.prepareStatement("SELECT * FROM ITEMVENDA");
             rs = stmt.executeQuery();
             
             while(rs.next()){
                 ItemVenda v = new ItemVenda();
                 
                 v.setId(rs.getInt("id"));
-                v.setIdVenda(rs.getInt("idVenda"));
-                v.setIdProduto(rs.getInt("idProduto"));
-                v.setValorUnitario(rs.getFloat("valorUnitario"));
+                v.setIdVenda(rs.getInt("idvenda"));
+                v.setIdProduto(rs.getInt("idproduto"));
+                v.setValorUnitario(rs.getFloat("valorunitario"));
                 
                 itemVenda.add(v);
             }
@@ -89,7 +89,7 @@ public class ItemVendaDAO {
         int aux = 0;
         
         try {
-            stmt = con.prepareStatement("SELECT * FROM venda order by id desc limit 1;");
+            stmt = con.prepareStatement("SELECT * FROM VENDA order by id desc limit 1;");
             rs = stmt.executeQuery();
 
             if(rs.next()){

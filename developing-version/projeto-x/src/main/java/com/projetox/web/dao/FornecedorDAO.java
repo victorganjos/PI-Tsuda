@@ -54,7 +54,7 @@ public class FornecedorDAO {
         
         
         try{
-            stmt = con.prepareStatement("SELECT * FROM DADOSCLIENTE WHERE TIPO = 'f'");
+            stmt = con.prepareStatement("SELECT * FROM DADOSCLIENTE WHERE tipo = 'f'");
             rs = stmt.executeQuery();
             
             while(rs.next()){
@@ -96,7 +96,7 @@ public class FornecedorDAO {
         
         
         try{
-            stmt = con.prepareStatement("SELECT * FROM DADOSCLIENTE WHERE nome LIKE ? AND TIPO = 'f';");
+            stmt = con.prepareStatement("SELECT * FROM DADOSCLIENTE WHERE nome LIKE ? AND tipo = 'f';");
             stmt.setString(1,"%"+nome+"%");
             rs = stmt.executeQuery();
             

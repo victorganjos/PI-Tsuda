@@ -29,7 +29,7 @@ public class VendaDAO {
         PreparedStatement stmt = null;
 
         try {
-            stmt = con.prepareStatement("INSERT INTO VENDA(cliente,formaPagamento,valorTotal,dataVenda) value (?,?,?,?);");
+            stmt = con.prepareStatement("INSERT INTO VENDA(cliente,formapagamento,valortotal,datavenda) value (?,?,?,?);");
             stmt.setInt(1, v.getCliente());
             stmt.setString(2, v.getFormaPagamento());
             stmt.setDouble(3, v.getValorTotal());
@@ -51,17 +51,17 @@ public class VendaDAO {
 
         if (!cliente.equals("")) {
             cliente = "'" + cliente + "'";
-            condicao = condicao + " AND CLI.NOME = " + cliente;
+            condicao = condicao + " AND CLI.nome = " + cliente;
         }
 
         if (!dataIni.equals("")) {
             dataIni = "'" + dataIni + "'";
-            condicao = condicao + " AND VEN.DATAVENDA >=" + dataIni;
+            condicao = condicao + " AND VEN.datavenda >=" + dataIni;
         }
 
         if (!dataFim.equals("")) {
             dataFim = "'" + dataFim + "'";
-            condicao = condicao + " AND VEN.DATAVENDA <=" + dataFim;
+            condicao = condicao + " AND VEN.datavenda <=" + dataFim;
         }
 
         if (!condicao.equals("")) {
@@ -76,7 +76,7 @@ public class VendaDAO {
         List<Venda> Venda = new ArrayList<>();
 
         try {
-            stmt = con.prepareStatement("SELECT VEN.*, CLI.NOME AS DS_NOMECLIENTE FROM VENDA VEN LEFT JOIN DADOSCLIENTE CLI ON CLI.ID = VEN.CLIENTE " + condicao);
+            stmt = con.prepareStatement("SELECT VEN.*, CLI.nome AS ds_nomecliente FROM VENDA VEN LEFT JOIN DADOSCLIENTE CLI ON CLI.id = VEN.cliente " + condicao);
             rs = stmt.executeQuery();
 
             List<Cliente> listaCliente = new ArrayList();
@@ -84,11 +84,11 @@ public class VendaDAO {
             while (rs.next()) {
                 Venda e = new Venda();
 
-                e.setId(rs.getInt("ID"));
-                e.setNomeCliente(rs.getString("DS_NOMECLIENTE"));
-                e.setFormaPagamento(rs.getString("FORMAPAGAMENTO"));
-                e.setDataVenda(rs.getString("DATAVENDA"));
-                e.setValorTotal(rs.getFloat("VALORTOTAL"));
+                e.setId(rs.getInt("id"));
+                e.setNomeCliente(rs.getString("ds_nomecliente"));
+                e.setFormaPagamento(rs.getString("formapagamento"));
+                e.setDataVenda(rs.getString("datavenda"));
+                e.setValorTotal(rs.getFloat("valortotal"));
 
                 Venda.add(e);
             }
@@ -106,7 +106,7 @@ public class VendaDAO {
         PreparedStatement stmt = null;
 
         try {
-            stmt = con.prepareStatement("Delete from venda WHERE id = ?;");
+            stmt = con.prepareStatement("Delete from VENDA WHERE id = ?;");
 
             stmt.setInt(1, id);
 
