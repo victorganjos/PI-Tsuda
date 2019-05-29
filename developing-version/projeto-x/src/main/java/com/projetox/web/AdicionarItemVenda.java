@@ -5,9 +5,9 @@
  */
 package com.projetox.web;
 
+import com.projetox.web.controller.ItemVendaController;
 import com.projetox.web.controller.ProdutoController;
 import com.projetox.web.controller.VendaController;
-import com.projetox.web.controller.VendaDoisController;
 import com.projetox.web.model.Produto;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -29,7 +29,7 @@ import javax.servlet.http.HttpSession;
 public class AdicionarItemVenda extends HttpServlet {
 
     double soma;
-
+    
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -92,25 +92,7 @@ public class AdicionarItemVenda extends HttpServlet {
                         = request.getRequestDispatcher("/venda.jsp");
                 dispatcher.forward(request, response);
 
-            } else if (as.charAt(i) == 'c') {
-                
-                String aux = as.replaceAll("c", "");
-                int id = Integer.parseInt(aux);
-                Date data = new Date(System.currentTimeMillis());
-                
-                
-                SimpleDateFormat formatarDate = new SimpleDateFormat("yyyy-MM-dd");
-                
-                float somaVendaFinal = (float) soma;
-                VendaController.salvar(id, "credito",somaVendaFinal, formatarDate.format(data));
-                VendaController.salvar(id, "credito", (float) 10.0, formatarDate.format(data));
-                VendaDoisController.salvar(id, soma, formatarDate.format(data));
-
-                RequestDispatcher dispatcher
-                        = request.getRequestDispatcher("/homePage.jsp");
-                dispatcher.forward(request, response);
-
-            }
+            } 
         }
     }
 
@@ -121,12 +103,21 @@ public class AdicionarItemVenda extends HttpServlet {
         Date data = new Date(System.currentTimeMillis());
         SimpleDateFormat formatarDate = new SimpleDateFormat("yyyy-MM-dd");
         String id = request.getParameter("id");
+        
+        VendaController.salvar(Integer.parseInt(id),"CREDITO", (float) soma, formatarDate.format(data));
+        
+        HttpSession sessao = request.getSession();
+        List<Produto> teste = (List<Produto>) sessao.getAttribute("consultaProduto");
+        int ultimoId = ItemVendaController.consultId();
 
-        VendaController.salvar(Integer.parseInt(id), "credito", (float) 30.31, formatarDate.format(data));
+        for (Produto ac : teste) {
+            ItemVendaController.salvar(ultimoId,ac.getId(), ac.getValorVenda());
+
+        }
 
         RequestDispatcher dispatcher
-                = request.getRequestDispatcher("/homePage.jsp");
-        dispatcher.forward(request, response);
+                    = request.getRequestDispatcher("/WEB-INF/jsp/VendaFinalizada.jsp");
+            dispatcher.forward(request, response);
     }
 
 }

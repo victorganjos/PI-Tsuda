@@ -107,8 +107,8 @@
                         <c:forEach var="cat" items="${consultaCliente}" >
                             <tr>
                                 <td class="text-center"><c:out value="${cat.nome}"/></td>
-                                <form method="get" action="${pageContext.request.contextPath}/adicionar-item-venda">
-                                <td class="text-center"><button class="btn btn-success btn-sm" type="submit" value="${cat.id}c" name="id">Finalizar Venda</td>
+                                <form method="post" action="${pageContext.request.contextPath}/adicionar-item-venda">
+                                <td class="text-center"><button class="btn btn-success btn-sm" type="submit" value="${cat.id}" name="id">Finalizar Venda</td>
                             </form>
                             </tr>
                         </c:forEach>

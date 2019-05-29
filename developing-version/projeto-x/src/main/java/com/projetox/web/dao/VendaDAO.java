@@ -87,8 +87,8 @@ public class VendaDAO {
                 e.setId(rs.getInt("ID"));
                 e.setNomeCliente(rs.getString("DS_NOMECLIENTE"));
                 e.setFormaPagamento(rs.getString("FORMAPAGAMENTO"));
-                e.setDataVenda(rs.getString("DATAVENDA"));
                 e.setValorTotal(rs.getFloat("VALORTOTAL"));
+                e.setDataVenda(rs.getString("DATAVENDA"));
 
                 Venda.add(e);
             }

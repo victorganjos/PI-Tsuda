@@ -61,8 +61,8 @@
                             <td class="text-center"><c:out value="${cat.id}"/></td>
                             <td class="text-center"><c:out value="${cat.nomeCliente}"/></td>
                             <td class="text-center"><c:out value="${cat.formaPagamento}"/></td>
-                            <td class="text-center"><c:out value="${cat.dataVenda}"/></td>
                             <td class="text-center"><c:out value="${cat.valorTotal}"/></td>
+                            <td class="text-center"><c:out value="${cat.dataVenda}"/></td>
                         </tr>
                     </c:forEach>
 

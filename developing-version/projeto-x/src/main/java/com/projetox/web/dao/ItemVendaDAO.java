@@ -33,13 +33,13 @@ public class ItemVendaDAO {
         PreparedStatement stmt = null;
           
         try {
-            stmt = con.prepareStatement("INSERT INTO ITEMVENDA(idVenda,idProduto,valorUnitario) VALUE (?,?,?);");
+            stmt = con.prepareStatement("INSERT INTO itemVenda(idVenda,idProduto,valorUnitario) VALUE (?,?,?);");
             stmt.setInt(1, v.getIdVenda());
             stmt.setInt(2, v.getIdProduto());
             stmt.setFloat(3, v.getValorUnitario());
 
             stmt.executeUpdate();
-            System.out.println("Salvar com sucesso!");
+      
         } catch (SQLException ex) {
             java.util.logging.Logger.getLogger(ClienteDAO.class.getName()).log(Level.SEVERE, null, ex);
             System.out.println("Erro ao salvar");
@@ -80,5 +80,28 @@ public class ItemVendaDAO {
             ConnectionFactory.fecharConexao(con,stmt,rs);
         }
        return itemVenda; 
+    }
+    
+    public static int consultId(){
+        Connection con = ConnectionFactory.obterConexao();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        int aux = 0;
+        
+        try {
+            stmt = con.prepareStatement("SELECT * FROM venda order by id desc limit 1;");
+            rs = stmt.executeQuery();
+
+            if(rs.next()){
+                aux = rs.getInt("id");
+            }
+        
+        } catch (SQLException ex) {
+            Logger.getLogger(ItemVendaDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        finally{
+            ConnectionFactory.fecharConexao(con, stmt, rs);
+        }
+        return aux;
     }
 }

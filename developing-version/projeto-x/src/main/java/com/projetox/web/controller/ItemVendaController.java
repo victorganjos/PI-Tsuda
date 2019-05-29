@@ -25,4 +25,8 @@ public class ItemVendaController {
         ItemVendaDAO itemVenda = new ItemVendaDAO();
         return itemVenda.consultar();
     }
+    
+    public static int consultId() {
+        return ItemVendaDAO.consultId();
+    }
 }
