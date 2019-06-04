@@ -41,11 +41,15 @@
                         <input  id="date" type="date" name="dataFim"> &nbsp&nbsp
 
                         <label>Cliente </label>
-                        <input type="text" name="codigo" maxlength="10"> 
+                        <input type="text" name="codigo" maxlength="10"> &nbsp&nbsp
+                        
+                        <label>Total Venda:  <c:out value="${somaRelatorio}"/></label>
+                        
 
                         <br><br>
                     </div>
                 </div>
+
                 <table class="table table-bordered">
                     <tr>
                         <th class="text-center">Id Pedido</th>

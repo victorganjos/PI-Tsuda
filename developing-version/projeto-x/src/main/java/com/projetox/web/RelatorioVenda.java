@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.servlet.http.HttpSession;
 
 @WebServlet(name = "RelatorioVenda", urlPatterns = {"/relatorio-venda"})
 public class RelatorioVenda extends HttpServlet {
@@ -32,30 +33,37 @@ public class RelatorioVenda extends HttpServlet {
             throws ServletException, IOException {
         Venda venda = new Venda();
         List<Venda> lista = new ArrayList();
-        
+
         try {
             String cliente = request.getParameter("codigo");
             String dataIni = request.getParameter("dataIni");
             String dataFim = request.getParameter("dataFim");
-            
+
             if (cliente == null) {
                 cliente = "";
             }
-            
-            if(dataIni == null){
+
+            if (dataIni == null) {
                 dataIni = "";
             }
-            
-            if(dataFim == null){
+
+            if (dataFim == null) {
                 dataFim = "";
             }
-            
+
             lista = VendaController.consultar(cliente, dataIni, dataFim);
         } catch (Exception ex) {
             Logger.getLogger(RelatorioVenda.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         request.setAttribute("venda", lista);
+        HttpSession sessao = request.getSession();
+        double somaRelatorio = 0;
+        for (Venda li : lista) {
+            somaRelatorio += li.getValorTotal();
+        }
+        sessao.setAttribute("somaRelatorio", somaRelatorio);
+
         RequestDispatcher dispatcher
                 = request.getRequestDispatcher("/relatorioVenda.jsp");
         dispatcher.forward(request, response);
