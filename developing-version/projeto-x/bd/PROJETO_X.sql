@@ -70,8 +70,8 @@ INSERT INTO DADOSUSUARIO VALUE (4,'victor','victor123','123','vendedor','sp');
 INSERT INTO DADOSUSUARIO VALUE (5,'layssa','layssa123','123','back','sp');
 
 
-INSERT INTO DADOSCLIENTE VALUE (1,'livreto','fornecedor@livreto.com',null,1314512514123,1141353829,'helmtuh strobel',85,null,'Sao Paulo', 'Sao Paulo', 'Pinheiros','06767-077','F');
-INSERT INTO DADOSCLIENTE VALUE (2,'silvano','fornecedor@silvano.com',null,1314512532423,1141353529,'Cidao cardoso',37,null,'Sao Paulo', 'Sao Paulo', 'Butantã','74857-789','F');
-INSERT INTO DADOSCLIENTE VALUE (3,'biena','fornecedor@biena.com',null,13145112314123,1141354829,'maria do carmos',97,null,'Sao Paulo', 'Sao Paulo', 'Santo Antonio','14257-369','F');
-INSERT INTO DADOSCLIENTE VALUE (4,'saber','fornecedor@saber.com',null,1314122514123,1141353129,'brigadeiro luiz antorio',74,null,'Sao Paulo', 'Sao Paulo', 'Freguesia','96968-852','F');
-INSERT INTO DADOSCLIENTE VALUE (5,'conhecimento','fornecedor@conhecimento.com',null,13145155554123,1141353229,'maringa',69,null,'Sao Paulo', 'Sao Paulo', 'Brasilandia','36365-147','F');
+INSERT INTO DADOSCLIENTE VALUE (1,'livreto','fornecedor@livreto.com',38439270810,1314512514123,1141353829,'helmtuh strobel',85,null,'Sao Paulo', 'Sao Paulo', 'Pinheiros','06767-077','F');
+INSERT INTO DADOSCLIENTE VALUE (2,'silvano','fornecedor@silvano.com',38439270811,1314512532423,1141353529,'Cidao cardoso',37,null,'Sao Paulo', 'Sao Paulo', 'Butantã','74857-789','F');
+INSERT INTO DADOSCLIENTE VALUE (3,'biena','fornecedor@biena.com',38439270812,13145112314123,1141354829,'maria do carmos',97,null,'Sao Paulo', 'Sao Paulo', 'Santo Antonio','14257-369','F');
+INSERT INTO DADOSCLIENTE VALUE (4,'saber','fornecedor@saber.com',38439270813,1314122514123,1141353129,'brigadeiro luiz antorio',74,null,'Sao Paulo', 'Sao Paulo', 'Freguesia','96968-852','F');
+INSERT INTO DADOSCLIENTE VALUE (5,'conhecimento','fornecedor@conhecimento.com',38439270814,13145155554123,1141353229,'maringa',69,null,'Sao Paulo', 'Sao Paulo', 'Brasilandia','36365-147','F');

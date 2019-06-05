@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import com.projetox.web.controller.VendaController;
 import com.projetox.web.model.Venda;
+import com.projetox.web.dao.VendaDAO;
+import com.projetox.web.model.ItemVenda;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -32,8 +34,11 @@ public class RelatorioVenda extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         Venda venda = new Venda();
+        VendaDAO vendaDAO = new VendaDAO();
+        
         List<Venda> lista = new ArrayList();
-
+        List<ItemVenda> listaItem = new ArrayList();
+        
         try {
             String cliente = request.getParameter("codigo");
             String dataIni = request.getParameter("dataIni");
@@ -52,17 +57,21 @@ public class RelatorioVenda extends HttpServlet {
             }
 
             lista = VendaController.consultar(cliente, dataIni, dataFim);
+            listaItem = vendaDAO.consultarItemMaisVendido(dataIni, dataFim, cliente);
         } catch (Exception ex) {
             Logger.getLogger(RelatorioVenda.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         request.setAttribute("venda", lista);
+        request.setAttribute("itemVendaVendido", listaItem);
+        
         HttpSession sessao = request.getSession();
         double somaRelatorio = 0;
         for (Venda li : lista) {
             somaRelatorio += li.getValorTotal();
         }
-        sessao.setAttribute("somaRelatorio", somaRelatorio);
+        
+        request.setAttribute("somaRelatorio", somaRelatorio);
 
         RequestDispatcher dispatcher
                 = request.getRequestDispatcher("/relatorioVenda.jsp");

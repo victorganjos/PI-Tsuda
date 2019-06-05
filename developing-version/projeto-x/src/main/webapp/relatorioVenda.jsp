@@ -42,24 +42,25 @@
 
                         <label>Cliente </label>
                         <input type="text" name="codigo" maxlength="10"> &nbsp&nbsp
-                        
+
                         <label>Total Venda:  <c:out value="${somaRelatorio}"/></label>
-                        
+
 
                         <br><br>
                     </div>
                 </div>
 
+                <button class="btn btn-warning btn-sm" type="submit" >Consultar </button>
+
                 <table class="table table-bordered">
                     <tr>
-                        <th class="text-center">Id Pedido</th>
+                        <th class="text-center">Numero.Pedido</th>
                         <th class="text-center">Cliente</th>
                         <th class="text-center">Forma de Pagamento</th>
                         <th class="text-center">Data Venda</th>
                         <th class="text-center">Valor Total</th>
                     </tr>
 
-                    <button class="btn btn-warning btn-sm" type="submit" >Consultar </button>
                     <c:forEach items="${venda}" var="cat" >
                         <tr>
                             <td class="text-center"><c:out value="${cat.id}"/></td>
@@ -69,7 +70,23 @@
                             <td class="text-center"><c:out value="${cat.valorTotal}"/></td>
                         </tr>
                     </c:forEach>
+                </table>
+                <br><br><br><br><br><br>
+                <center>
+                    <h3> Produtos Mais vendidos neste periodo </h3>
+                </center>
+                <table class="table table-bordered">
+                    <tr>
+                        <th class="text-center">Qtd.Vendida</th>
+                        <th class="text-center">Nome.Produto</th>
+                    </tr>
 
+                    <c:forEach items="${itemVendaVendido}" var="item" >
+                        <tr>
+                            <td class="text-center"><c:out value="${item.qtdVendida}"/></td>
+                            <td class="text-center"><c:out value="${item.nomeProduto}"/></td
+                        </tr>
+                    </c:forEach>
                 </table>
         </form>
     </div>

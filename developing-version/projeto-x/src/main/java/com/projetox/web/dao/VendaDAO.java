@@ -8,6 +8,7 @@ package com.projetox.web.dao;
 import com.projetox.web.connection.ConnectionFactory;
 import com.projetox.web.model.Venda;
 import com.projetox.web.model.Cliente;
+import com.projetox.web.model.ItemVenda;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -94,11 +95,75 @@ public class VendaDAO {
             }
 
         } catch (SQLException ex) {
-            Logger.getLogger(EstoqueDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(VendaDAO.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
             ConnectionFactory.fecharConexao(con, stmt, rs);
         }
         return Venda;
+    }
+
+    public List<ItemVenda> consultarItemMaisVendido(String dataIni, String dataFim, String cliente) {
+        String condicao = "";
+
+        if (!dataIni.equals("")) {
+            dataIni = "'" + dataIni + "'";
+            condicao = condicao + " AND VEN.datavenda >=" + dataIni;
+        }
+
+        if (!dataFim.equals("")) {
+            dataFim = "'" + dataFim + "'";
+            condicao = condicao + " AND VEN.datavenda <=" + dataFim;
+        }
+
+        if (!cliente.equals("")) {
+            cliente = "'" + cliente + "'";
+            condicao = condicao + " AND CLI.nome = " + cliente;
+        }
+
+        if (!condicao.equals("")) {
+            condicao = condicao.substring(5);
+            condicao = "WHERE " + condicao;
+        }
+
+        Connection con = ConnectionFactory.obterConexao();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+
+        List<ItemVenda> item = new ArrayList<>();
+
+        String comando = "SELECT \n"
+                + "	COUNT(*) AS QT_PRODUTO,\n"
+                + "    PRO.NOMEPROD AS NOMEPROD\n"
+                + "FROM\n"
+                + "	ITEMVENDA ITE\n"
+                + "LEFT JOIN VENDA VEN ON VEN.ID = ITE.IDVENDA\n"
+                + "LEFT JOIN PRODUTO PRO ON PRO.ID = ITE.IDPRODUTO\n"
+                + "LEFT JOIN DADOSCLIENTE CLI ON CLI.ID = VEN.CLIENTE\n"
+                + condicao + "\n"
+                + "GROUP BY\n"
+                + "PRO.NOMEPROD\n"
+                + "ORDER BY\n"
+                + "QT_PRODUTO DESC\n"
+                + "LIMIT 5;";
+        try {
+            stmt = con.prepareStatement(comando);
+            rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                ItemVenda e = new ItemVenda();
+
+                e.setQtdVendida(rs.getInt("QT_PRODUTO"));
+                e.setNomeProduto(rs.getString("NOMEPROD"));
+
+                item.add(e);
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(VendaDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            ConnectionFactory.fecharConexao(con, stmt, rs);
+        }
+        return item;
     }
 
     public void deletar(int id) {

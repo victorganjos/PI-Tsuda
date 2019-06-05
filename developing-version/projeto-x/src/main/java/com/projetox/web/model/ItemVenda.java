@@ -14,6 +14,8 @@ public class ItemVenda {
     private int idVenda;
     private int idProduto;
     private float valorUnitario;
+    private int qtdVendida;
+    private String nomeProduto;
 
     public ItemVenda() {
     }
@@ -62,6 +64,23 @@ public class ItemVenda {
     public void setValorUnitario(float valorUnitario) {
         this.valorUnitario = valorUnitario;
     }
+
+    public int getQtdVendida() {
+        return qtdVendida;
+    }
+
+    public String getNomeProduto() {
+        return nomeProduto;
+    }
+
+    public void setQtdVendida(int qtdVendida) {
+        this.qtdVendida = qtdVendida;
+    }
+
+    public void setNomeProduto(String nomeProduto) {
+        this.nomeProduto = nomeProduto;
+    }
     
     
+
 }
