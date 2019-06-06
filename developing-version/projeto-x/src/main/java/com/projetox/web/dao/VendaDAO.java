@@ -132,18 +132,18 @@ public class VendaDAO {
         List<ItemVenda> item = new ArrayList<>();
 
         String comando = "SELECT \n"
-                + "	COUNT(*) AS QT_PRODUTO,\n"
-                + "    PRO.NOMEPROD AS NOMEPROD\n"
+                + "	COUNT(*) AS qt_produto,\n"
+                + "    PRO.nomeprod AS nomeprod\n"
                 + "FROM\n"
                 + "	ITEMVENDA ITE\n"
-                + "LEFT JOIN VENDA VEN ON VEN.ID = ITE.IDVENDA\n"
-                + "LEFT JOIN PRODUTO PRO ON PRO.ID = ITE.IDPRODUTO\n"
-                + "LEFT JOIN DADOSCLIENTE CLI ON CLI.ID = VEN.CLIENTE\n"
+                + "LEFT JOIN VENDA VEN ON VEN.id = ITE.idvenda\n"
+                + "LEFT JOIN PRODUTO PRO ON PRO.id = ITE.idproduto\n"
+                + "LEFT JOIN DADOSCLIENTE CLI ON CLI.id = VEN.cliente\n"
                 + condicao + "\n"
                 + "GROUP BY\n"
-                + "PRO.NOMEPROD\n"
+                + "PRO.nomeprod\n"
                 + "ORDER BY\n"
-                + "QT_PRODUTO DESC\n"
+                + "qt_produto DESC\n"
                 + "LIMIT 5;";
         try {
             stmt = con.prepareStatement(comando);
@@ -152,8 +152,8 @@ public class VendaDAO {
             while (rs.next()) {
                 ItemVenda e = new ItemVenda();
 
-                e.setQtdVendida(rs.getInt("QT_PRODUTO"));
-                e.setNomeProduto(rs.getString("NOMEPROD"));
+                e.setQtdVendida(rs.getInt("qt_produto"));
+                e.setNomeProduto(rs.getString("nomeprod"));
 
                 item.add(e);
             }

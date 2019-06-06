@@ -4,71 +4,107 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link href="css/styleMenu.css" rel="stylesheet" type="text/css"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+        <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <title>Home Page</title>
     </head>
     <body>
-        <div class="barraSup" style="background:#4072A6 !important">
-            <div>
-                <h1 style="color: #FCFCFC">Livraria Tades</h1>
+        <div style="background:#4072A6 !important" class="jumbotron jumbotron-fluid">
+            <div class="container">
+                <h1 class="display-4" style="color: #FCFCFC">Livraria Tades</h1>
             </div>
         </div>
         <c:choose>
             <c:when test="${sessionScope.usuario != null}">
-                <div class="barra">
-                    <nav>
-                        <div class="item">
-                            <input type="checkbox" id="check1">
-                            <label for="check1">Cadastros</label>
-                            <ul>
-                                <li><a href="adicionarUsuario.jsp" >Cadastrar Usuário</a></li>
-                                <li><a href="adicionarCliente.jsp">Cadastrar Cliente</a></li>
-                                <li><a href="adicionarFornecedor.jsp">Cadastrar Fornecedor</a></li>
-                                <li><a href="adicionarProduto.jsp">Cadastrar Produto</a></li>
-                                <li><a href="adicionarFilial.jsp">Cadastrar Filial</a></li>
-                            </ul>
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"style="width:150px">
+                        Cadastros
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="width:200px">
+                        <div class="form-group col-md-12">
+                            <a class="dropdown-item" href="adicionarUsuario.jsp">Cadastrar Usuário</a>
                         </div>
-                        <div class="item">
-                            <input type="checkbox" id="check2">
-                            <label for="check2">Consultas</label>
-                            <ul>
-                                <li><a href="consultar-usuario">Consultar Usuário</a></li>
-                                <li><a href="consultar-cliente">Consultar Cliente</a></li>
-                                <li><a href="consultar-fornecedor">Consultar Fornecedor</a></li>
-                                <li><a href="consultar-produto">Consultar Produto</a></li>
-                                <li><a href="consultar-filial">Consultar Filial</a></li>
-                            </ul>
+                        <div class="form-group col-md-12">
+                            <a class="dropdown-item" href="adicionarCliente.jsp">Cadastrar Cliente</a>
                         </div>
-                        <div class="item">
-                            <input type="checkbox" id="check3">
-                            <label for="check3">Estoque</label>
-                            <ul>
-                                <li><a href="adicionarEstoque.jsp">Incluir Estoque</a></li>
-                                <li><a href="consultar-estoque">Consultar Estoque</a></li>
-                            </ul>
+                        <div class="form-group col-md-12">
+                            <a class="dropdown-item" href="adicionarFornecedor.jsp">Cadastrar Fornecedor</a>
                         </div>
-                        <div class="item">
-                            <input type="checkbox" id="check4">
-                            <label for="check4">Vendas</label>
-                            <ul>
-                                <li><a href="venda.jsp">Venda</a></li>
-                            </ul>
+                        <div class="form-group col-md-12">
+                            <a class="dropdown-item" href="adicionarProduto.jsp">Cadastrar Produto</a>
                         </div>
-                 
+                        <div class="form-group col-md-12">
+                            <a class="dropdown-item" href="adicionarFilial.jsp">Cadastrar Filial</a>
+                        </div>
+                    </div>
+                </div>
 
-                        <div class="item">
-                            <input type="checkbox" id="check5">
-                            <label for="check5">Relatórios</label>
-                            <ul>
-                                <li><a href="relatorioVenda.jsp">Relatório de Vendas</a></li>
-                            </ul>
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"style="width:150px">
+                        Consultas
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="width:200px">
+                        <div class="form-group col-md-12">
+                            <a class="dropdown-item" href="consultar-usuario">Consultar Usuário</a>
                         </div>
-
-
-                        <div class="item">
-                            <label><a class="sair" href="${pageContext.request.contextPath}/logout">Sair</a></label>
+                        <div class="form-group col-md-12">
+                            <a class="dropdown-item" href="consultar-cliente">Consultar Cliente</a>
                         </div>
-                    </nav>
+                        <div class="form-group col-md-12">
+                            <a class="dropdown-item" href="consultar-fornecedor">Consultar Fornecedor</a>
+                        </div>
+                        <div class="form-group col-md-12">
+                            <a class="dropdown-item" href="consultar-produto">Consultar Produto</a>
+                        </div>
+                        <div class="form-group col-md-12">
+                            <a class="dropdown-item" href="consultar-filial">Consultar Filial</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"style="width:150px">
+                        Estoque
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="width:200px">
+                        <div class="form-group col-md-12">
+                            <a class="dropdown-item" href="adicionarEstoque.jsp">Incluir Estoque</a>
+                        </div>
+                        <div class="form-group col-md-12">
+                            <a class="dropdown-item" href="consultar-estoque">Consultar Estoque</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"style="width:150px">
+                        Venda
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="width:200px">
+                        <div class="form-group col-md-12">
+                            <a class="dropdown-item" href="venda.jsp">Venda</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"style="width:150px">
+                        Relatório
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="width:200px">
+                        <div class="form-group col-md-12">
+                            <a class="dropdown-item" href="relatorioVenda.jsp">Relatório de Vendas</a>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"style="width:150px">
+                        Sair
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="width:200px">
+                        <div class="form-group col-md-12">
+                            <a class="dropdown-item" href="${pageContext.request.contextPath}/logout">Sair</a>
+                        </div>
+                    </div>
                 </div>
             </c:when>
             <c:otherwise>
@@ -77,5 +113,8 @@
                 </div>
             </c:otherwise>
         </c:choose>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>   
     </body>
 </html>
